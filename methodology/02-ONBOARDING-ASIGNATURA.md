@@ -1,105 +1,78 @@
-# 02 · ONBOARDING DE ASIGNATURA — Estudiar al rival antes de pelear
+# 02 · ONBOARDING — Alta del cuatrimestre (TODAS las asignaturas a la vez)
 
-> Gatillo: `onboard <asignatura>` (o "alta de asignatura", "dar de alta").
-> Ejecuta primero el protocolo de arranque de `00`. Esto se hace **una vez por asignatura**.
-> Resultado: `MAPA-ASIGNATURA.md`, `EXAMEN-PATRONES.md`, `PLAN.md` y `PROGRESO.md` inicializado.
+> Gatillo: `onboard` (o "alta", "dar de alta", "monta el cuatrimestre"). Se hace **una vez por
+> cuatrimestre**, con el modelo potente (p. ej. Claude Code). Ejecuta primero el arranque de `00`.
+>
+> **Aquí el coach hace TODA la organización pesada.** De este paso sale el sistema entero —el
+> `ROADMAP.md` día a día— para que el uso diario (`sesion`/`fin`) sea trivial: solo "leer y ejecutar".
+>
+> **Salida:** por asignatura → `MAPA-ASIGNATURA.md` + `EXAMEN-PATRONES.md`. A nivel de cuatrimestre →
+> `CALENDARIO.md` + `PANORAMA.md` + **`ROADMAP.md`** + `PROGRESO.md`.
 
-Onboarding = ver el *fight tape* antes del combate. No se entrena a ciegas: primero se estudia
-cómo cae el examen y dónde está la nota.
-
----
-
-## Step 0 · Crear la carpeta de la asignatura
-Dentro del cuatrimestre activo, copia la plantilla de asignatura:
-```
-cp -r cuatrimestres/<cuatri>/asignaturas/_TEMPLATE_ASIGNATURA cuatrimestres/<cuatri>/asignaturas/<ASIG>
-```
-(Si aún no hay carpeta de cuatrimestre, créala copiando `cuatrimestres/_TEMPLATE_CUATRIMESTRE`.)
+Onboarding = ver el *fight tape* de **todos** los rivales antes de la temporada. No se entrena a ciegas.
 
 ---
 
-## Step 1 · BLOQUEO POR MATERIAL (paso bloqueante — `07`)
-**No se planifica sin material.** Antes de nada, exige el protocolo de `07-RECOPILACION-MATERIAL.md`:
-guía docente, diapositivas/temas, ejercicios propuestos, prácticas, **exámenes de años anteriores**
-(con soluciones si existen), bibliografía.
+## Step 0 · Carpetas
+- Cuatrimestre activo: si no existe, `cp -r cuatrimestres/_TEMPLATE_CUATRIMESTRE cuatrimestres/<AAAA-MM_a_AAAA-MM>`.
+- Pregunta **qué asignaturas** tiene el cuatrimestre y crea una carpeta por cada una:
+  `cp -r .../asignaturas/_TEMPLATE_ASIGNATURA .../asignaturas/<ASIG>`.
 
-> **No generes el `PLAN.md` completo hasta tener los exámenes de años anteriores**, o una
-> **confirmación explícita** del estudiante de que no existen. Son el artefacto de mayor señal
-> (principio 2 de `00`). Si faltan, manda a por ellos (`07`) y para aquí.
+## Step 1 · BLOQUEO POR MATERIAL (`07`) — para TODAS las asignaturas
+**No se planifica sin material.** Exige el protocolo de `07` en **cada** asignatura: guía docente,
+diapositivas/temas, ejercicios propuestos, prácticas y **exámenes de años anteriores** (con soluciones
+si existen).
 
-Comprueba qué hay:
-```
-ls -R cuatrimestres/<cuatri>/asignaturas/<ASIG>/guia-docente cuatrimestres/<cuatri>/asignaturas/<ASIG>/material
-```
+> **No generes el `ROADMAP.md` completo hasta tener los exámenes de años anteriores** de cada
+> asignatura, o **confirmación explícita** de que no existen (principio 2). Si faltan, manda a por
+> ellos (`07`) y para en esa asignatura.
 
----
+Comprueba qué hay en `asignaturas/<ASIG>/` (material/, guía, exámenes) antes de seguir.
 
-## Step 2 · INGESTA
-Lee **todo**: `guia-docente/` y `material/` (powerpoints, bibliografía, ejercicios-propuestos,
-prácticas-laboratorios, docencia-inversa, examenes-anteriores). De la **guía docente** extrae lo
-crítico: temario (unidades/temas), **pesos de cada parte en la nota**, sistema y actos de
-evaluación, fechas si las hay, bibliografía. Para PDFs con esquemas/diagramas, recuerda `08`.
+## Step 2 · INGESTA (todas las asignaturas)
+Lee, por asignatura: la **guía docente** (temario, **pesos en la nota**, sistema y **fechas** de
+evaluación) y el material. Para PDFs con esquemas/diagramas, recuerda `08`. Filtra señal vs ruido (`07` §5).
 
----
+## Step 3 · Por cada asignatura → `MAPA-ASIGNATURA.md` + `EXAMEN-PATRONES.md`
+- **MAPA:** temario, **pesos exactos**, tipo de evaluación, recursos por tema, gaps, dependencias
+  visuales (`08`), mapa de prioridad (qué pesa más, qué depende de qué).
+- **PATRONES:** mina los exámenes anteriores → tipos recurrentes y su **frecuencia**, peso/dificultad,
+  el **subconjunto Pareto** (pocos tipos, mucha nota), trampas. Marca lo que solo se resuelve viendo
+  el original (`08`).
+- **Estrategia:** elige el *workpath* con `03` y **documenta el porqué** en el MAPA. Si lo óptimo es
+  tradicional, recomiéndalo sin disculpas (principio 7).
 
-## Step 3 · `MAPA-ASIGNATURA.md`
-Redáctalo con (usa la plantilla de la asignatura como formato):
-- **Temario** completo (unidades y temas).
-- **Peso de cada parte en la nota** (parciales, prácticas, trabajos…). Exacto, desde la guía docente.
-- **Tipo de evaluación** y actos (escrito/test/práctico; nota mínima si la hay; recuperación).
-- **Recursos disponibles** por tema (qué powerpoint, qué ejercicios, qué vídeos, qué exámenes).
-- **Gaps:** qué falta (temas sin material, exámenes sin solución, dudas).
-- **Dependencias visuales (`08b`):** marca qué partes dependen de material visual no reproducible
-  en texto (diagramas, esquemas, cronogramas, capturas) → habrá que mandar al original.
-- **Mapa de prioridad:** qué pesa más en la nota y qué se construye sobre qué (dependencias entre temas).
+## Step 4 · `CALENDARIO.md` (todas las fechas del cuatrimestre)
+Vuelca las fechas de examen/entrega de todas las asignaturas, ordenadas. Marca ⚠️ lo no confirmado.
 
----
+## Step 5 · `PANORAMA.md` (reparto de horas multi-asignatura)
+Suma las horas reales (`ESTUDIANTE.md`, **respetando bloques fijos como el boxeo**) y repártelas por
+**proximidad de examen + peso + riesgo**. Identifica el **pico de carga** (el "campeonato") y cómo
+descongestionarlo (adelantar lo que cae después).
 
-## Step 4 · MINERÍA DE EXÁMENES → `EXAMEN-PATRONES.md`
-Analiza los exámenes de años anteriores (cuantos más años, mejor señal). Extrae:
-- **Tipos de ejercicio recurrentes** y su **frecuencia** (en cuántos exámenes aparecen).
-- **Peso/puntos** típicos de cada tipo y su **dificultad**.
-- Los **"ejercicios tipo" que dominan la nota** (el subconjunto Pareto: pocos tipos, mucha nota).
-- Qué tipos **solo se resuelven viendo el original** (dependencia visual, `08b`) → márcalos.
-- Patrones de redacción del profesor, trampas frecuentes, qué se repite casi idéntico cada año.
+## Step 6 · `ROADMAP.md` (el conductor diario) — vía `04`
+Genera el plan **inverso desde cada examen**, entrelazando todas las asignaturas, en una **tabla día a
+día**: cada fila = fecha + asignatura + **tarea concreta troceada** + horas + estado. Reglas (`04`):
+- **Camino mínimo efectivo primero** (Pareto): lo que captura el grueso de la nota es lo no negociable;
+  el resto va como "extra si sobra tiempo".
+- **Primera fila de cada asignatura = examen en frío** (pesaje), no al final.
+- **Última semana antes de cada examen:** solo simulacros + huecos, nada de materia nueva.
+- **Una tarea de arranque concreta por día** (energía de activación mínima).
 
-Esto es lo que convierte el estudio en "estudiar al rival": sabrás qué va a caer antes de que caiga.
+## Step 7 · `PROGRESO.md` (marcador inicial)
+Inicializa el tablero de campaña (`11`): XP 0 y cinturón ⬜ por asignatura, racha vacía, bracket en
+"Clasificatorios", barras a 0, lista de tipos para tachar. El **rango de partida** de cada asignatura
+queda **pendiente de su primer examen en frío** (primera `sesion`).
 
----
-
-## Step 5 · SELECCIÓN DE ESTRATEGIA (y documenta el porqué)
-Con el MAPA y los patrones delante, elige la estrategia con la lógica de `03-ESTRATEGIAS.md`.
-**Analiza la carpeta entera** y diseña el mejor *workpath* para ESTE caso (una estrategia del menú,
-una híbrida o una nueva). **Documenta la elección y el porqué** en `MAPA-ASIGNATURA.md`.
-
-> Si lo óptimo es la **tradicional** (diapositivas → ejercicios → exámenes), recomiéndala **sin
-> disculpas** (principio 7 de `00`). Lo simple que funciona es lo correcto.
-
----
-
-## Step 6 · `PLAN.md` (planificación inversa)
-Genera el plan con `04-PLANIFICACION.md`: desde la fecha del examen hacia atrás, repartiendo carga
-con el resto de asignaturas del cuatrimestre (lee `PANORAMA.md`). Camino mínimo efectivo + extras
-"si sobra tiempo". Tareas diarias/semanales concretas, troceadas (divide y vencerás, `11`).
-
----
-
-## Step 7 · Inicializar `PROGRESO.md` (estado de juego)
-Inicializa el tablero (`11`): XP 0, cinturón ⬜ Blanco, racha vacía, bracket en "Clasificatorios",
-barras de cobertura/accuracy a 0, lista de temas/tipos para tachar. El **rango de partida** queda
-**pendiente del primer examen en frío** (primera `sesion`, `05` §1B).
-
----
-
-## Step 8 · Cierre del onboarding
-Resume al estudiante: temario, qué pesa, estrategia elegida y por qué, y cuál es el primer round.
-> "Ya conocemos al rival. [N] tipos de ejercicio se llevan el [X]% de la nota. Mañana, pesaje:
-> un examen en frío para ver de dónde partimos. Escribe **`sesion <ASIG>`** cuando estés listo."
+## Step 8 · Cierre
+Resume al estudiante: temario, qué pesa, estrategia por asignatura y **cuál es el primer round del
+roadmap**.
+> "Ya conocemos a los rivales y tienes el roadmap entero hasta los exámenes. Mañana, primer round:
+> escribe **`sesion`** y te digo qué toca."
 Para. No arranques la sesión tú solo.
 
 ---
 
 ## Notas
-- Repite este onboarding por cada asignatura del cuatrimestre.
-- Si aparece material nuevo más adelante, vuelve a tocar MAPA y PATRONES (y `recalibrar` si cambia el plan).
-- La estrategia **puede cambiar** a mitad de cuatrimestre si los datos lo piden (`03`, `04`).
+- Si aparece material nuevo, vuelve a tocar MAPA/PATRONES y `recalibrar` si cambia el plan.
+- La estrategia y el ROADMAP **pueden cambiar** a mitad de cuatrimestre si los datos lo piden (`03`, `04`, `06`).

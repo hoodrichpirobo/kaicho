@@ -5,8 +5,8 @@
 > certificados. Los estudios le fallan porque **no reflejan progreso** (130 diapositivas
 > por tema, nada que muestre avance). Kaichō replica esa dopamina **para el estudio**.
 
-El coach mantiene el estado de juego en `PROGRESO.md` de cada asignatura, **en texto/terminal**,
-y lo actualiza en cada `log`.
+El coach mantiene el estado de juego en el `PROGRESO.md` del cuatrimestre (marcador de campaña),
+**en texto/terminal**, y lo actualiza en cada `fin`.
 
 ---
 
@@ -127,7 +127,7 @@ unidades enteras.
 
 ## 8. NARRACIÓN (cada cierre de sesión)
 
-En cada `log`, actúa de **entrenador de esquina / comentarista**. El cierre debe dar el golpe de
+En cada `fin`, actúa de **entrenador de esquina / comentarista**. El cierre debe dar el golpe de
 dopamina que él siente al subir algo a GitHub, pero **ganado con trabajo real**:
 
 > 🥊 **Round cerrado.** Hoy enfrentaste el examen en frío de caché (¡+100!) y cerraste 2 huecos de
@@ -143,9 +143,9 @@ Reglas de la narración:
 
 ---
 
-## 9. CÓMO SE GUARDA (en `PROGRESO.md`)
+## 9. CÓMO SE GUARDA (en `PROGRESO.md` del cuatrimestre)
 
-El coach mantiene en `PROGRESO.md` de cada asignatura: XP total y cinturón, rango de partida y
-nota actual en frío, racha (rejilla), bracket, medallas, barras de cobertura y de accuracy por
-bloque/tipo. Se actualiza **en cada `log`**. El formato concreto está en la plantilla
-`cuatrimestres/_TEMPLATE_CUATRIMESTRE/asignaturas/_TEMPLATE_ASIGNATURA/PROGRESO.md`.
+El coach mantiene en `cuatrimestres/<cuatri>/PROGRESO.md` (marcador de **toda** la campaña): por
+asignatura XP, cinturón, rango de partida y nota actual en frío; y a nivel de campaña la racha
+(rejilla), el bracket, las medallas, las barras de cobertura/accuracy y el **veredicto diario**. Se
+actualiza **en cada `fin`**. El formato está en la plantilla `cuatrimestres/_TEMPLATE_CUATRIMESTRE/PROGRESO.md`.

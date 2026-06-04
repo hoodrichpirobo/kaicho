@@ -80,8 +80,9 @@ Escribe todo en `perfil/PSICOLOGIA.md`. Este archivo **se carga en cada sesión*
 ## Step 4 · Cierre del setup
 - Confirma que ambos ficheros están escritos.
 - Explica el siguiente paso real:
-> "Esquina montada. Ahora damos de alta tu primera asignatura: escribe **`onboard <asignatura>`**.
-> Pero antes, hay un trabajo previo obligatorio: reunir el material. Te lo explico ahí."
+> "Esquina montada. Ahora damos de alta tu cuatrimestre entero (todas las asignaturas de golpe):
+> escribe **`onboard`**. Pero antes, un trabajo previo obligatorio: reunir el material de cada
+> asignatura, sobre todo los exámenes de años anteriores. Te lo explico ahí."
 - No sigas tú solo: para y deja que el estudiante lance `onboard` cuando quiera.
 
 ---

@@ -1,103 +1,84 @@
-# 06 · TRACKING Y LOGS — Memoria, métricas y estado de juego
+# 06 · FIN DE SESIÓN — Log, marcador y recalibración automática
 
-> Gatillo: `log` (o "cerrar sesión", "fin del round"). También se ejecuta al final de cada `sesion`.
-> Inspirado en los logs de sesión fechados de Orchestrator, adaptado a preparación de exámenes.
-> Aquí se convierte el trabajo del día en **datos** (para calibrar) y en **dopamina** (para volver mañana).
+> Gatillo: **`fin`** ("fin de sesión", "cerrar", "fin del round"). Se ejecuta al terminar cada `sesion`.
+> Aquí el trabajo del día se vuelve **datos** (para calibrar), **dopamina** (para volver mañana) y un
+> **veredicto honesto**. Es deliberadamente mecánico: lee, registra, compara, dictamina. Pensado para
+> ejecutarse a diario incluso en un modelo menos potente.
 
 ---
 
-## 1. EL LOG FECHADO (un fichero por sesión)
+## PASOS DEL `fin` (en orden, sin saltarte ninguno)
 
-Cada sesión deja **un fichero** en `cuatrimestres/<cuatri>/asignaturas/<ASIG>/LOGS/`, nombrado:
+### 1. Cierra el crono
+Para el cronómetro. Calcula **horas reales** = tiempo activo − pausas.
 
-```
-LOGS/AAAA-MM-DD_<asignatura>[_n].md      # _n solo si hay >1 sesión de esa asig ese día
-# ej.: LOGS/2026-03-14_ETC.md
-```
-
-Plantilla del log (rellena todos los campos; los que no apliquen, "—"):
+### 2. Escribe el log fechado (un fichero por sesión)
+En `cuatrimestres/<cuatri>/asignaturas/<ASIG>/LOGS/AAAA-MM-DD_<ASIG>[_n].md` (`_n` si hay >1 ese día):
 
 ```markdown
 # Log · <ASIG> · <AAAA-MM-DD>
-
-- **Round nº:** <n de la asignatura>
-- **Horas reales de estudio:** <h:mm>  (cronometradas, EXCLUYENDO pausas)
-- **Tipo de sesión:** examen en frío | ejercicios tipo | recall espaciado | teoría just-in-time | mixta
+- **Round nº:** <n>   ·   **Horas reales:** <h:mm> (sin pausas)
+- **Tipo:** examen en frío | ejercicios tipo | recall espaciado | mixta
 
 ## Qué se hizo (activo)
-- <tarea 1> — <tiempo> — resultado
-- <tarea 2> — <tiempo> — resultado
+- <tarea> — <tiempo> — resultado
 
 ## Accuracy en ejercicios tipo
-| Tipo de ejercicio | Intentados | Correctos sin pista | % |
+| Tipo | Intentados | Correctos sin pista | % |
 |---|---|---|---|
-| <tipo> | n | k | kk% |
 
 ## Recall espaciado
-- Ítems re-preguntados: <lista>
-- Cerrados (acertados en frío): <lista>  →  +XP
-- Aún débiles: <lista>  →  re-preguntar próxima sesión
-
-## Cobertura
-- Temas/tipos tocados hoy: <...>
-- Cobertura acumulada de la asignatura: <%>
-
-## Estado de juego (resumen, detalle en PROGRESO.md)
-- XP: <antes> → <después> (+<delta>)   ·  Cinturón: <...>
-- Racha: 🔥 <n> días   ·  Bracket: <ronda>
+- Cerrados (acertados en frío): <...> → +XP   ·   Aún débiles: <...>
 
 ## Psicología observada (para perfil/PSICOLOGIA.md)
-- ¿Hubo evitación? ¿Qué la disparó? ¿Qué la rompió? ¿A qué hora rindió mejor?
+- ¿Evitación? ¿Qué la disparó/rompió? ¿A qué hora rindió?
 
 ## Próximo paso (UNO solo)
-- <la única acción concreta para la próxima sesión>
+- <la única acción para mañana>
 ```
+> **Append-only:** no reescribas logs viejos. Un fichero nuevo por sesión.
 
-> **Append-only en espíritu:** no reescribas logs viejos. Cada sesión, un fichero nuevo. La historia
-> se conserva entera (igual que el `session-log.jsonl` de Orchestrator, pero legible y fechado).
+### 3. Marca el `ROADMAP.md`
+En la fila de HOY del `cuatrimestres/<cuatri>/ROADMAP.md`: `[x]` si se cumplió, `[!]` si NO (quedó a
+medias o no se hizo). Tacha los checkpoints/hitos que se hayan alcanzado.
 
----
+### 4. Actualiza el marcador `PROGRESO.md` (campaña; mecánicas en `11`)
+1. **XP** según `11` §2 (solo actividad/accuracy). Recalcula **cinturón** de la asignatura.
+2. **Racha:** marca el día en la rejilla.
+3. **Bracket / medallas / tachado / barras** de cobertura y accuracy.
 
-## 2. USA LAS HORAS REGISTRADAS PARA EL SEGUIMIENTO
+### 5. RECALIBRACIÓN AUTOMÁTICA + VEREDICTO  ← *lo que pidió el estudiante*
+Compara, con datos, **lo planeado vs lo hecho** y dictamina. Reglas simples:
 
-Las **horas reales cronometradas** (sin pausas) son tu instrumento de calibración:
-- **Estimar lo que falta:** ritmo actual (p. ej. "1,5 tipos dominados/hora") × tipos restantes →
-  horas necesarias hasta el examen. Compáralo con las horas disponibles del `PLAN.md`/`PANORAMA.md`.
-- **Detectar caídas de ritmo:** si las horas/día bajan o la accuracy se estanca varias sesiones,
-  es señal temprana (a menudo evitación; cruza con `10`).
-- **Calibrar el plan:** si el ritmo real no llega a la nota objetivo, **dilo claro** y dispara
-  `recalibrar` (§4).
+- **Ritmo:** trabajo restante (tipos/temas que faltan en `ROADMAP`) ÷ ritmo real (de los logs:
+  tipos dominados/hora) → **horas necesarias** hasta cada examen. Compáralo con las horas que quedan
+  en el `ROADMAP` (capacidad de `ESTUDIANTE.md`, **sin tocar los bloques fijos como el boxeo**).
+- Escribe **una línea de veredicto** en `PROGRESO.md` (sección "Veredicto diario") respondiendo:
+  1. ¿**Cumplió** el objetivo de hoy del roadmap? (sí / a medias / no)
+  2. ¿Va **bien o mal** respecto al plan?
+  3. ¿Necesita **más horas / más concentración**?
+  4. ¿A **este ritmo llega** bien al examen, o no?
+- **Actúa según el veredicto:**
+  - Si va **en hora** → confirma y deja la fila de mañana lista.
+  - Si va **algo retrasado** → ajusta el `ROADMAP` (mueve horas de "extras" a fundamentos; reparte lo
+    pendiente en los próximos días) y dilo claro.
+  - Si va **muy retrasado** (a este ritmo no llega) → **no mientas**: dispara `recalibrar`
+    (`04` §5) y re-prioriza al **subconjunto de mayor nota** (Pareto), soltando lo demás.
+- Anota el cambio en la **Bitácora de recalibración** del `ROADMAP.md`.
 
----
-
-## 3. ACTUALIZA EL ESTADO DE JUEGO (`PROGRESO.md`)
-
-En cada `log`, actualiza `PROGRESO.md` (mecánicas en `11`):
-1. **XP** según la tabla de `11` §2 (solo actividad/accuracy). Recalcula **cinturón**.
-2. **Racha:** marca el día en la rejilla de contribuciones. Actualiza la racha actual.
-3. **Bracket:** avanza de ronda si se cumplió un hito (tipo dominado, cobertura, nota en frío).
-4. **Medallas/tachado:** otorga medalla si se alcanzó un hito; tacha temas/tipos completados.
-5. **Barras** de cobertura y accuracy por bloque/tipo.
-
-Luego **narra la victoria** (`11` §8) y deja el próximo paso.
-
----
-
-## 4. DISPARADORES DE RECALIBRACIÓN
-
-Dispara `recalibrar` (ejecuta `04` §recalibración) cuando:
-- El ritmo real proyectado **no llega** a la nota objetivo antes del examen.
-- Se acumulan **2–3 sesiones** de accuracy estancada o por debajo de lo planificado.
-- Cambian las **fechas** de examen o aparece nueva carga (otra asignatura, entrega).
-- La racha se rompe varios días (revisa también lo psicológico, `10`).
-
-Al recalibrar, sé honesto y re-prioriza al **subconjunto de mayor rendimiento** (principio 1 y 6
-de `00`). Nada de promesas falsas: "a este ritmo no da para todo; clavamos los 3 tipos que valen
-el 70% de la nota y soltamos el resto".
+### 6. Narra la victoria (entrenador de esquina, `11` §8)
+Delta de XP, cinturón, racha, ronda del torneo, y **una sola** acción para mañana. Si el día fue flojo:
+honesto pero sin vergüenza ("el campamento sigue; mañana volvemos"). Luego **para**.
 
 ---
 
-## 5. CONTINUIDAD ENTRE SESIONES
-Al arrancar una `sesion`, el **último log** te dice exactamente dónde retomar (campo "Próximo
-paso") y qué ítems siguen débiles. Por eso el log no es burocracia: es lo que permite que cada
-round empiece sin perder tiempo y que la recuperación espaciada funcione.
+## DISPARADORES DE `recalibrar` (además del veredicto)
+- El ritmo proyectado **no llega** a la nota objetivo antes del examen.
+- **2–3 sesiones** de accuracy estancada o por debajo del plan.
+- Cambian **fechas** de examen o aparece nueva carga.
+- La racha se rompe varios días (mira también `10`: puede ser evitación, no solo horas).
+
+## CONTINUIDAD
+El **último log** (campo "Próximo paso") + la fila de mañana del `ROADMAP` le dicen a la próxima
+`sesion` exactamente dónde retomar. Por eso esto no es burocracia: es lo que hace que cada round
+empiece sin perder tiempo y que el recall espaciado funcione.

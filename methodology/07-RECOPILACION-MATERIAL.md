@@ -9,7 +9,7 @@
 El examen es el plano (principio 2 de `00`). Los **exámenes de años anteriores** son el artefacto
 de mayor señal: revelan qué cae, cómo se redacta y qué pesa. Sin ellos, el plan es una conjetura.
 
-> **El coach NO genera el `PLAN.md` completo** hasta tener los exámenes de años anteriores **o** una
+> **El coach NO genera el `ROADMAP.md` completo** hasta tener los exámenes de años anteriores **o** una
 > **confirmación explícita** del estudiante de que no existen. Si faltan, manda a por ellos y para.
 
 ---

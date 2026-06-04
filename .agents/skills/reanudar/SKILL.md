@@ -1,6 +1,6 @@
 ---
 name: reanudar
-description: Reanuda el cronómetro de la sesión de Kaichō tras una pausa. Úsala cuando el usuario escriba "/reanudar", "reanudar", "seguimos" o "volví".
+description: Reanuda el cronómetro de la sesión de Kaichō tras una pausa. Úsala cuando el usuario escriba "reanudar", "/kaicho:reanudar", "seguimos" o "volví".
 ---
 
 # reanudar

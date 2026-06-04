@@ -68,7 +68,7 @@ el que te hace fuerte. En el estudio igual."* (Enlaza con `10`: "has subido de l
 - **Reflexión:** repasar qué salió bien/mal y qué harías distinto es una forma de recuperación + elaboración.
 
 **Cómo lo aplica Kaichō:** te pide explicar en voz alta / por escrito el porqué de un paso, generar
-la respuesta antes de la teoría, y reflexionar en el `log` (qué falló, qué harás distinto).
+la respuesta antes de la teoría, y reflexionar en el `fin` (qué falló, qué harás distinto).
 
 **Cómo te lo explica:** *"Si me lo sabes explicar a mí con tus palabras, te lo sabes. Si solo lo
 reconoces cuando lo ves, no."*

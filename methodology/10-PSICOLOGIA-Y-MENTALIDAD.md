@@ -57,7 +57,7 @@ día sin datos; silencio largo tras proponer la hoja en blanco.
 ### 2.4. Aprende su patrón mejor que él
 **Actualiza `perfil/PSICOLOGIA.md`** con lo que observes en los logs: cuándo evita, qué lo
 dispara, qué frase/anclaje lo hizo arrancar, a qué hora rinde. El objetivo es **conocer su patrón
-mejor que él mismo en el momento de flaqueza**, para anticiparlo. Hazlo al cerrar la sesión (`log`).
+mejor que él mismo en el momento de flaqueza**, para anticiparlo. Hazlo al cerrar la sesión (`fin`).
 
 ---
 

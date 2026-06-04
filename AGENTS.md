@@ -17,39 +17,50 @@ No dupliques aquí esa lógica; este archivo solo te arranca y te enseña a reco
 > `methodology/10-PSICOLOGIA-Y-MENTALIDAD.md` y `perfil/PSICOLOGIA.md`. La mentalidad está presente
 > en todo momento. (El manifiesto detalla el protocolo de arranque completo.)
 
+## El bucle (simple a propósito — pensado para que funcione bien aquí, en Codex)
+
+```
+UNA VEZ:    setup   → perfil global (entrevista)
+POR CUATRI: onboard → monta TODO el cuatrimestre y deja escrito el ROADMAP día a día (carga pesada)
+CADA DÍA:   sesion  → lee la fila de HOY del ROADMAP y entrena   →   fin → registra + recalibra + veredicto
+```
+
+Toda la inteligencia pesada está en `onboard` (idealmente hecho con un modelo potente) y queda
+**escrita** en el `ROADMAP.md`. Por eso tu día a día es trivial: **lee la fila de HOY, ejecútala,
+regístrala y recalibra con las reglas de `06`.** No tienes que re-planificar de cabeza.
+
 ## Gatillos en lenguaje natural (mecanismo principal)
 
 Cuando el usuario escriba una de estas frases, ejecuta el archivo indicado, paso a paso. Reconoce
-los sinónimos y variantes; el usuario no tiene por qué escribirlo exacto.
+los sinónimos; no tiene por qué escribirlo exacto.
 
 | Si el usuario escribe… (o equivalente) | Ejecuta |
 |---|---|
-| `setup` · "empezar" · "inicializar" · "configurar" | `methodology/01-SETUP-GLOBAL.md` |
-| `onboard <asignatura>` · "alta de asignatura" · "dar de alta" | `methodology/02-ONBOARDING-ASIGNATURA.md` |
-| `sesion <asignatura>` · "entrenar" · "round" · "vamos" | `methodology/05-SESION.md` |
+| `setup` · "empezar" · "configurar" | `methodology/01-SETUP-GLOBAL.md` |
+| `onboard` · "alta" · "dar de alta" · "monta el cuatrimestre" | `methodology/02-ONBOARDING-ASIGNATURA.md` (TODAS las asignaturas a la vez) |
+| `sesion` · "entrenar" · "round" · "vamos" | `methodology/05-SESION.md` (sin asignatura: la dice el `ROADMAP`) |
 | `pausa` · "para el crono" · "descanso" | Pausa el cronómetro (dentro de `05`). El tiempo en pausa NO cuenta como estudio. |
 | `reanudar` · "seguimos" · "volví" | Reanuda el cronómetro (dentro de `05`). |
-| `log` · "cerrar sesión" · "fin del round" | `methodology/06-TRACKING-Y-LOGS.md` |
-| `recalibrar` · "replanificar" · "voy mal de tiempo" | `methodology/04-PLANIFICACION.md` (§5 recalibración) |
+| `fin` · "fin de sesión" · "cerrar" | `methodology/06-TRACKING-Y-LOGS.md` (log + recalibra + veredicto) |
+| `recalibrar` · "replanificar" · "voy mal de tiempo" | `methodology/04-PLANIFICACION.md` (§5) |
 
 Si el usuario escribe algo que no encaja con ningún gatillo, **no inventes uno**: pregúntale qué
 quiere hacer y ofrécele la lista de arriba.
 
 ## Comandos (Agent Skills en Codex)
 
-Los gatillos están disponibles como **Agent Skills**, definidas en `.agents/skills/`
-(`setup`, `onboard`, `sesion`, `pausa`, `reanudar`, `log`, `recalibrar`). En Codex se invocan con `$setup` (mención),
-desde el selector `/skills`, o **automáticamente** cuando el usuario escribe el gatillo: cada skill
-declara en su `description` las frases que la activan (incluida la forma `/setup`).
+Los gatillos están como **Agent Skills**, en `.agents/skills/` (`setup`, `onboard`, `sesion`,
+`pausa`, `reanudar`, `fin`, `recalibrar`). Se invocan con `$setup` (mención), desde el selector
+`/skills`, o **automáticamente** cuando el usuario escribe el gatillo: cada skill declara en su
+`description` las frases que la activan (incluida la forma `/kaicho:<comando>`).
 
-Las **frases en lenguaje natural** de la tabla de arriba disparan exactamente el mismo flujo —son el
-mecanismo que **garantiza la paridad con Claude Code**, porque tú lees este archivo y el manifiesto
-siempre—. (Codex no soporta *slash commands* personalizados por repositorio y los *custom prompts*
-están deprecados; por eso el repo combina skills + frases en lenguaje natural en vez de depender de `/comandos`.)
+Las **frases en lenguaje natural** de la tabla disparan el mismo flujo —es el mecanismo que
+**garantiza la paridad con Claude Code**—. (Codex no soporta *slash commands* personalizados por
+repositorio; las skills + las frases en lenguaje natural son el equivalente y sí viajan con el repo.)
 
 ## Reglas que no se rompen (resumen; detalle en el manifiesto)
 1. Carga la psicología (`10` + `perfil/PSICOLOGIA.md`) en cada arranque.
 2. Fuerza estudio activo pronto: la 1ª sesión de una asignatura es un **examen en frío**.
 3. **Nunca inventes una versión adaptada** de un ejercicio visual: manda al original (`08`).
 4. **No planifiques sin exámenes de años anteriores** o confirmación de que no existen (`07`).
-5. XP solo por estudio activo y accuracy (`11`). Una acción a la vez. Cierra con `log` y narra la victoria.
+5. XP solo por estudio activo y accuracy (`11`). Una acción a la vez. Cierra con `fin` y narra la victoria.

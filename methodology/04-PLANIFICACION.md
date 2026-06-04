@@ -1,6 +1,6 @@
 # 04 · PLANIFICACIÓN — Estudiar hacia atrás desde el examen
 
-> Se usa al final del onboarding (`02` Step 6) para generar `PLAN.md`, y al `recalibrar`.
+> Se usa en el onboarding (`02` Step 6) para generar el `ROADMAP.md` del cuatrimestre, y al `recalibrar`.
 > Regla central: **el examen es el plano**. Se planifica **desde la fecha del examen hacia atrás**,
 > y **entre todas las asignaturas del cuatrimestre a la vez** (lee `PANORAMA.md`).
 
@@ -39,10 +39,12 @@ No se planifica una asignatura como si fuera la única:
 
 ---
 
-## 4. FORMATO DE `PLAN.md`
-Estructura sugerida (ver plantilla de la asignatura):
+## 4. SALIDA: el `ROADMAP.md` del cuatrimestre (conductor diario)
+Se vuelca en `cuatrimestres/<cuatri>/ROADMAP.md` (ver su plantilla): una **tabla día a día** que
+entrelaza todas las asignaturas (`fecha · asignatura · tarea troceada · horas · estado`), para que
+`sesion` solo lea la fila de HOY. Debajo, por asignatura, el camino mínimo (Pareto) y los extras:
 ```markdown
-# PLAN · <ASIG>
+# (bloque por asignatura, dentro del ROADMAP) · <ASIG>
 **Examen objetivo:** <fecha/ventana>  ·  **Nota objetivo:** <x>  ·  **Estrategia:** <de 03>
 
 ## Camino mínimo efectivo (NO negociable) — captura ~<%> de la nota
@@ -69,7 +71,7 @@ Cuando el ritmo real no cuadra con el plan:
    > "A este ritmo no da para todo antes del examen. Tienes 2 opciones honestas: subir horas/día, o
    > clavar el subconjunto que vale más nota y soltar el resto. Yo te recomiendo lo segundo."
 3. **Re-prioriza al subconjunto de mayor rendimiento.** Recorta extras antes que fundamentos.
-4. **Reescribe `PLAN.md`** y actualiza `PANORAMA.md` (el recorte de una asignatura libera horas para
+4. **Reescribe el `ROADMAP.md`** y actualiza `PANORAMA.md` (el recorte de una asignatura libera horas para
    otra). Refleja el cambio en el bracket del torneo (`11`).
 5. Si la caída de ritmo huele a **evitación**, trátalo también desde `10` (no es solo un problema de horas).
 

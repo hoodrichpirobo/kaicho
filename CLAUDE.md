@@ -13,37 +13,50 @@ No dupliques aquí esa lógica; este archivo solo te arranca y te enseña a reco
 > `methodology/10-PSICOLOGIA-Y-MENTALIDAD.md` y `perfil/PSICOLOGIA.md`. La mentalidad está presente
 > en todo momento. (El manifiesto detalla el protocolo de arranque completo.)
 
+## El bucle (simple a propósito)
+
+```
+UNA VEZ:   setup  → perfil global (entrevista)
+POR CUATRI: onboard → monta TODO el cuatrimestre y deja escrito el ROADMAP día a día (carga pesada)
+CADA DÍA:  sesion → lee la fila de HOY del ROADMAP y entrena   →   fin → registra + recalibra + veredicto
+```
+
+La inteligencia pesada va en `onboard` (hazlo con el modelo potente). El día a día —`sesion`/`fin`—
+es deliberadamente simple (**leer la fila de hoy, ejecutarla, registrarla**) para que rinda igual en
+un modelo menos potente (p. ej. Codex).
+
 ## Gatillos en lenguaje natural (mecanismo principal)
 
 Cuando el usuario escriba una de estas frases, ejecuta el archivo indicado, paso a paso. Reconoce
-los sinónimos y variantes; el usuario no tiene por qué escribirlo exacto.
+los sinónimos; no tiene por qué escribirlo exacto.
 
 | Si el usuario escribe… (o equivalente) | Ejecuta |
 |---|---|
-| `setup` · "empezar" · "inicializar" · "configurar" | `methodology/01-SETUP-GLOBAL.md` |
-| `onboard <asignatura>` · "alta de asignatura" · "dar de alta" | `methodology/02-ONBOARDING-ASIGNATURA.md` |
-| `sesion <asignatura>` · "entrenar" · "round" · "vamos" | `methodology/05-SESION.md` |
+| `setup` · "empezar" · "configurar" | `methodology/01-SETUP-GLOBAL.md` |
+| `onboard` · "alta" · "dar de alta" · "monta el cuatrimestre" | `methodology/02-ONBOARDING-ASIGNATURA.md` (TODAS las asignaturas a la vez) |
+| `sesion` · "entrenar" · "round" · "vamos" | `methodology/05-SESION.md` (sin asignatura: la dice el `ROADMAP`) |
 | `pausa` · "para el crono" · "descanso" | Pausa el cronómetro (dentro de `05`). El tiempo en pausa NO cuenta como estudio. |
 | `reanudar` · "seguimos" · "volví" | Reanuda el cronómetro (dentro de `05`). |
-| `log` · "cerrar sesión" · "fin del round" | `methodology/06-TRACKING-Y-LOGS.md` |
-| `recalibrar` · "replanificar" · "voy mal de tiempo" | `methodology/04-PLANIFICACION.md` (§5 recalibración) |
+| `fin` · "fin de sesión" · "cerrar" | `methodology/06-TRACKING-Y-LOGS.md` (log + recalibra + veredicto) |
+| `recalibrar` · "replanificar" · "voy mal de tiempo" | `methodology/04-PLANIFICACION.md` (§5) |
 
 Si el usuario escribe algo que no encaja con ningún gatillo, **no inventes uno**: pregúntale qué
 quiere hacer y ofrécele la lista de arriba.
 
 ## Comandos (slash commands nativos en Claude Code)
 
-Los gatillos están disponibles como **slash commands nativos**, definidos en `.claude/commands/`:
-`/setup`, `/onboard <asig>`, `/sesion <asig>`, `/pausa`, `/reanudar`, `/log`, `/recalibrar` (aceptan
-argumentos, p. ej. `/onboard REDES`). Cada uno te redirige aquí y al archivo de `methodology/` correspondiente.
+Los gatillos están como **slash commands nativos** bajo el namespace `kaicho`, en
+`.claude/commands/kaicho/`: **`/kaicho:setup`, `/kaicho:onboard`, `/kaicho:sesion`, `/kaicho:pausa`,
+`/kaicho:reanudar`, `/kaicho:fin`, `/kaicho:recalibrar`**. Ni `sesion` ni `fin` necesitan asignatura:
+la marca el `ROADMAP`.
 
-Las **frases en lenguaje natural** de la tabla de arriba disparan exactamente el mismo flujo —son el
-mecanismo que **garantiza la paridad con Codex**, porque tú lees este archivo y el manifiesto siempre—.
-Así que da igual que el usuario escriba `/sesion ETC` o "vamos a entrenar ETC": haces lo mismo.
+Las **frases en lenguaje natural** de la tabla disparan exactamente el mismo flujo —son el mecanismo
+que **garantiza la paridad con Codex**, porque tú lees este archivo y el manifiesto siempre—. Da igual
+que el usuario escriba `/kaicho:sesion` o "vamos a entrenar": haces lo mismo.
 
 ## Reglas que no se rompen (resumen; detalle en el manifiesto)
 1. Carga la psicología (`10` + `perfil/PSICOLOGIA.md`) en cada arranque.
 2. Fuerza estudio activo pronto: la 1ª sesión de una asignatura es un **examen en frío**.
 3. **Nunca inventes una versión adaptada** de un ejercicio visual: manda al original (`08`).
 4. **No planifiques sin exámenes de años anteriores** o confirmación de que no existen (`07`).
-5. XP solo por estudio activo y accuracy (`11`). Una acción a la vez. Cierra con `log` y narra la victoria.
+5. XP solo por estudio activo y accuracy (`11`). Una acción a la vez. Cierra con `fin` y narra la victoria.

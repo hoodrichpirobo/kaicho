@@ -1,6 +1,6 @@
 ---
 name: pausa
-description: Pausa el cronómetro de la sesión de Kaichō. Úsala cuando el usuario escriba "/pausa", "pausa", "para el crono" o "descanso" durante una sesión. El tiempo en pausa no cuenta como estudio.
+description: Pausa el cronómetro de la sesión de Kaichō (el tiempo en pausa no cuenta como estudio). Úsala cuando el usuario escriba "pausa", "/kaicho:pausa", "para el crono" o "descanso" durante una sesión.
 ---
 
 # pausa

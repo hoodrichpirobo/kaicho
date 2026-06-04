@@ -22,8 +22,8 @@ Antes de decir una sola palabra al estudiante, carga el contexto en este orden:
    el estudiante aún no ha hecho `setup`: guíalo a ejecutarlo primero.
 4. **`perfil/ESTUDIANTE.md`** — datos prácticos (carrera, horas reales, ritmo).
 5. Según el gatillo recibido, el archivo de metodología correspondiente (tabla abajo).
-6. Si el gatillo es por asignatura, los artefactos de esa asignatura
-   (`MAPA-ASIGNATURA.md`, `EXAMEN-PATRONES.md`, `PLAN.md`, `PROGRESO.md`, último log).
+6. Para el día a día, del cuatrimestre activo: `ROADMAP.md` (la **fila de HOY**) y `PROGRESO.md`. De
+   la asignatura que toque hoy: `MAPA-ASIGNATURA.md`, `EXAMEN-PATRONES.md` y su último log.
 
 **Regla de hierro:** la mentalidad (pasos 2 y 3) está cargada en todo momento. El
 trabajo psicológico es tan importante como el técnico. Nunca lo saltes "porque hoy
@@ -98,17 +98,21 @@ de verdad, y *por eso* no le dejas esconderse.
   dentro de `cuatrimestres/` y trabaja ahí. El **perfil global** (`perfil/`) persiste entre cuatrimestres.
 - Toda la **metodología** (lo que tú obedeces) vive en `methodology/*.md` y es **tool-agnóstica**:
   funciona igual en Claude Code y en Codex.
-- El **estado** (planes, progreso, logs) vive en cada asignatura, dentro del cuatrimestre.
+- El **estado** vive en el cuatrimestre: `ROADMAP.md` (día a día) y `PROGRESO.md` (marcador) a nivel
+  de cuatrimestre; los `LOGS/` y los mapas (`MAPA-ASIGNATURA`, `EXAMEN-PATRONES`) por asignatura.
+- **Diseño de dos velocidades (clave para correr en Codex):** la inteligencia pesada se concentra en
+  `onboard` (modelo potente; deja escrito el `ROADMAP`). El día a día —`sesion`/`fin`— es simple:
+  **leer la fila de HOY, ejecutarla, registrarla y recalibrar con reglas**. Rinde igual en un modelo menos potente.
 
 ```
 perfil/                         # global, persiste entre cuatrimestres (privado)
   ESTUDIANTE.md  PSICOLOGIA.md
 cuatrimestres/<AAAA-MM_a_AAAA-MM>/
-  CALENDARIO.md  PANORAMA.md
+  CALENDARIO.md  PANORAMA.md  ROADMAP.md  PROGRESO.md   # día a día + marcador (todo el cuatri)
   asignaturas/<ASIG>/
     guia-docente/  material/{powerpoints,bibliografia,ejercicios-propuestos,
                               practicas-laboratorios,docencia-inversa,examenes-anteriores}/
-    MAPA-ASIGNATURA.md  EXAMEN-PATRONES.md  PLAN.md  PROGRESO.md  LOGS/
+    MAPA-ASIGNATURA.md  EXAMEN-PATRONES.md  LOGS/
 ```
 
 ---
@@ -121,13 +125,13 @@ comporten igual (ambos leen este archivo).
 
 | Gatillo (y sinónimos) | Archivo que ejecutas | Qué hace |
 |---|---|---|
-| `setup` · "empezar" · "inicializar" · "configurar" | `methodology/01-SETUP-GLOBAL.md` | Entrevista global (una vez). Puebla `perfil/`. |
-| `onboard <asig>` · "alta de asignatura" · "dar de alta" | `methodology/02-ONBOARDING-ASIGNATURA.md` | Ingesta + diagnóstico + estrategia + plan de una asignatura. |
-| `sesion <asig>` · "entrenar" · "round" · "vamos" | `methodology/05-SESION.md` | El bucle de entrenamiento del día. |
+| `setup` · "empezar" · "configurar" | `methodology/01-SETUP-GLOBAL.md` | Entrevista global (una vez). Puebla `perfil/`. |
+| `onboard` · "alta" · "dar de alta" · "monta el cuatrimestre" | `methodology/02-ONBOARDING-ASIGNATURA.md` | Alta de **TODO el cuatrimestre** a la vez: material, mapas, patrones, estrategia y **ROADMAP** día a día. Aquí va la carga pesada. |
+| `sesion` · "entrenar" · "round" · "vamos" | `methodology/05-SESION.md` | El round del día. **Sin asignatura:** lo que toca lo dice el `ROADMAP`. |
 | `pausa` · "para el crono" · "descanso" | (dentro de `05`) | Detiene el cronómetro. El tiempo en pausa **no** cuenta como estudio. |
 | `reanudar` · "seguimos" · "volví" | (dentro de `05`) | Reanuda el cronómetro. |
-| `log` · "cerrar sesión" · "fin del round" | `methodology/06-TRACKING-Y-LOGS.md` | Cierra la sesión: registra, actualiza el tablero, narra la victoria. |
-| `recalibrar` · "replanificar" · "voy mal de tiempo" | `methodology/04-PLANIFICACION.md` (§recalibración) + `06` | Reajusta el plan con el ritmo real. |
+| `fin` · "fin de sesión" · "cerrar" | `methodology/06-TRACKING-Y-LOGS.md` | Cierra: log + marca el `ROADMAP` + tablero + **recalibra y da veredicto** + narra la victoria. |
+| `recalibrar` · "replanificar" · "voy mal de tiempo" | `methodology/04-PLANIFICACION.md` (§5) + `06` | Reajusta el `ROADMAP` con el ritmo real. |
 
 Si el estudiante escribe algo que no encaja, **no inventes un gatillo**: pregunta qué quiere
 hacer y ofrécele los de arriba.
@@ -140,11 +144,11 @@ hacer y ofrécele los de arriba.
 |---|---|---|
 | 00 | `00-MANIFEST.md` | Este. Directiva primaria, persona, principios, gatillos. |
 | 01 | `01-SETUP-GLOBAL.md` | Entrevista global; crea el perfil. |
-| 02 | `02-ONBOARDING-ASIGNATURA.md` | Alta de asignatura; bloqueo por material, MAPA, patrones, estrategia, plan. |
+| 02 | `02-ONBOARDING-ASIGNATURA.md` | Alta del **cuatrimestre** (todas las asignaturas); material, mapas, patrones, estrategia, **ROADMAP**. |
 | 03 | `03-ESTRATEGIAS.md` | Menú de estrategias y lógica de selección. |
 | 04 | `04-PLANIFICACION.md` | Planificación inversa multi-asignatura + recalibración. |
 | 05 | `05-SESION.md` | El bucle de la sesión (corazón operativo). |
-| 06 | `06-TRACKING-Y-LOGS.md` | Logs fechados, métricas, estado de juego. |
+| 06 | `06-TRACKING-Y-LOGS.md` | `fin` de sesión: log fechado, marcador, **recalibración automática y veredicto**. |
 | 07 | `07-RECOPILACION-MATERIAL.md` | Protocolo bloqueante de recopilación. |
 | 08 | `08-FRONTERA-TERMINAL.md` | Qué va en terminal y qué se ve con los ojos. |
 | 09 | `09-PRINCIPIOS-MAKE-IT-STICK.md` | Base de evidencia y pedagogía. |
@@ -160,7 +164,7 @@ hacer y ofrécele los de arriba.
 3. **Nunca inventes una versión adaptada** de un ejercicio con elementos visuales: manda al original (`08`).
 4. **No planifiques sin exámenes de años anteriores** o confirmación de que no existen (`07`).
 5. **XP solo por estudio activo y accuracy** (`11`). Releer no da apenas XP.
-6. **Una acción a la vez. Cierra con `log` y narra la victoria.**
+6. **Una acción a la vez. Cierra con `fin` y narra la victoria.**
 7. Cuando tomes una decisión metodológica, sé capaz de **justificarla con `09`**.
 
 Ahora ve al archivo que corresponda al gatillo y ejecútalo paso a paso.

@@ -74,79 +74,83 @@ solo mío.
      Claude Code:  claude          Codex:  codex
 
 3 · Configura tu perfil (una vez)
-     Claude Code →  /setup
-     Codex       →  $setup     (o simplemente escribe:  setup)
+     Claude Code →  /kaicho:setup        Codex →  $setup   (o escribe:  setup)
 
-4 · Da de alta una asignatura
-     # crea las carpetas a partir de las plantillas
+4 · Da de alta TODO el cuatrimestre (de una vez)
+     # crea las carpetas a partir de las plantillas (una por asignatura)
      cp -r cuatrimestres/_TEMPLATE_CUATRIMESTRE cuatrimestres/2026-01_a_2026-07
      cp -r cuatrimestres/2026-01_a_2026-07/asignaturas/_TEMPLATE_ASIGNATURA \
-           cuatrimestres/2026-01_a_2026-07/asignaturas/REDES
+           cuatrimestres/2026-01_a_2026-07/asignaturas/REDES   # repite por asignatura
      # coloca el material en material/ y guia-docente/ (sobre todo exámenes de años anteriores)
-     Claude Code →  /onboard REDES
-     Codex       →  $onboard REDES    (o:  onboard REDES)
+     Claude Code →  /kaicho:onboard      Codex →  $onboard  (o:  onboard)
 
-5 · Entrena
-     Claude Code →  /sesion REDES
-     Codex       →  $sesion REDES     (o:  sesion REDES)
+5 · Entrena (cada día)
+     Claude Code →  /kaicho:sesion       Codex →  $sesion   (o:  vamos)
+     # sin asignatura: el ROADMAP decide qué toca hoy. Cierras con /kaicho:fin
 ```
 
-> El paso 4 está bloqueado por diseño: el agente no genera el plan hasta tener los exámenes de años
-> anteriores (o tu confirmación de que no existen). Son la señal de mayor valor.
+> El paso 4 está bloqueado por diseño: el agente no genera el `ROADMAP` hasta tener los exámenes de
+> años anteriores (o tu confirmación de que no existen). Son la señal de mayor valor.
 
 ## Flujo diario
 
 ```text
-┌─ UNA VEZ ───────────────────────────────────────────────────────────────────┐
-│  /setup            entrevista de perfil (global, persiste entre cuatrimestres)│
-│  /onboard <asig>   ingesta → mapa → patrones de examen → estrategia → plan    │
-└───────────────────────────────────────────────────────────────────────────────┘
+┌─ UNA VEZ ───────────────────────────────────────────────────────────────────────┐
+│  /kaicho:setup      entrevista de perfil (global, persiste entre cuatrimestres)   │
+└───────────────────────────────────────────────────────────────────────────────────┘
+┌─ UNA VEZ POR CUATRIMESTRE ────────────────────────────────────────────────────────┐
+│  /kaicho:onboard    monta TODAS las asignaturas → ROADMAP.md día a día (Pareto)   │
+└───────────────────────────────────────────────────────────────────────────────────┘
                                      │
                                      ▼
-┌─ CADA DÍA · un round ────────────────────────────────────────────────────────┐
-│  /sesion <asig>                                                               │
-│     ├─ arranque en frío: intentas ANTES de leer (1ª sesión = examen completo) │
-│     ├─ intento → diagnóstico → teoría just-in-time → recall espaciado         │
-│     ├─ /pausa  ·  /reanudar   (el tiempo en pausa no cuenta como estudio)      │
-│     └─ /log    registro fechado + XP + tablero + el siguiente paso (uno)       │
-└───────────────────────────────────────────────────────────────────────────────┘
+┌─ CADA DÍA · un round ─────────────────────────────────────────────────────────────┐
+│  /kaicho:sesion     (sin asignatura: el ROADMAP decide qué toca HOY)              │
+│     ├─ arranque en frío: intentas ANTES de leer (1ª sesión de una asig = examen)  │
+│     ├─ intento → diagnóstico → teoría just-in-time → recall espaciado             │
+│     ├─ /kaicho:pausa · /kaicho:reanudar   (el tiempo en pausa no cuenta)          │
+│     └─ /kaicho:fin   log + XP + marca ROADMAP + RECALIBRA + veredicto del día     │
+└───────────────────────────────────────────────────────────────────────────────────┘
                                      │
-                 al día siguiente, /sesion retoma desde el último log
+              al día siguiente, /kaicho:sesion retoma desde el ROADMAP
                                      │
-                   ¿el ritmo real no llega?  →  /recalibrar
+                   ¿el ritmo real no llega?  →  /kaicho:recalibrar
 ```
 
-1. **Empieza el día con `/sesion <asignatura>`.** El agente carga el plan, el progreso y el último
-   log, y te pone a producir desde el primer minuto (no a leer). En la primera sesión de una
-   asignatura, el arranque es un **examen en frío** que fija tu punto de partida.
+1. **Empieza el día con `/kaicho:sesion`** (sin asignatura: el `ROADMAP` decide qué toca HOY). El
+   agente carga el roadmap, el progreso y el último log, y te pone a producir desde el primer minuto
+   (no a leer). En la primera sesión de una asignatura, el arranque es un **examen en frío**.
 2. **Trabaja el round.** Intentas, el agente diagnostica, te da solo la teoría que el ejercicio pide
    y reparte los tipos de problema (intercalado). Lo difícil se parte en sub-preguntas. Usa
-   `/pausa` y `/reanudar` para que el cronómetro refleje horas reales.
-3. **Cierra con `/log`.** Registra la sesión (horas reales, accuracy, cobertura), actualiza el
-   tablero (XP, racha, ronda del torneo) y deja escrito **el único** siguiente paso. Para ahí.
-4. **Al día siguiente**, `/sesion` retoma exactamente donde lo dejaste y re-pregunta lo que quedó
-   débil (repetición espaciada).
-5. **Cuando el ritmo real no cuadre** con la fecha del examen, `/recalibrar` reescribe el plan sobre
-   datos —no sobre buenos deseos— y re-prioriza al subconjunto de mayor rendimiento.
+   `/kaicho:pausa` y `/kaicho:reanudar` para que el cronómetro refleje horas reales.
+3. **Cierra con `/kaicho:fin`.** Registra la sesión (horas reales, accuracy), marca la fila del
+   `ROADMAP`, actualiza el tablero (XP, racha, ronda) y **recalibra solo dándote el veredicto del
+   día** (¿vas bien?, ¿más horas?, ¿llegas al examen?), con **el único** siguiente paso. Para ahí.
+4. **Al día siguiente**, `/kaicho:sesion` retoma desde el `ROADMAP` y re-pregunta lo que quedó débil
+   (repetición espaciada).
+5. **Cuando el ritmo real no cuadre** con la fecha del examen, `/kaicho:recalibrar` reescribe el
+   `ROADMAP` sobre datos —no sobre buenos deseos— y re-prioriza al subconjunto de mayor rendimiento.
 
 ## Comandos
 
-Los mismos cinco gatillos, expuestos con el mecanismo **nativo** de cada herramienta. En cualquiera
-de los dos, **escribir la frase en lenguaje natural también funciona** — es lo que garantiza la paridad.
+Los mismos gatillos, expuestos con el mecanismo **nativo** de cada herramienta. En cualquiera de los
+dos, **escribir la frase en lenguaje natural también funciona** — es lo que garantiza la paridad.
 
 | Acción | Claude Code | Codex | Lenguaje natural |
 |---|---|---|---|
-| Perfil global (una vez) | `/setup` | `$setup` · `/skills` | "empezar", "configúrame" |
-| Alta de asignatura | `/onboard <asig>` | `$onboard <asig>` | "da de alta REDES" |
-| Round de estudio | `/sesion <asig>` | `$sesion <asig>` | "vamos a entrenar REDES" |
-| Pausa / reanudar crono | `/pausa` · `/reanudar` | `$pausa` · `$reanudar` | "para el crono" · "seguimos" |
-| Cierre de sesión | `/log` | `$log` | "cierra el round" |
-| Replanificar | `/recalibrar` | `$recalibrar` | "voy mal de tiempo" |
+| Perfil global (una vez) | `/kaicho:setup` | `$setup` · `/skills` | "empezar", "configúrame" |
+| Alta del cuatrimestre (todas las asig.) | `/kaicho:onboard` | `$onboard` | "monta el cuatrimestre" |
+| Round de estudio del día | `/kaicho:sesion` | `$sesion` | "vamos a entrenar" |
+| Pausa / reanudar crono | `/kaicho:pausa` · `/kaicho:reanudar` | `$pausa` · `$reanudar` | "para el crono" · "seguimos" |
+| Fin de sesión (+ recalibra) | `/kaicho:fin` | `$fin` | "fin de sesión" |
+| Replanificar | `/kaicho:recalibrar` | `$recalibrar` | "voy mal de tiempo" |
+
+> Ni `sesion` ni `fin` llevan asignatura: la marca el `ROADMAP`. La carga pesada está en `onboard`;
+> el día a día es simple a propósito (para que funcione igual en un modelo menos potente).
 
 **Cómo lo resuelve cada herramienta:**
 
-- **Claude Code** carga `.claude/commands/*.md` como *slash commands* nativos: `/setup`,
-  `/onboard REDES`, etc. (con argumentos).
+- **Claude Code** carga `.claude/commands/kaicho/*.md` como *slash commands* nativos bajo el namespace
+  `kaicho`: `/kaicho:setup`, `/kaicho:onboard`, `/kaicho:sesion`, etc.
 - **Codex** carga `.agents/skills/*/SKILL.md` como *Agent Skills*: se invocan con `$nombre`, desde el
   selector `/skills`, o **automáticamente** cuando escribes el gatillo (cada skill declara en su
   `description` las frases que la activan). Codex no soporta *slash commands* personalizados por
@@ -181,7 +185,7 @@ implementaciones, e independientemente de qué mecanismo de comandos use cada he
 La primera sesión de una asignatura es un examen en frío (diagnóstico), no una clase:
 
 ```text
-$ /sesion algoritmos
+$ /kaicho:sesion        (el ROADMAP decide: hoy toca Algoritmos)
 
 Kaichō — Primera sesión de Algoritmos. Hoy no estudiamos: medimos el punto de partida.
    Examen real de 2022, en frío: sin apuntes, sin pistas, 50 min. La nota de hoy es un
@@ -212,9 +216,9 @@ Kaichō — Exacto. +5. Ahora una partición de [5,3,8,1] con pivote 5, en papel
    ── la resuelve ──
 
 Kaichō — Correcto, sin pista. +20. Hueco cerrado. Mañana te lo vuelvo a preguntar en frío
-   (repetición espaciada). Escribe /log para cerrar.
+   (repetición espaciada). Escribe /kaicho:fin para cerrar.
 
-$ /log
+$ /kaicho:fin
 
 Round cerrado.
    examen en frío completado .............. +100
@@ -281,16 +285,16 @@ kaicho/
 ├── CLAUDE.md · AGENTS.md         bootstraps (gatillos) para Claude Code y Codex
 ├── .gitignore                    aísla datos personales y material con copyright
 ├── methodology/                  el cerebro: 00-MANIFEST … 11-GAMIFICACION (12 archivos)
-├── .claude/commands/             slash commands nativos de Claude Code (/setup, /onboard, …)
-├── .agents/skills/               Agent Skills de Codex ($setup, $onboard, …)
+├── .claude/commands/kaicho/      slash commands de Claude Code (/kaicho:setup, /kaicho:sesion, …)
+├── .agents/skills/               Agent Skills de Codex ($setup, $sesion, … · cierre = fin, no log)
 ├── perfil/                       perfil global (instancia local) + plantillas públicas vacías
 └── cuatrimestres/
     └── _TEMPLATE_CUATRIMESTRE/    se copia por cuatrimestre
-        ├── CALENDARIO.md · PANORAMA.md
+        ├── CALENDARIO.md · PANORAMA.md · ROADMAP.md · PROGRESO.md   (día a día + marcador)
         └── asignaturas/_TEMPLATE_ASIGNATURA/   se copia por asignatura
             ├── guia-docente/ · material/{powerpoints,bibliografia,ejercicios-propuestos,
             │                              practicas-laboratorios,docencia-inversa,examenes-anteriores}/
-            ├── MAPA-ASIGNATURA.md · EXAMEN-PATRONES.md · PLAN.md · PROGRESO.md
+            ├── MAPA-ASIGNATURA.md · EXAMEN-PATRONES.md
             └── LOGS/             un log fechado por sesión
 ```
 
@@ -302,8 +306,8 @@ publica en línea.
 **¿Claude Code o Codex?** Cualquiera. El comportamiento es equivalente por diseño; solo cambia el
 mecanismo nativo con que invocas los comandos (ver [Comandos](#comandos)).
 
-**¿Sirve para cualquier titulación?** Sí. La metodología es genérica; `/onboard` se adapta a cada
-asignatura a partir de su guía docente y sus exámenes.
+**¿Sirve para cualquier titulación?** Sí. La metodología es genérica; `/kaicho:onboard` se adapta a
+cada asignatura del cuatrimestre a partir de su guía docente y sus exámenes.
 
 **¿Y si no existen exámenes de años anteriores?** El sistema los exige primero (máxima señal). Si no
 existen, se confirma explícitamente y se usan ejercicios propuestos y exámenes de muestra como sustituto.

@@ -1,0 +1,42 @@
+# =============================================================================
+#  Kaichō — .gitignore
+#  El repositorio PÚBLICO es la PLANTILLA. Nunca se suben datos personales
+#  del estudiante ni material universitario con copyright.
+# =============================================================================
+
+# --- Datos personales del estudiante (perfil global, privado) ----------------
+# Las plantillas públicas (perfil/_TEMPLATE_*.md) SÍ se publican, vacías.
+perfil/ESTUDIANTE.md
+perfil/PSICOLOGIA.md
+
+# --- Instancias reales de cuatrimestre ---------------------------------------
+# Contienen material universitario (PowerPoints, exámenes, prácticas) con
+# copyright y el progreso personal del estudiante. Se ignora TODO lo que hay
+# dentro de cuatrimestres/ EXCEPTO la plantilla pública.
+cuatrimestres/*
+!cuatrimestres/_TEMPLATE_CUATRIMESTRE/
+
+# --- Material de referencia local (no forma parte de la plantilla) -----------
+REFERENCIA-ORCHESTRATOR/
+Make It Stick*.pdf
+
+# --- Material universitario suelto que pudiera quedar en la raíz -------------
+# (carpetas de asignatura descargadas directamente; se trabajan dentro de
+#  cuatrimestres/<cuatri>/asignaturas/, nunca en la raíz del repo)
+/ETC/
+/RED/
+
+# --- Binarios de material que nunca deben publicarse -------------------------
+*.pcap
+*.pcapng
+*.mp4
+*.ppsx
+
+# --- Sistema operativo / editores --------------------------------------------
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*~
+.idea/
+.vscode/

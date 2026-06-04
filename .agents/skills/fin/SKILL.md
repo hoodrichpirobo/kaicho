@@ -1,6 +1,6 @@
 ---
 name: fin
-description: Fin de sesión de Kaichō: registra el log fechado, marca el ROADMAP, actualiza el marcador, recalibra automáticamente y da el veredicto del día. Úsala cuando el usuario escriba "fin", "/kaicho:fin", "fin de sesión", "cerrar" o "fin del round".
+description: Fin de sesión de Kaichō. Registra el log fechado, marca el ROADMAP, actualiza el marcador, recalibra automáticamente y da el veredicto del día. Úsala cuando el usuario escriba "fin", "/kaicho:fin", "fin de sesión", "cerrar" o "fin del round".
 ---
 
 # fin

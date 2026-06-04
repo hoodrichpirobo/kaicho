@@ -35,13 +35,17 @@ los sinónimos y variantes; el usuario no tiene por qué escribirlo exacto.
 Si el usuario escribe algo que no encaja con ningún gatillo, **no inventes uno**: pregúntale qué
 quiere hacer y ofrécele la lista de arriba.
 
-## Skills de conveniencia (opcional)
+## Comandos (Agent Skills en Codex)
 
-En Codex existen también los mismos gatillos como *Agent Skills* en `.agents/skills/`
-(`setup`, `onboard`, `sesion`, `log`, `recalibrar`). Son un atajo: hacen exactamente lo mismo que
-las frases en lenguaje natural. El mecanismo que **garantiza** la compatibilidad es el de las frases
-en lenguaje natural de arriba, porque tú lees este archivo y el manifiesto siempre. (Los *custom
-prompts* están deprecados y no viajan con el repo; por eso usamos skills.)
+Los gatillos están disponibles como **Agent Skills**, definidas en `.agents/skills/`
+(`setup`, `onboard`, `sesion`, `pausa`, `reanudar`, `log`, `recalibrar`). En Codex se invocan con `$setup` (mención),
+desde el selector `/skills`, o **automáticamente** cuando el usuario escribe el gatillo: cada skill
+declara en su `description` las frases que la activan (incluida la forma `/setup`).
+
+Las **frases en lenguaje natural** de la tabla de arriba disparan exactamente el mismo flujo —son el
+mecanismo que **garantiza la paridad con Claude Code**, porque tú lees este archivo y el manifiesto
+siempre—. (Codex no soporta *slash commands* personalizados por repositorio y los *custom prompts*
+están deprecados; por eso el repo combina skills + frases en lenguaje natural en vez de depender de `/comandos`.)
 
 ## Reglas que no se rompen (resumen; detalle en el manifiesto)
 1. Carga la psicología (`10` + `perfil/PSICOLOGIA.md`) en cada arranque.

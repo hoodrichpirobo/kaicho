@@ -5,8 +5,8 @@
 **Sistema de _context engineering_ que convierte a un agente de código (Claude Code · Codex) en un coach de estudio para exámenes: determinista, agnóstico de herramienta y guiado por evidencia.**
 
 [![Licencia MIT](https://img.shields.io/badge/licencia-MIT-blue.svg)](LICENSE)
-[![Claude Code](https://img.shields.io/badge/Claude_Code-compatible-D97757?logo=anthropic&logoColor=white)](#funcionamiento)
-[![Codex](https://img.shields.io/badge/Codex-compatible-412991?logo=openai&logoColor=white)](#funcionamiento)
+[![Claude Code](https://img.shields.io/badge/Claude_Code-compatible-D97757?logo=anthropic&logoColor=white)](#comandos)
+[![Codex](https://img.shields.io/badge/Codex-compatible-412991?logo=openai&logoColor=white)](#comandos)
 [![Idioma español](https://img.shields.io/badge/idioma-español-c60b1e.svg)](#)
 [![Dependencias cero](https://img.shields.io/badge/dependencias-0-2ea44f.svg)](#)
 [![Pedagogía: Make It Stick](https://img.shields.io/badge/pedagogía-evidence--based-e67e22.svg)](#pedagogía-basada-en-evidencia)
@@ -16,8 +16,7 @@
 Kaichō no es un *prompt* ni un chatbot de dudas. Es una **plantilla de políticas y contexto**
 —archivos Markdown versionados— que especifican el comportamiento de un agente de código para que
 actúe como entrenador de exámenes: fuerza recuperación activa, planifica en orden inverso desde el
-examen real y hace el progreso medible. Sin servidor, sin *fine-tuning*, sin dependencias: solo
-contexto bien diseñado.
+examen real y hace el progreso medible. Sin servidor, sin *fine-tuning*, sin dependencias.
 
 ---
 
@@ -25,12 +24,13 @@ contexto bien diseñado.
 
 - [Por qué existe](#por-qué-existe)
 - [Tesis de diseño](#tesis-de-diseño)
+- [Inicio rápido](#inicio-rápido)
+- [Flujo diario](#flujo-diario)
+- [Comandos](#comandos)
 - [Funcionamiento](#funcionamiento)
 - [Comportamiento del agente: traza de una sesión](#comportamiento-del-agente-traza-de-una-sesión)
 - [Pedagogía basada en evidencia](#pedagogía-basada-en-evidencia)
-- [Gatillos](#gatillos)
 - [Gamificación como restricción de diseño](#gamificación-como-restricción-de-diseño)
-- [Inicio rápido](#inicio-rápido)
 - [Privacidad: plantilla vs. instancia](#privacidad-plantilla-vs-instancia)
 - [Estructura del repositorio](#estructura-del-repositorio)
 - [Preguntas frecuentes](#preguntas-frecuentes)
@@ -53,17 +53,104 @@ solo mío.
 
 ## Tesis de diseño
 
-Las decisiones de ingeniería que sostienen el sistema:
-
 | Principio | Decisión |
 |---|---|
 | **Fuente única de verdad** | Toda la lógica vive en `methodology/*.md` (00–11). Los bootstraps no la duplican; la referencian. |
 | **Agnóstico de herramienta** | El comportamiento no depende del *runtime*. Mismo contexto para Claude Code y Codex. |
-| **Activación determinista entre agentes** | Los gatillos se definen como **frases en lenguaje natural** en los bootstraps que ambos agentes cargan siempre (`CLAUDE.md` / `AGENTS.md`), en lugar de *slash-commands* específicos de cada herramienta —que no tienen paridad—. Reproducible con independencia del agente. |
+| **Activación determinista entre agentes** | Los gatillos se definen como **frases en lenguaje natural** en los bootstraps que ambos agentes cargan siempre (`CLAUDE.md` / `AGENTS.md`). Encima, cada agente expone su mecanismo nativo de comandos (ver [Comandos](#comandos)). |
 | **Separación plantilla / instancia** | El repo público es la plantilla. Los datos personales y el material de la asignatura viven en una instancia local, nunca versionada. |
 | **Privacidad por defecto** | El `.gitignore` excluye perfil y material; lo personal no puede filtrarse a la rama pública por descuido. |
-| **Anti-alucinación de contenido** | Frontera explícita terminal ↔ material real: ante un ejercicio con dependencia visual (diagramas, capturas), el agente **redirige al original** en vez de inventar una versión "equivalente". |
-| **Pedagogía basada en evidencia** | Las políticas se derivan de literatura de ciencia del aprendizaje, no de intuición (ver más abajo). |
+| **Anti-alucinación de contenido** | Frontera explícita terminal ↔ material real: ante un ejercicio con dependencia visual, el agente **redirige al original** en vez de inventar una versión "equivalente". |
+| **Pedagogía basada en evidencia** | Las políticas se derivan de literatura de ciencia del aprendizaje, no de intuición. |
+
+## Inicio rápido
+
+```text
+1 · Obtén la plantilla
+     GitHub → botón "Use this template" → crea tu repo → clónalo
+     o:  git clone https://github.com/hoodrichpirobo/kaicho.git && cd kaicho
+
+2 · Abre la carpeta con tu agente
+     Claude Code:  claude          Codex:  codex
+
+3 · Configura tu perfil (una vez)
+     Claude Code →  /setup
+     Codex       →  $setup     (o simplemente escribe:  setup)
+
+4 · Da de alta una asignatura
+     # crea las carpetas a partir de las plantillas
+     cp -r cuatrimestres/_TEMPLATE_CUATRIMESTRE cuatrimestres/2026-01_a_2026-07
+     cp -r cuatrimestres/2026-01_a_2026-07/asignaturas/_TEMPLATE_ASIGNATURA \
+           cuatrimestres/2026-01_a_2026-07/asignaturas/REDES
+     # coloca el material en material/ y guia-docente/ (sobre todo exámenes de años anteriores)
+     Claude Code →  /onboard REDES
+     Codex       →  $onboard REDES    (o:  onboard REDES)
+
+5 · Entrena
+     Claude Code →  /sesion REDES
+     Codex       →  $sesion REDES     (o:  sesion REDES)
+```
+
+> El paso 4 está bloqueado por diseño: el agente no genera el plan hasta tener los exámenes de años
+> anteriores (o tu confirmación de que no existen). Son la señal de mayor valor.
+
+## Flujo diario
+
+```text
+┌─ UNA VEZ ───────────────────────────────────────────────────────────────────┐
+│  /setup            entrevista de perfil (global, persiste entre cuatrimestres)│
+│  /onboard <asig>   ingesta → mapa → patrones de examen → estrategia → plan    │
+└───────────────────────────────────────────────────────────────────────────────┘
+                                     │
+                                     ▼
+┌─ CADA DÍA · un round ────────────────────────────────────────────────────────┐
+│  /sesion <asig>                                                               │
+│     ├─ arranque en frío: intentas ANTES de leer (1ª sesión = examen completo) │
+│     ├─ intento → diagnóstico → teoría just-in-time → recall espaciado         │
+│     ├─ /pausa  ·  /reanudar   (el tiempo en pausa no cuenta como estudio)      │
+│     └─ /log    registro fechado + XP + tablero + el siguiente paso (uno)       │
+└───────────────────────────────────────────────────────────────────────────────┘
+                                     │
+                 al día siguiente, /sesion retoma desde el último log
+                                     │
+                   ¿el ritmo real no llega?  →  /recalibrar
+```
+
+1. **Empieza el día con `/sesion <asignatura>`.** El agente carga el plan, el progreso y el último
+   log, y te pone a producir desde el primer minuto (no a leer). En la primera sesión de una
+   asignatura, el arranque es un **examen en frío** que fija tu punto de partida.
+2. **Trabaja el round.** Intentas, el agente diagnostica, te da solo la teoría que el ejercicio pide
+   y reparte los tipos de problema (intercalado). Lo difícil se parte en sub-preguntas. Usa
+   `/pausa` y `/reanudar` para que el cronómetro refleje horas reales.
+3. **Cierra con `/log`.** Registra la sesión (horas reales, accuracy, cobertura), actualiza el
+   tablero (XP, racha, ronda del torneo) y deja escrito **el único** siguiente paso. Para ahí.
+4. **Al día siguiente**, `/sesion` retoma exactamente donde lo dejaste y re-pregunta lo que quedó
+   débil (repetición espaciada).
+5. **Cuando el ritmo real no cuadre** con la fecha del examen, `/recalibrar` reescribe el plan sobre
+   datos —no sobre buenos deseos— y re-prioriza al subconjunto de mayor rendimiento.
+
+## Comandos
+
+Los mismos cinco gatillos, expuestos con el mecanismo **nativo** de cada herramienta. En cualquiera
+de los dos, **escribir la frase en lenguaje natural también funciona** — es lo que garantiza la paridad.
+
+| Acción | Claude Code | Codex | Lenguaje natural |
+|---|---|---|---|
+| Perfil global (una vez) | `/setup` | `$setup` · `/skills` | "empezar", "configúrame" |
+| Alta de asignatura | `/onboard <asig>` | `$onboard <asig>` | "da de alta REDES" |
+| Round de estudio | `/sesion <asig>` | `$sesion <asig>` | "vamos a entrenar REDES" |
+| Pausa / reanudar crono | `/pausa` · `/reanudar` | `$pausa` · `$reanudar` | "para el crono" · "seguimos" |
+| Cierre de sesión | `/log` | `$log` | "cierra el round" |
+| Replanificar | `/recalibrar` | `$recalibrar` | "voy mal de tiempo" |
+
+**Cómo lo resuelve cada herramienta:**
+
+- **Claude Code** carga `.claude/commands/*.md` como *slash commands* nativos: `/setup`,
+  `/onboard REDES`, etc. (con argumentos).
+- **Codex** carga `.agents/skills/*/SKILL.md` como *Agent Skills*: se invocan con `$nombre`, desde el
+  selector `/skills`, o **automáticamente** cuando escribes el gatillo (cada skill declara en su
+  `description` las frases que la activan). Codex no soporta *slash commands* personalizados por
+  repositorio; las skills son su mecanismo equivalente y sí viajan con el repo.
 
 ## Funcionamiento
 
@@ -71,7 +158,7 @@ Tres capas, una sola fuente de verdad:
 
 ```text
 ┌─ Bootstraps (finos, < 32 KiB) ──────────────────────────────────────────────┐
-│   CLAUDE.md   (Claude Code lo lee)        AGENTS.md   (Codex lo lee, auto)    │
+│   CLAUDE.md  (Claude Code lo lee)        AGENTS.md  (Codex lo lee, automático)│
 │   · misma tabla de gatillos en lenguaje natural (verificada idéntica)        │
 │   · no contienen lógica: redirigen a ▼                                       │
 ├─ methodology/ — el "cerebro" (tool-agnóstico) ──────────────────────────────┤
@@ -87,16 +174,14 @@ Tres capas, una sola fuente de verdad:
 **Paridad entre agentes.** Codex descubre y lee `AGENTS.md` recorriendo desde la raíz del repo;
 Claude Code lee `CLAUDE.md`. Ambos contienen la **misma** especificación de gatillos y apuntan al
 mismo `methodology/`. Por eso el sistema se comporta igual en los dos sin mantener dos
-implementaciones. Como conveniencia opcional, los gatillos existen además como *slash-commands*
-en `.claude/commands/` y como *Agent Skills* en `.agents/skills/`, pero el sistema no depende de ellos.
+implementaciones, e independientemente de qué mecanismo de comandos use cada herramienta.
 
 ## Comportamiento del agente: traza de una sesión
 
-El diseño del bucle de sesión, ilustrado. La primera sesión de una asignatura es un examen en frío
-(diagnóstico), no una clase:
+La primera sesión de una asignatura es un examen en frío (diagnóstico), no una clase:
 
 ```text
-$ sesion algoritmos
+$ /sesion algoritmos
 
 Kaichō — Primera sesión de Algoritmos. Hoy no estudiamos: medimos el punto de partida.
    Examen real de 2022, en frío: sin apuntes, sin pistas, 50 min. La nota de hoy es un
@@ -127,9 +212,9 @@ Kaichō — Exacto. +5. Ahora una partición de [5,3,8,1] con pivote 5, en papel
    ── la resuelve ──
 
 Kaichō — Correcto, sin pista. +20. Hueco cerrado. Mañana te lo vuelvo a preguntar en frío
-   (repetición espaciada). Escribe `log` para cerrar.
+   (repetición espaciada). Escribe /log para cerrar.
 
-$ log
+$ /log
 
 Round cerrado.
    examen en frío completado .............. +100
@@ -152,21 +237,8 @@ Las políticas del agente se derivan de **_Make It Stick: The Science of Success
 - **Calibración / ilusión de fluidez**: la familiaridad no es dominio; se mide con desempeño en frío.
 - **Inexistencia de "estilos de aprendizaje"**: se estudia según lo que exige el examen.
 
-La consecuencia de diseño: el sistema **mide conocimiento real** (accuracy en ejercicios tipo), no la
+Consecuencia de diseño: el sistema **mide conocimiento real** (accuracy en ejercicios tipo), no la
 sensación de haber estudiado.
-
-## Gatillos
-
-Idénticos en Claude Code y Codex. El agente reconoce variantes y sinónimos.
-
-| Gatillo | Función |
-|---|---|
-| `setup` | Entrevista global (una vez). Construye el perfil. |
-| `onboard <asignatura>` | Ingesta de material, mapa de la asignatura, minería de patrones de examen, selección de estrategia y plan inverso. |
-| `sesion <asignatura>` | Bucle de estudio activo. |
-| `pausa` / `reanudar` | Control del cronómetro (el tiempo en pausa no computa como estudio). |
-| `log` | Cierre: registro fechado, actualización de métricas y estado de juego. |
-| `recalibrar` | Replanificación con el ritmo real medido en los logs. |
 
 ## Gamificación como restricción de diseño
 
@@ -190,37 +262,14 @@ y accuracy** —exámenes en frío, resolver sin pistas, acertar lo que antes se
 cero. Gamificar el estudio pasivo reforzaría justo la ilusión de fluidez que el sistema combate; por
 eso la métrica de progreso está atada a desempeño verificable, no a tiempo invertido.
 
-## Inicio rápido
-
-Con el botón **Use this template** de GitHub, o clonando:
-
-```bash
-git clone https://github.com/hoodrichpirobo/kaicho.git
-cd kaicho
-```
-
-Abre la carpeta con Claude Code o Codex y escribe `setup` (entrevista única; privada). Después, por
-asignatura:
-
-```bash
-cp -r cuatrimestres/_TEMPLATE_CUATRIMESTRE cuatrimestres/2026-01_a_2026-07
-cp -r cuatrimestres/2026-01_a_2026-07/asignaturas/_TEMPLATE_ASIGNATURA \
-      cuatrimestres/2026-01_a_2026-07/asignaturas/REDES
-# coloca el material (sobre todo exámenes de años anteriores) en sus carpetas, y:
-#   onboard REDES   →   sesion REDES   →   log
-```
-
-Ciclo operativo: `sesion` → entrenar → `log`; al día siguiente se retoma desde el último log;
-`recalibrar` cuando el ritmo real lo exija.
-
 ## Privacidad: plantilla vs. instancia
 
 El repositorio público **es la plantilla**, no los datos. El `.gitignore` excluye:
 
 - El perfil del estudiante (`perfil/ESTUDIANTE.md`, `perfil/PSICOLOGIA.md`). Las plantillas
   `_TEMPLATE_*` sí se publican, vacías.
-- El trabajo de cada cuatrimestre (`cuatrimestres/*`, salvo la plantilla): incluye material
-  universitario con copyright y el progreso personal.
+- El trabajo de cada cuatrimestre (`cuatrimestres/*`, salvo la plantilla): material universitario con
+  copyright y progreso personal.
 
 El material de la asignatura y los datos personales **no salen de la máquina local**.
 
@@ -231,9 +280,9 @@ kaicho/
 ├── README.md
 ├── CLAUDE.md · AGENTS.md         bootstraps (gatillos) para Claude Code y Codex
 ├── .gitignore                    aísla datos personales y material con copyright
-├── methodology/                  00-MANIFEST … 11-GAMIFICACION (12 archivos)
-├── .claude/commands/             slash-commands (conveniencia)
-├── .agents/skills/               Agent Skills de Codex (conveniencia)
+├── methodology/                  el cerebro: 00-MANIFEST … 11-GAMIFICACION (12 archivos)
+├── .claude/commands/             slash commands nativos de Claude Code (/setup, /onboard, …)
+├── .agents/skills/               Agent Skills de Codex ($setup, $onboard, …)
 ├── perfil/                       perfil global (instancia local) + plantillas públicas vacías
 └── cuatrimestres/
     └── _TEMPLATE_CUATRIMESTRE/    se copia por cuatrimestre
@@ -250,9 +299,10 @@ kaicho/
 **¿Requiere asistir a clase?** No. Está diseñado para estudiar con el material que la universidad
 publica en línea.
 
-**¿Claude Code o Codex?** Cualquiera. El comportamiento es equivalente por diseño.
+**¿Claude Code o Codex?** Cualquiera. El comportamiento es equivalente por diseño; solo cambia el
+mecanismo nativo con que invocas los comandos (ver [Comandos](#comandos)).
 
-**¿Sirve para cualquier titulación?** Sí. La metodología es genérica; `onboard` se adapta a cada
+**¿Sirve para cualquier titulación?** Sí. La metodología es genérica; `/onboard` se adapta a cada
 asignatura a partir de su guía docente y sus exámenes.
 
 **¿Y si no existen exámenes de años anteriores?** El sistema los exige primero (máxima señal). Si no

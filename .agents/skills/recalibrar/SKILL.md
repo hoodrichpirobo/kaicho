@@ -1,6 +1,6 @@
 ---
 name: recalibrar
-description: Reajusta el plan de estudio con el ritmo real, sin promesas falsas. Úsala cuando el usuario escriba "recalibrar", "replanificar" o diga que va mal de tiempo / que no le cuadra el plan.
+description: Reajusta el plan de estudio con el ritmo real, sin promesas falsas. Úsala cuando el usuario escriba "/recalibrar", "recalibrar", "replanificar" o diga que va mal de tiempo / que no le cuadra el plan.
 ---
 
 # recalibrar

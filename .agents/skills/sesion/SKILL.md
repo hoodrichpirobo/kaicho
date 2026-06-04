@@ -1,6 +1,6 @@
 ---
 name: sesion
-description: Un round de entrenamiento de estudio activo con cierre gamificado. Úsala cuando el usuario escriba "sesion <asignatura>", "entrenar", "round" o "vamos". La primera sesión de una asignatura es un examen en frío.
+description: Un round de entrenamiento de estudio activo con cierre gamificado. Úsala cuando el usuario escriba "/sesion", "sesion <asignatura>", "entrenar", "round" o "vamos". La primera sesión de una asignatura es un examen en frío.
 ---
 
 # sesion

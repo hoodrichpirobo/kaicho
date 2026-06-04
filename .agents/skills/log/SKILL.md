@@ -1,6 +1,6 @@
 ---
 name: log
-description: Cierre de sesión de Kaichō: registra el log fechado, actualiza el tablero de juego y narra la victoria del día. Úsala cuando el usuario escriba "log", "cerrar sesión" o "fin del round".
+description: Cierre de sesión de Kaichō: registra el log fechado, actualiza el tablero de juego y narra la victoria del día. Úsala cuando el usuario escriba "/log", "log", "cerrar sesión" o "fin del round".
 ---
 
 # log

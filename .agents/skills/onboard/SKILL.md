@@ -1,6 +1,6 @@
 ---
 name: onboard
-description: Alta de una asignatura en Kaichō (ingesta de material, MAPA, minería de exámenes, estrategia y plan). Úsala cuando el usuario escriba "onboard <asignatura>", "alta de asignatura" o "dar de alta". Requiere que setup ya se haya hecho.
+description: Alta de una asignatura en Kaichō (ingesta de material, MAPA, minería de exámenes, estrategia y plan). Úsala cuando el usuario escriba "/onboard", "onboard <asignatura>", "alta de asignatura" o "dar de alta". Requiere que setup ya se haya hecho.
 ---
 
 # onboard

@@ -1,6 +1,6 @@
 ---
 name: setup
-description: Entrevista global de Kaichō (una vez) para crear el perfil del estudiante. Úsala cuando el usuario escriba "setup", "empezar", "inicializar" o "configurar" y aún no exista perfil/ESTUDIANTE.md. No la uses para dar de alta una asignatura (eso es "onboard").
+description: Entrevista global de Kaichō (una vez) para crear el perfil del estudiante. Úsala cuando el usuario escriba "/setup", "setup", "empezar", "inicializar" o "configurar" y aún no exista perfil/ESTUDIANTE.md. No la uses para dar de alta una asignatura (eso es "onboard").
 ---
 
 # setup

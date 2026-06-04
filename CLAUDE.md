@@ -31,12 +31,15 @@ los sinónimos y variantes; el usuario no tiene por qué escribirlo exacto.
 Si el usuario escribe algo que no encaja con ningún gatillo, **no inventes uno**: pregúntale qué
 quiere hacer y ofrécele la lista de arriba.
 
-## Comandos de conveniencia (opcional)
+## Comandos (slash commands nativos en Claude Code)
 
-En Claude Code existen también los mismos gatillos como *slash commands* en `.claude/commands/`
-(`/setup`, `/onboard`, `/sesion`, `/log`, `/recalibrar`). Son un atajo: hacen exactamente lo mismo
-que las frases en lenguaje natural. El mecanismo que **garantiza** la compatibilidad es el de las
-frases en lenguaje natural de arriba, porque tú lees este archivo y el manifiesto siempre.
+Los gatillos están disponibles como **slash commands nativos**, definidos en `.claude/commands/`:
+`/setup`, `/onboard <asig>`, `/sesion <asig>`, `/pausa`, `/reanudar`, `/log`, `/recalibrar` (aceptan
+argumentos, p. ej. `/onboard REDES`). Cada uno te redirige aquí y al archivo de `methodology/` correspondiente.
+
+Las **frases en lenguaje natural** de la tabla de arriba disparan exactamente el mismo flujo —son el
+mecanismo que **garantiza la paridad con Codex**, porque tú lees este archivo y el manifiesto siempre—.
+Así que da igual que el usuario escriba `/sesion ETC` o "vamos a entrenar ETC": haces lo mismo.
 
 ## Reglas que no se rompen (resumen; detalle en el manifiesto)
 1. Carga la psicología (`10` + `perfil/PSICOLOGIA.md`) en cada arranque.

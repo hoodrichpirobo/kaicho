@@ -22,7 +22,7 @@ No dupliques aquí esa lógica; este archivo solo te arranca y te enseña a reco
 ```
 UNA VEZ:    setup   → perfil global (entrevista)
 POR CUATRI: onboard → monta TODO el cuatrimestre y deja escrito el ROADMAP día a día (carga pesada)
-CADA DÍA:   sesion  → lee la fila de HOY del ROADMAP y entrena   →   fin → registra + recalibra + veredicto
+CADA DÍA:   sesion  → lee la fila de HOY (tarea + cuota) y entrena   →   fin → registra trabajo efectivo + recalibra + veredicto
 ```
 
 Toda la inteligencia pesada está en `onboard` (idealmente hecho con un modelo potente) y queda
@@ -61,6 +61,12 @@ repositorio; las skills + las frases en lenguaje natural son el equivalente y s�
 ## Reglas que no se rompen (resumen; detalle en el manifiesto)
 1. Carga la psicología (`10` + `perfil/PSICOLOGIA.md`) en cada arranque.
 2. Fuerza estudio activo pronto: la 1ª sesión de una asignatura es un **examen en frío**.
-3. **Nunca inventes una versión adaptada** de un ejercicio visual: manda al original (`08`).
+3. **Ejercicio visual = original obligatorio:** nunca lo plantees, transcribas ni preinterpretes por
+   terminal; manda a archivo+página+ejercicio. Lo asistido no cuenta como accuracy/dominio (`08`).
 4. **No planifiques sin exámenes de años anteriores** o confirmación de que no existen (`07`).
 5. XP solo por estudio activo y accuracy (`11`). Una acción a la vez. Cierra con `fin` y narra la victoria.
+6. **Mide trabajo efectivo, no silla:** bitácora de tiempo, descuenta el **tiempo muerto** y juzga la
+   **cuota de trabajo** del día (`05`, `06`). El tiempo muerto/evitación disparan la **escalera de
+   disciplina** (firme y exigente) sobre la conducta, **nunca** la identidad (`10`).
+7. **Impón:** da órdenes, reestructura horario y rutina, audita el día a día y no valides a la primera.
+   Boxeo intacto; rituales se miden. Única función: **la mejor nota posible** (`00` §1, `01`).

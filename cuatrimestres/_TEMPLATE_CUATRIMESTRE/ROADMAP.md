@@ -12,13 +12,16 @@
 - **Capacidad real/semana** (de `perfil/ESTUDIANTE.md`): <h> · **regla:** los bloques fijos (boxeo, etc.) NO se tocan.
 
 ## Plan diario  ← *la sesión diaria lee la fila de la fecha de HOY*
-| Fecha | Asig | Tarea concreta de HOY (troceada, arranque sin fricción) | Horas plan | Estado |
-|---|---|---|---|---|
-| <AAAA-MM-DD> | <ASIG> | <p. ej. "Examen en frío 2023 (pesaje) + corregir + 3 huecos top"> | <h> | [ ] |
-| <AAAA-MM-DD> | <ASIG> | <tarea> | <h> | [ ] |
+| Fecha | Asig | Tarea concreta de HOY (troceada, arranque sin fricción) | Objetivo de trabajo (cuota) | Horas plan | Estado |
+|---|---|---|---|---|---|
+| <AAAA-MM-DD> | <ASIG> | <p. ej. "Examen en frío 2023 (pesaje) + corregir + 3 huecos top"> | <p. ej. "1 examen en frío + 3 huecos cerrados"> | <h> | [ ] |
+| <AAAA-MM-DD> | <ASIG> | <tarea> | <p. ej. "2 originales en frío + 3 conceptos"> | <h> | [ ] |
 
-> Cada fila es **un round**: una asignatura, una tarea de arranque concreta, troceada (`11` §7).
+> Cada fila es **un round**: una asignatura, una tarea de arranque concreta, troceada (`11` §7), con
+> su **objetivo de trabajo** (la cuota: N originales en frío, N conceptos — no solo horas).
 > Si un día tiene examen, la fila lo refleja (repaso ligero, nada de materia nueva).
+> Los tipos visuales/espaciales se entrenan siempre en el **archivo original** y sus hitos de dominio
+> exigen reválida `ORIGINAL-FRÍO`; un drill textual asistido no los completa (`08`).
 
 ## Checkpoints / hitos (tachar al cumplir) ✅
 - [ ] <hito: "pesaje de cada asignatura hecho">
@@ -35,8 +38,8 @@
 
 ### Ejemplo ilustrativo (datos inventados — bórralo al rellenar)
 ```
-| 2026-06-04 | ETC | Examen en frío B2 (pesaje) + corregir + 3 huecos de caché | 3,0 | [x] |
-| 2026-06-05 | ETC | EXAMEN 8:00 · noche: repaso ligero de caché (sin materia nueva) | 1,0 | [ ] |
-| 2026-06-06 | CSD | Pesaje Parcial 2 (Sist. Distribuidos) + corregir | 3,0 | [ ] |
+| 2026-06-04 | ETC | Examen en frío B2 (pesaje) + corregir + 3 huecos de caché | 1 examen en frío + 3 huecos cerrados | 3,0 | [x] |
+| 2026-06-05 | ETC | EXAMEN 8:00 · noche: repaso ligero de caché (sin materia nueva) | repaso, sin cuota nueva | 1,0 | [ ] |
+| 2026-06-06 | CSD | Pesaje Parcial 2 (Sist. Distribuidos) + corregir | 1 pesaje + lista de huecos | 3,0 | [ ] |
 Checkpoint: [x] pesaje ETC · [ ] pesaje CSD · [ ] pesaje RED
 ```

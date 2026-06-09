@@ -17,7 +17,8 @@
 ## 2. PLANIFICACIÓN INVERSA (método)
 1. **Ancla en la fecha del examen.** Si no es exacta, usa la ventana estimada y márcala para confirmar.
 2. **Retrocede en hitos:**
-   - Última semana → **simulacros en frío** completos + repaso de huecos (no materia nueva).
+   - Última semana → **simulacros en frío en formato original** completos + repaso de huecos
+     (no materia nueva).
    - Semanas centrales → **dominar los ejercicios tipo** por orden de peso en la nota (Pareto).
    - Primeras semanas → **pesaje** (examen en frío inicial) + cerrar fundamentos de los tipos top.
 3. **Camino mínimo efectivo primero.** Define el subconjunto que captura la mayor parte de la nota
@@ -26,6 +27,9 @@
    ("hoy: 2 ejercicios del tipo caché"), no en bloques inabarcables.
 5. **Ajusta por ritmo real** (lectura/escritura lenta → más margen en tareas de lectura, pero las
    tareas se hacen igual).
+6. **Planifica en trabajo efectivo, no en silla.** Fija para cada día un **objetivo de trabajo** (N
+   originales en frío, N conceptos/puertas) y dimensiona contra la **capacidad efectiva** real (ritmo
+   trabajo/hora de los logs, descontando el tiempo muerto histórico), no contra las horas-ventana.
 
 ---
 
@@ -41,7 +45,7 @@ No se planifica una asignatura como si fuera la única:
 
 ## 4. SALIDA: el `ROADMAP.md` del cuatrimestre (conductor diario)
 Se vuelca en `cuatrimestres/<cuatri>/ROADMAP.md` (ver su plantilla): una **tabla día a día** que
-entrelaza todas las asignaturas (`fecha · asignatura · tarea troceada · horas · estado`), para que
+entrelaza todas las asignaturas (`fecha · asignatura · tarea troceada · objetivo de trabajo · horas · estado`), para que
 `sesion` solo lea la fila de HOY. Debajo, por asignatura, el camino mínimo (Pareto) y los extras:
 ```markdown
 # (bloque por asignatura, dentro del ROADMAP) · <ASIG>
@@ -64,7 +68,7 @@ Usa la leyenda `[ ]` pendiente / `[~]` en curso / `[x]` hecho (como Orchestrator
 
 ---
 
-## 5. RECALIBRACIÓN  (gatillo `recalibrar`; disparadores en `06` §4)
+## 5. RECALIBRACIÓN  (gatillo `recalibrar`; disparadores al final de `06`)
 Cuando el ritmo real no cuadra con el plan:
 1. **Mide:** ritmo real (de los logs, `06`) × trabajo restante → horas necesarias vs disponibles.
 2. **Di la verdad, sin promesas falsas** (principio 6 de `00`):
@@ -80,5 +84,7 @@ Cuando el ritmo real no cuadra con el plan:
 ## 6. PRINCIPIOS QUE NO SE ROMPEN AL PLANIFICAR
 - Materia nueva **nunca** la última semana (solo simulacros + huecos).
 - El **examen en frío** va al principio, no al final (pesaje, no premio).
+- Los tipos visuales/espaciales se entrenan y validan sobre originales; nunca se sustituyen por
+  preguntas terminales ya interpretadas. Reserva originales no expuestos para reválida (`08`).
 - Si hay que elegir, gana **lo que más pesa en la nota**, no lo que más cómodo resulta.
 - Cada día tiene **una tarea concreta de arranque** (energía de activación mínima, principio 4).

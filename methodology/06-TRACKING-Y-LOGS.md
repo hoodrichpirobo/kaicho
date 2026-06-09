@@ -9,23 +9,55 @@
 
 ## PASOS DEL `fin` (en orden, sin saltarte ninguno)
 
-### 1. Cierra el crono
-Para el cronómetro. Calcula **horas reales** = tiempo activo − pausas.
+### 1. Cierra el crono y reparte el tiempo (bitácora)
+Para el cronómetro y cierra la **bitácora** (`05` §0/§6). Reparte el tiempo en tres, con los sellos `date`:
+- **Silla** = T0 → cierre (lo que duró la sesión de punta a punta).
+- **Efectivo** = silla − pausas − **tiempo muerto** (lo realmente trabajado). **Esto es lo que cuenta.**
+- **Muerto** = huecos sin trabajo (tramos entrega→regreso desproporcionados, ausencias sin pausa).
 
-### 2. Escribe el log fechado (un fichero por sesión)
+Si silla ≫ efectivo, **dilo sin maquillar** en el veredicto y aplica la consecuencia (§6). "Llevas 3 h"
+no es lo mismo que "trabajaste 1 h efectiva": aquí se separan, y solo la efectiva es estudio.
+
+### 2. Auditoría de integridad del entrenamiento (`08`)
+Antes de calcular accuracy, XP o dominio, revisa cada ejercicio:
+- `ORIGINAL-FRÍO`: formato original y ninguna ayuda/preinterpretación → sí puede contar para accuracy.
+- `ORIGINAL-ASISTIDO`: hubo intento propio del original y luego ayuda → práctica/cobertura, no accuracy.
+- `PREINTERPRETADO`: el coach tradujo/extrajo/clasificó antes del intento o se vio solución → no
+  valida preparación de examen; registra la violación y deja reválida pendiente.
+
+Si un ejercicio visual se planteó por terminal o el coach dio rutas/datos visibles ya seleccionados,
+**reclasifícalo como `PREINTERPRETADO` aunque el resultado final sea correcto**. Retira cualquier
+afirmación previa de dominio, hueco cerrado o nota proyectada.
+
+### 3. Escribe el log fechado (un fichero por sesión)
 En `cuatrimestres/<cuatri>/asignaturas/<ASIG>/LOGS/AAAA-MM-DD_<ASIG>[_n].md` (`_n` si hay >1 ese día):
 
 ```markdown
 # Log · <ASIG> · <AAAA-MM-DD>
-- **Round nº:** <n>   ·   **Horas reales:** <h:mm> (sin pausas)
+- **Round nº:** <n>   ·   **Tiempo:** silla <h:mm> · **efectivo <h:mm>** · muerto <h:mm>
 - **Tipo:** examen en frío | ejercicios tipo | recall espaciado | mixta
 
-## Qué se hizo (activo)
-- <tarea> — <tiempo> — resultado
+## Trabajo efectivo (la cuota, no la silla)
+- **Cuota del día (del ROADMAP):** <objetivo de trabajo> → **CUMPLIDA / PARCIAL / NO**
+- **Originales tocados:** <n> (<cuáles>)   ·   **Ejercicios en frío:** <intentados>/<superados>
+- **Conceptos/puertas cerradas:** <lista>   ·   **Reválidas hechas/pendientes:** <...>
+- **Ritmo:** <trabajo por hora efectiva, p. ej. "1,5 originales/h">   ·   **Tiempo muerto:** <h:mm> — <causa>
 
-## Accuracy en ejercicios tipo
-| Tipo | Intentados | Correctos sin pista | % |
+## Qué se hizo (activo)
+- <tarea/original exacto> — <tiempo> — <ORIGINAL-FRÍO | ORIGINAL-ASISTIDO | PREINTERPRETADO> — resultado
+
+## Puertas verificadas (`08`)
+| Tipo/ejercicio | Comprensión textual | Visual/notacional | Modelado/plan | Ejecución |
+|---|---|---|---|---|
+| <...> | frío/asistido/pendiente | frío/asistido/N-A/pendiente | frío/asistido/pendiente | frío/asistido/pendiente |
+
+## Accuracy válida de examen
+> Solo intentos `ORIGINAL-FRÍO`; lo asistido no entra en el denominador ni numerador.
+| Tipo | Originales en frío intentados | Correctos en frío | % |
 |---|---|---|---|
+
+## Práctica asistida / reválidas pendientes
+- <tipo> — ayuda recibida / puerta preinterpretada — <otro original que debe resolver en frío>
 
 ## Recall espaciado
 - Cerrados (acertados en frío): <...> → +XP   ·   Aún débiles: <...>
@@ -38,37 +70,53 @@ En `cuatrimestres/<cuatri>/asignaturas/<ASIG>/LOGS/AAAA-MM-DD_<ASIG>[_n].md` (`_
 ```
 > **Append-only:** no reescribas logs viejos. Un fichero nuevo por sesión.
 
-### 3. Marca el `ROADMAP.md`
+### 4. Marca el `ROADMAP.md`
 En la fila de HOY del `cuatrimestres/<cuatri>/ROADMAP.md`: `[x]` si se cumplió, `[!]` si NO (quedó a
 medias o no se hizo). Tacha los checkpoints/hitos que se hayan alcanzado.
 
-### 4. Actualiza el marcador `PROGRESO.md` (campaña; mecánicas en `11`)
+### 5. Actualiza el marcador `PROGRESO.md` (campaña; mecánicas en `11`)
 1. **XP** según `11` §2 (solo actividad/accuracy). Recalcula **cinturón** de la asignatura.
 2. **Racha:** marca el día en la rejilla.
 3. **Bracket / medallas / tachado / barras** de cobertura y accuracy.
+4. **Accuracy, nota actual en frío, dominio y huecos cerrados:** solo con `ORIGINAL-FRÍO`.
+5. Mantén visibles las **reválidas pendientes**. Un resultado asistido puede aumentar cobertura,
+   pero no la barra de accuracy ni el rango proyectado.
+6. **Métricas de trabajo efectivo:** acumula tiempo efectivo vs silla vs muerto, ritmo (trabajo/hora
+   efectiva) y **cuotas cumplidas**. Si hubo tiempo muerto u órdenes impuestas, refléjalo en la línea
+   **"Órdenes / disciplina activas"** del `PROGRESO`.
 
-### 5. RECALIBRACIÓN AUTOMÁTICA + VEREDICTO  ← *lo que pidió el estudiante*
+### 6. RECALIBRACIÓN AUTOMÁTICA + VEREDICTO  ← *lo que pidió el estudiante*
 Compara, con datos, **lo planeado vs lo hecho** y dictamina. Reglas simples:
 
-- **Ritmo:** trabajo restante (tipos/temas que faltan en `ROADMAP`) ÷ ritmo real (de los logs:
-  tipos dominados/hora) → **horas necesarias** hasta cada examen. Compáralo con las horas que quedan
-  en el `ROADMAP` (capacidad de `ESTUDIANTE.md`, **sin tocar los bloques fijos como el boxeo**).
+- **Ritmo:** trabajo restante (tipos/temas que faltan en `ROADMAP`) ÷ ritmo real **efectivo** (de los
+  logs: tipos dominados / **hora efectiva**, descontando tiempo muerto) → **horas efectivas
+  necesarias** hasta cada examen. Compáralo con las horas que quedan en el `ROADMAP` (capacidad de
+  `ESTUDIANTE.md`, **sin tocar los bloques fijos como el boxeo**).
 - Escribe **una línea de veredicto** en `PROGRESO.md` (sección "Veredicto diario") respondiendo:
-  1. ¿**Cumplió** el objetivo de hoy del roadmap? (sí / a medias / no)
-  2. ¿Va **bien o mal** respecto al plan?
-  3. ¿Necesita **más horas / más concentración**?
-  4. ¿A **este ritmo llega** bien al examen, o no?
+  1. ¿**Cumplió la cuota de trabajo** de hoy? (sí / parcial / no) — la cuota, no la silla.
+  2. ¿Cuánto **tiempo muerto** hubo y va **bien o mal** respecto al plan?
+  3. ¿Necesita **más trabajo efectivo / más concentración** (no solo "más horas")?
+  4. ¿A **este ritmo efectivo llega** bien al examen, o no?
+- La proyección usa únicamente evidencia `ORIGINAL-FRÍO`. Si solo hay aciertos asistidos, dilo:
+  **"entiende con ayuda; preparación de examen aún sin verificar"**. No proyectes una nota optimista.
 - **Actúa según el veredicto:**
   - Si va **en hora** → confirma y deja la fila de mañana lista.
   - Si va **algo retrasado** → ajusta el `ROADMAP` (mueve horas de "extras" a fundamentos; reparte lo
     pendiente en los próximos días) y dilo claro.
   - Si va **muy retrasado** (a este ritmo no llega) → **no mientas**: dispara `recalibrar`
     (`04` §5) y re-prioriza al **subconjunto de mayor nota** (Pareto), soltando lo demás.
+- **Disciplina y consecuencia (nivel de decepción):** si hubo tiempo muerto o la cuota quedó NO/parcial
+  por evitación, el veredicto **no es neutro**: regaño firme y data-backed (`10`) sobre la conducta e
+  **impón** una corrección concreta para mañana (arranque más temprano, franja pico bloqueada, trabajo
+  recolocado, sesión extra). Si clavó la cuota con poco tiempo muerto, **reconócelo fuerte** (eso se
+  celebra, no las horas). La identidad jamás se toca (`10`).
 - Anota el cambio en la **Bitácora de recalibración** del `ROADMAP.md`.
 
-### 6. Narra la victoria (entrenador de esquina, `11` §8)
-Delta de XP, cinturón, racha, ronda del torneo, y **una sola** acción para mañana. Si el día fue flojo:
-honesto pero sin vergüenza ("el campamento sigue; mañana volvemos"). Luego **para**.
+### 7. Narra la victoria (entrenador de esquina, `11` §8)
+Delta de XP, cinturón, racha, ronda del torneo, y **una sola** acción para mañana. Celebra **la cuota
+clavada y el foco limpio** (poco tiempo muerto), no la silla. Si el día fue flojo: honesto y duro con
+la conducta pero **sin tocar la identidad** ("el campamento sigue; mañana se arranca a la hora y se
+clava el primer original"). Luego **para**.
 
 ---
 

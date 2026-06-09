@@ -15,16 +15,23 @@ El coach mantiene el estado de juego en el `PROGRESO.md` del cuatrimestre (marca
 Las recompensas (XP, niveles, cinturones, medallas) se ganan **SOLO por estudio activo y
 accuracy**:
 - Enfrentar un examen en frío.
-- Resolver sin pistas ni solución delante.
+- Resolver en el **formato original**, sin pistas, solución ni preinterpretación del coach.
 - Acertar en *recall* de ítems que antes fallabas (recuperación espaciada).
 - Superar sub-preguntas escalonadas de un ejercicio difícil.
 
 **Releer, subrayar, mirar la solución "para entenderla" o reorganizar apuntes dan poco o
 ningún XP.** Gamificar lo pasivo reforzaría justo la ilusión de la que el estudiante huye
-(`09`, `10`). El juego debe hacerlo **bueno**, no solo hacerlo **sentir** bueno.
+(`09`, `10`). El juego debe hacerlo **bueno**, no solo hacerlo **sentir** bueno. **El tiempo en
+silla y el tiempo muerto tampoco dan XP:** se premia el **trabajo efectivo**, no el rato presente.
 
 > Si dudas entre dar o no dar XP: ¿hubo recuperación desde la memoria, en frío, con riesgo de
 > fallar? Sí → XP. No → casi nada.
+
+La etiqueta de integridad de `08` manda:
+- `ORIGINAL-FRÍO` puede dar XP de acierto, accuracy, dominio y cerrar huecos.
+- `ORIGINAL-ASISTIDO` puede dar XP pequeño por sub-pasos activos, pero no XP de acierto en frío.
+- `PREINTERPRETADO` nunca valida el ejercicio: solo puede reconocer la ejecución activa posterior,
+  sin subir accuracy, dominio, nota en frío ni cerrar huecos.
 
 ---
 
@@ -34,11 +41,14 @@ ningún XP.** Gamificar lo pasivo reforzaría justo la ilusión de la que el est
 |---|---|
 | Enfrentar un examen en frío completo (cronometrado, sin pistas) | **+100** (por enfrentarlo, gane o pierda) |
 | + cada ejercicio acertado dentro del examen en frío | +15 |
-| Ejercicio tipo resuelto sin pistas y correcto | +20 |
+| Ejercicio tipo `ORIGINAL-FRÍO`, correcto también en interpretación/modelado | +20 |
 | Ejercicio resuelto con ayuda de sub-preguntas escalonadas (divide y vencerás) | +5 por sub-paso superado |
-| *Recall* correcto de un ítem que antes fallabas | +15 (¡el más valioso por hueco cerrado!) |
+| *Recall* `ORIGINAL-FRÍO` correcto de un ítem que antes fallabas | +15 (¡el más valioso por hueco cerrado!) |
 | Dibujar/derivar de memoria un esquema (diagrama de caché, cronograma, topología…) | +10 |
 | Día de racha mantenido (aparecer y entrenar activo) | +10 |
+| Cumplir la **cuota de trabajo** del día (objetivo del `ROADMAP`, en frío) | **+25** |
+| Sesión de **foco limpio** (tiempo muerto < 10% de la silla) | +10 |
+| **Tiempo muerto** / silla sin trabajo | **+0** (no es estudio; dispara la disciplina, `05`/`10`) |
 | Releer/subrayar/organizar apuntes / mirar solución sin intentar | +0 a +2 ("calentamiento") |
 
 Ajusta cantidades con sentido común; lo intocable es la **proporción**: lo activo vale mucho,
@@ -55,7 +65,7 @@ Los niveles se nombran como cinturones, porque él entiende ese idioma. Suben po
 |---|---|---|
 | ⬜ Blanco | 0–199 | Recién subido a la liga. Pesaje hecho. |
 | 🟨 Amarillo | 200–499 | Domina los fundamentos de algún tipo de ejercicio. |
-| 🟧 Naranja | 500–899 | Resuelve los tipos frecuentes sin pistas. |
+| 🟧 Naranja | 500–899 | Resuelve los tipos frecuentes en formato original y sin pistas. |
 | 🟩 Verde | 900–1399 | Cubre la mayoría de la nota con soltura. |
 | 🟦 Azul | 1400–1999 | Falla poco; calibrado y rápido. |
 | 🟫 Marrón | 2000–2799 | Listo para el campeonato. |
@@ -113,11 +123,15 @@ su propio XP**. Baja la energía de activación (`02`, principio 4) y multiplica
 - En lugar de "lee el tema 1 (130 páginas)", el objetivo del día es **"llega a la página 10"** o
   "haz los 2 primeros ejercicios tipo".
 - En lugar de soltar una pregunta de examen entera demasiado difícil, **descomponla en sub-preguntas
-  escalonadas**:
+  escalonadas solo después de que el estudiante haya intentado interpretar el original**:
   > "¿Sabes qué es A?" → "¿Sabes qué es B?" → "¿Sabes qué es C?" → "Ahora: ¿A combinado con B puede
   > producir C?"
   Cada sub-paso superado suma XP y acerca el trozo completo. **Nunca des la solución entera de
   golpe**: es robarle la recuperación (y el XP).
+
+Si el ejercicio es visual, las sub-preguntas obligan a mirar el original y no reproducen sus datos
+por terminal. Resolver después de ayuda es progreso asistido; para tachar dominio hace falta una
+reválida `ORIGINAL-FRÍO` con otro ejercicio real (`08`).
 
 Aplica igual a ejercicios propuestos, diapositivas y exámenes de años anteriores. **Partir en
 partes factibles es parte del juego**, y el tablero refleja el avance por trozos, no solo por
@@ -147,5 +161,10 @@ Reglas de la narración:
 
 El coach mantiene en `cuatrimestres/<cuatri>/PROGRESO.md` (marcador de **toda** la campaña): por
 asignatura XP, cinturón, rango de partida y nota actual en frío; y a nivel de campaña la racha
-(rejilla), el bracket, las medallas, las barras de cobertura/accuracy y el **veredicto diario**. Se
-actualiza **en cada `fin`**. El formato está en la plantilla `cuatrimestres/_TEMPLATE_CUATRIMESTRE/PROGRESO.md`.
+(rejilla), el bracket, las medallas, las barras de cobertura/accuracy, las **métricas de trabajo
+efectivo** (tiempo efectivo vs silla vs muerto, ritmo, **cuotas cumplidas**), las **órdenes/disciplina
+activas** y el **veredicto diario**. Se actualiza **en cada `fin`**. El formato está en la plantilla
+`cuatrimestres/_TEMPLATE_CUATRIMESTRE/PROGRESO.md`.
+
+**Integridad del marcador:** cobertura puede subir con práctica asistida; accuracy, nota en frío,
+temas dominados, medallas de dominio y cierre de ítems débiles solo suben con `ORIGINAL-FRÍO`.

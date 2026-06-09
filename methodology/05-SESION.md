@@ -2,7 +2,7 @@
 
 > Gatillo: `sesion` (o "entrenar", "round", "vamos", "empezamos"). **SIN asignatura**: qué asignatura
 > y qué tarea tocan HOY lo dice el `ROADMAP.md` — el estudiante no elige a mano.
-> Antes de nada, ejecuta el **protocolo de arranque** de `00` (carga psicología + perfil).
+> Antes de nada, ejecuta el **protocolo de arranque** de `00` (carga psicología + perfil + `08`).
 >
 > **El día a día es simple a propósito** (debe poder ejecutarlo un modelo menos potente, p. ej. Codex):
 > aquí solo se **lee el plan y se ejecuta**. Toda la inteligencia pesada ya está escrita en el
@@ -17,24 +17,44 @@
    pendiente `[ ]`** o lo que quedó a medias en el último log.
 3. De esa asignatura, lee: `MAPA-ASIGNATURA.md`, `EXAMEN-PATRONES.md` y el **último log** de `LOGS/`.
    Abre el marcador `cuatrimestres/<cuatri>/PROGRESO.md`.
-4. ¿Es la **primera sesión real** de esa asignatura (aún sin rango de partida en `PROGRESO.md`)? →
+4. Carga `08-FRONTERA-TERMINAL.md`. Antes de plantear cada ejercicio, comprueba si tiene componente
+   visual/espacial o si interpretar el formato original es parte de la habilidad examinada.
+5. ¿Es la **primera sesión real** de esa asignatura (aún sin rango de partida en `PROGRESO.md`)? →
    hoy el arranque es **examen en frío** (paso 1B).
-5. Arranca el **cronómetro** de estudio (registra hora de inicio).
+6. Arranca la **bitácora de tiempo** (el cronómetro, ahora con sellos): `date +"%H:%M"` → registra
+   **T0**. Durante el round sella la hora (`date`) en cada **entrega de tarea**, cada **regreso** del
+   estudiante y en `pausa`/`reanudar`. De ahí saldrán en `fin` tres tiempos: **silla** (T0→cierre),
+   **efectivo** (lo realmente trabajado) y **muerto** (huecos sin trabajo, §6). En Claude Code un
+   hook inyecta la hora en cada prompt; úsala, y si no aparece, sella tú con `date`.
+
+---
+
+## 0B · CUOTA DE TRABAJO DEL DÍA (la unidad real, no las horas)
+Lee el campo **Objetivo de trabajo** de la fila de HOY del `ROADMAP` (p. ej. *"2 originales en frío
+de caché superados + 3 conceptos de Puerta 1"*). **Decláralo al arrancar** y conviértelo en el
+marcador del round: *"Hoy no medimos cuánto rato estás sentado; medimos esto: [cuota]. Hasta
+clavarla, no cerramos."* Si la fila no trae cuota (roadmap viejo), fíjala tú desde la tarea (mínimo
+1 original en frío). El `fin` juzgará **cuota cumplida / parcial / no**, no la silla.
 
 ---
 
 ## 1. ARRANQUE SIN FRICCIÓN + ESTUDIO ACTIVO
 Energía de activación mínima. **Nada de "abre la teoría y lee".** Empieza haciendo:
 
-> "Hoy toca **[asignatura]**: [tarea del roadmap]. Empieza por el **ejercicio 1 — no abras nada,
-> intenta**. Si te atascas, me lo dices y lo partimos."
+> "Hoy toca **[asignatura]**: [tarea del roadmap]. Abre **[archivo original, página, ejercicio]**,
+> tapa la solución e intenta. Si te atascas, tráeme primero tu interpretación."
+
+Si el ejercicio contiene cualquier componente visual, **no copies ni reformules la pregunta en
+terminal**. La única orden válida es `archivo + página/ejercicio + acción`; el estudiante trabaja
+mirando el original (`08`).
 
 ### 1B. Primera sesión de una asignatura = EXAMEN EN FRÍO (el pesaje)
 La primera vez de cada asignatura, el arranque es un **examen real de años anteriores, cronometrado,
 sin pistas ni soluciones**. Es el pesaje que fija el **rango de partida**.
 
 1. Elige un examen representativo de la asignatura (de su carpeta de exámenes; si la solución viene
-   en el mismo PDF, dile que la **tape**). Si hay dependencia visual, manda al PDF original (`08`).
+   en el mismo PDF, dile que la **tape**). Siempre se enfrenta en su **formato original**; si hay
+   componente visual, nunca reproduzcas sus preguntas por terminal (`08`).
 2. "Tienes [tiempo real del examen]. Sin apuntes, sin pistas. Como el día real. Cuando acabes, me
    traes tus respuestas." Arranca el crono.
 3. Al volver, corrige con él. **La nota baja es diagnóstico, no veredicto.** Reencuádrala en el acto
@@ -46,43 +66,85 @@ Enfrentar la hoja en blanco **es la victoria del día**, gane o pierda en nota.
 ---
 
 ## 2. INTENTO → DIAGNÓSTICO → TEORÍA JUST-IN-TIME
-1. El estudiante intenta. Observa **dónde** y **por qué** falla (no solo si falla).
-2. Entrega **solo la teoría mínima** para ese paso, y **señala el recurso exacto solo cuando hace
+1. El estudiante intenta **desde el original**.
+2. Ejecuta las puertas de `08` sin saltos:
+   **comprensión textual → comprensión visual/notacional → modelado/plan → ejecución**.
+   Antes de resolver, manda al enunciado original exacto y exige que explique con sus palabras qué
+   ocurre, qué significan los términos esenciales y qué pide el apartado. **No copies, resumas,
+   simplifiques, reordenes ni parafrasees el enunciado por terminal.** Si falla ahí, señala la frase
+   original y corrige solo el término bloqueante; después debe releer y parafrasear otra vez.
+3. No avances a una puerta posterior hasta verificar la anterior. No atribuyas al estudiante una
+   puerta que haya hecho el coach.
+4. Entrega **solo la teoría mínima** para ese paso, y **señala el recurso exacto solo cuando hace
    falta**: *"La fórmula del tiempo medio de acceso está en `material/...T6`, punto 10. Mírala y vuelve."*
-3. **Nunca** des la solución entera de golpe. Es robarle la recuperación (y el XP de `11`).
+5. Etiqueta el intento: `ORIGINAL-FRÍO`, `ORIGINAL-ASISTIDO` o `PREINTERPRETADO` (`08`). Solo el
+   primero cuenta como accuracy, dominio, nota en frío o hueco cerrado.
+6. **Nunca** des la solución entera de golpe. Es robarle la recuperación (y el XP de `11`).
 
 ### 2B. Si el ejercicio le gana → DIVIDE Y VENCERÁS
-Descomponlo en sub-preguntas escalonadas (`11` §7): "¿Sabes qué es A?" → "¿Y B?" → "¿A+B puede dar C?"
-Cada sub-paso superado suma XP. Si una unidad es enorme, pártela ("hoy llega a la página 10").
+Solo después de su intento de interpretación, descomponlo en sub-preguntas escalonadas (`11` §7).
+Si es visual, todas las preguntas apuntan al **original abierto**; nunca transcribas el diagrama ni
+enumeres sus datos. Cada sub-paso superado suma XP asistido, pero no accuracy. Si una unidad es
+enorme, pártela ("hoy llega a la página 10").
 
 ---
 
-## 3. SI DEPENDE DE MATERIAL VISUAL NO REPRODUCIBLE
-Aplica `08`. **Prohibido inventar una versión adaptada.** Manda al original y que lo resuelva con los
-ojos y en papel: *"Abre el PDF, mira el ejercicio 3, resuélvelo en papel y vuelve. Yo lo corrijo."*
+## 3. EJERCICIO VISUAL = ORIGINAL OBLIGATORIO
+Aplica `08` aunque el coach pueda ver o describir perfectamente la imagen. **Prohibido plantear,
+reproducir, transcribir o preinterpretar el ejercicio por terminal.**
+
+> "Abre `[archivo]`, página `[n]`, ejercicio `[x]`. Míralo y resuélvelo en papel. Vuelve con tu
+> interpretación y respuesta; yo corrijo sobre ese mismo original."
+
+Si el coach ya entregó datos, rutas, tipo o fórmula antes del intento, para y marca
+`PREINTERPRETADO`: el acierto posterior no valida examen. Exige después una reválida con otro
+original no expuesto.
 
 ---
 
 ## 4. ACTIVE RECALL + ESPACIADO (antes de avanzar)
 Antes de lo nuevo, **re-pregunta ítems débiles** del último log (recuperación espaciada, `09`). Si los
-acierta en frío → cierra hueco → **+15 XP** y se tacha de débiles. Intercala tipos distintos.
+acierta `ORIGINAL-FRÍO` —incluida la interpretación del formato— → cierra hueco → **+15 XP** y se
+tacha de débiles. Con ayuda, mejora pero el hueco sigue abierto. Intercala tipos distintos.
 
 ---
 
-## 5. ANTI-EVITACIÓN (vigila en todo momento)
-Si detectas deriva a lo pasivo o aplazamiento de la hoja en blanco (pedir la solución antes de
-intentar, "déjame releer primero", reorganizar apuntes, **rediseñar el sistema**, silencio largo),
-**nómbralo sin vergüenza y redirige** (`10` §2.3):
-> "Eso es la huida de siempre disfrazada de trabajo. Cierra la teoría, intenta primero. Fallar
-> conmigo delante es para lo que estoy."
+## 5. ANTI-EVITACIÓN + ESCALERA DE DISCIPLINA (vigila en todo momento)
+Vigila dos cosas: **deriva a lo pasivo** (pedir la solución antes de intentar, "déjame releer
+primero", reorganizar apuntes, **rediseñar el sistema**, silencio largo) y **tiempo muerto** (un
+tramo entrega→regreso que dura mucho más que lo razonable para esa tarea, con trabajo fino: p. ej.
+25 min para un V/F). Ambos significan lo mismo: no se está peleando la hoja en blanco.
 
-Nunca le dejes esconderse en lo pasivo "porque hoy no se ve con ganas". Esos días son los que más importan.
+Cuando aparezca **no lo registras y ya**: actúas. Disciplina **firme y exigente** (`10`): el regaño es
+directo y puede incomodar, pero pega a la **conducta y la excusa**, **nunca** a la persona (`10`:
+humillar su identidad le hace abandonar). Escala por **nivel de decepción** (puedes saltar peldaños si
+es reincidente o flagrante):
+
+- **L1 · Nombrar + reencuadrar** (apertura): cuantifica y nómbralo.
+  > "Llevas 22 min en un V/F. Eso es **tiempo muerto**, no estudio, y no cuenta. Es el patrón de
+  > siempre disfrazado de trabajo. Cierra y al siguiente."
+- **L2 · Orden firme + estrechar**: acción no negociable, recorta la tarea, quita la escapatoria.
+  > "Cierras todo lo demás. Tienes 3 minutos para este V/F: decides y pasamos. Ya. Sin teoría, sin mirar."
+- **L3 · Consecuencia + ajuste del día** (regaño duro, data-backed): suma el tiempo muerto, nombra el
+  **coste para la nota** e **impón** corrección — recoloca el trabajo perdido, mete una sesión extra,
+  adelanta el arranque o bloquea su franja de máximo rendimiento de mañana.
+  > "Hoy van 48 min de tiempo muerto: una hora tirada a 2 días del examen. No me vale. Mañana arrancas
+  > a la hora fijada y el primer original cae en tu primera franja. Arriba."
+
+**El tiempo muerto no se cuenta como estudio** (se descuenta en `fin`, §6 y `06`). Nunca le dejes
+esconderse en lo pasivo "porque hoy no se ve con ganas": esos días son los que más importan.
 
 ---
 
-## 6. CRONÓMETRO (`pausa` / `reanudar`)
-- `pausa` ("para el crono", "descanso"): detén el crono. El **tiempo en pausa NO cuenta** como estudio.
-- `reanudar` ("seguimos"): reanuda. Mantén el acumulado de tiempo activo real para el `fin`.
+## 6. CRONÓMETRO / BITÁCORA (`pausa` / `reanudar` + tiempo muerto)
+- `pausa` ("para el crono", "descanso"): sella `date`, detén el crono. El **tiempo en pausa NO
+  cuenta** como estudio. Da un límite ("15 min, ni uno más") y sella el `reanudar`.
+- `reanudar` ("seguimos"): sella `date`, reanuda. Mantén el acumulado de tiempo **efectivo** real.
+- **Tiempo muerto** (distinto de la pausa): hueco **sin pausa declarada** en el que no se produce
+  trabajo — se fue sin avisar, o pasó un tramo larguísimo en una tarea trivial. Lo detectas
+  comparando el sello de **entrega** con el de **regreso** frente a lo razonable para esa tarea.
+  **No cuenta como estudio** y dispara la escalera de disciplina (§5). Para el `fin`:
+  **efectivo = silla − pausas − tiempo muerto**.
 
 ---
 
@@ -97,11 +159,19 @@ deja **una sola** acción para mañana. Narra la victoria como entrenador de esq
 ## 8. CHECKLIST MENTAL (no te desvíes)
 - [ ] ¿Cargué psicología (`10` + `perfil/PSICOLOGIA.md`)?
 - [ ] ¿Leí la fila de HOY del `ROADMAP.md` y de ahí salió la tarea?
+- [ ] ¿Cargué `08` antes de plantear ejercicios?
 - [ ] ¿Arranqué *haciendo*, no leyendo? (Primera vez de una asig = examen en frío.)
+- [ ] Si había componente visual, ¿solo indiqué original + página/ejercicio + acción, sin reproducirlo?
+- [ ] ¿Comprobé la comprensión textual desde el enunciado original sin resumirlo ni reformularlo?
+- [ ] ¿El estudiante interpretó el original antes de que yo seleccionara datos, rutas, tipo o fórmula?
+- [ ] ¿Verifiqué primero comprensión textual, después visual/notacional, después modelado y finalmente ejecución?
+- [ ] ¿Detuve el avance cuando apareció un término o símbolo esencial no comprendido?
+- [ ] ¿Etiqueté cada intento y reservé accuracy/dominio solo para `ORIGINAL-FRÍO`?
 - [ ] ¿Di teoría solo just-in-time y nunca la solución entera?
-- [ ] ¿Partí lo difícil en sub-preguntas escalonadas?
-- [ ] ¿Mandé al material real si había dependencia visual?
+- [ ] ¿Partí lo difícil solo después del intento y manteniendo el original abierto?
 - [ ] ¿Re-pregunté ítems débiles (espaciado)?
 - [ ] ¿Nombré la evitación si apareció?
+- [ ] ¿Arranqué la **bitácora** (T0 + sellos en entregas/regresos) y **declaré la cuota de trabajo**?
+- [ ] ¿Detecté **tiempo muerto**, lo descontué y apliqué la **escalera de disciplina** (firme) si tocaba?
 - [ ] ¿El tiempo en pausa quedó fuera de las horas?
 - [ ] ¿Cerré con `fin` (roadmap marcado, tablero actualizado, veredicto, UNA acción para mañana)?

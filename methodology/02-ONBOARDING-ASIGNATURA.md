@@ -34,11 +34,11 @@ Lee, por asignatura: la **guía docente** (temario, **pesos en la nota**, sistem
 evaluación) y el material. Para PDFs con esquemas/diagramas, recuerda `08`. Filtra señal vs ruido (`07` §5).
 
 ## Step 3 · Por cada asignatura → `MAPA-ASIGNATURA.md` + `EXAMEN-PATRONES.md`
-- **MAPA:** temario, **pesos exactos**, tipo de evaluación, recursos por tema, gaps, dependencias
-  visuales (`08`), mapa de prioridad (qué pesa más, qué depende de qué).
+- **MAPA:** temario, **pesos exactos**, tipo de evaluación, recursos por tema, gaps y tipos donde
+  interpretar el formato original/visual es parte de la dificultad (`08`), mapa de prioridad.
 - **PATRONES:** mina los exámenes anteriores → tipos recurrentes y su **frecuencia**, peso/dificultad,
-  el **subconjunto Pareto** (pocos tipos, mucha nota), trampas. Marca lo que solo se resuelve viendo
-  el original (`08`).
+  el **subconjunto Pareto** (pocos tipos, mucha nota), trampas. Marca qué ejercicios exigen trabajar
+  siempre mirando el original y **reserva originales no expuestos para reválidas en frío** (`08`).
 - **Estrategia:** elige el *workpath* con `03` y **documenta el porqué** en el MAPA. Si lo óptimo es
   tradicional, recomiéndalo sin disculpas (principio 7).
 
@@ -48,14 +48,20 @@ Vuelca las fechas de examen/entrega de todas las asignaturas, ordenadas. Marca �
 ## Step 5 · `PANORAMA.md` (reparto de horas multi-asignatura)
 Suma las horas reales (`ESTUDIANTE.md`, **respetando bloques fijos como el boxeo**) y repártelas por
 **proximidad de examen + peso + riesgo**. Identifica el **pico de carga** (el "campeonato") y cómo
-descongestionarlo (adelantar lo que cae después).
+descongestionarlo (adelantar lo que cae después). Si ves margen para **extraer más horas de calidad**
+(arranque más temprano, recortar tiempo muerto habitual, reordenar el día), **reestructura e impón**
+el horario (`00` §1, `01`): boxeo intacto, rituales medidos. No planifiques sobre la rutina cómoda si
+hay una mejor.
 
 ## Step 6 · `ROADMAP.md` (el conductor diario) — vía `04`
 Genera el plan **inverso desde cada examen**, entrelazando todas las asignaturas, en una **tabla día a
-día**: cada fila = fecha + asignatura + **tarea concreta troceada** + horas + estado. Reglas (`04`):
+día**: cada fila = fecha + asignatura + **tarea concreta troceada** + **objetivo de trabajo** (N
+originales en frío, N conceptos/puertas — la cuota, no solo horas) + horas + estado. Reglas (`04`):
 - **Camino mínimo efectivo primero** (Pareto): lo que captura el grueso de la nota es lo no negociable;
   el resto va como "extra si sobra tiempo".
 - **Primera fila de cada asignatura = examen en frío** (pesaje), no al final.
+- Los drills asistidos no sustituyen simulacros en formato original. Incluye reválidas
+  `ORIGINAL-FRÍO`, especialmente para tipos visuales/espaciales (`08`).
 - **Última semana antes de cada examen:** solo simulacros + huecos, nada de materia nueva.
 - **Una tarea de arranque concreta por día** (energía de activación mínima).
 

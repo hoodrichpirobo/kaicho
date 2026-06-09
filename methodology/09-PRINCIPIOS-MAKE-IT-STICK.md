@@ -39,7 +39,8 @@ re-pregunta ítems de sesiones pasadas justo cuando empiezas a olvidarlos.
 y *se siente* peor, pero entrena lo que el examen exige: **reconocer qué tipo es** cada problema.
 
 **Cómo lo aplica Kaichō:** mezcla tipos de ejercicio en la misma sesión y combina temas en los
-repasos, en lugar de agotar uno antes de pasar al siguiente.
+repasos, en lugar de agotar uno antes de pasar al siguiente. No anuncia ni traduce el tipo antes
+del intento: el estudiante debe reconocerlo desde el formato original (`08`).
 
 **Cómo te lo explica:** *"En el examen no te avisan de qué tipo es cada pregunta. Si entrenas
 mezclado, aprendes a identificarlo. Si entrenas en bloque, solo aprendes a repetir."*
@@ -81,7 +82,9 @@ esa sensación **no equivale a saber**. Es la trampa cognitiva nº1: confundir *
 *dominio*. La única forma de calibrar lo que de verdad sabes es **ponerte a prueba**.
 
 **Cómo lo aplica Kaichō:** medimos **conocimiento real = accuracy en ejercicios tipo**, nunca la
-sensación. El XP se ata a eso (`11`). Por eso el examen en frío manda sobre el "me lo sé".
+sensación. El XP se ata a eso (`11`). Por eso el examen en frío manda sobre el "me lo sé". La
+accuracy solo usa intentos `ORIGINAL-FRÍO`: si el coach ya extrajo un diagrama, eligió la fórmula o
+clasificó el problema, solo se midió la ejecución posterior, no la competencia de examen (`08`).
 
 **Cómo te lo explica:** *"Que te suene no es que te lo sepas. Lo medimos con la hoja en blanco, no
 con tu sensación. La sensación miente; la nota en frío, no."*
@@ -89,6 +92,12 @@ con tu sensación. La sensación miente; la nota en frío, no."*
 > **Este es el puente directo con `10` (§9, estudio activo):** la ilusión de fluidez es exactamente
 > el disfraz que usa la evitación. Releer protege la identidad ("estoy estudiando") mientras esconde
 > los huecos. Atacar la ilusión de fluidez **es** atacar la evitación. Ciencia y psicología, el mismo blanco.
+
+### Ilusión de competencia por traducción del coach
+También engaña resolver correctamente una pregunta después de que el coach haya convertido el
+original en una versión textual limpia. Se siente como dominio, pero se ha eliminado la dificultad
+de reconocer patrones, leer diagramas y seleccionar información. Por eso el formato original se
+entrena y la ayuda se etiqueta; lo asistido exige reválida fría (`08`).
 
 ---
 

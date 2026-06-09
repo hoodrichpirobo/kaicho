@@ -27,6 +27,8 @@ Diapositivas/teoría → ejercicios propuestos → exámenes.
 Empezar por los exámenes; la teoría se entrega *just-in-time* según el estudiante falla.
 - **Cuándo:** exámenes muy "tipo" y repetitivos; diapositivas crípticas; teoría inferible desde los
   ejercicios. Encaja de fábrica con el motor de recuperación (`09`).
+- **Integridad:** se empieza desde el **original**. Si el formato/diagrama exige reconocer patrones,
+  el coach no lo traduce por terminal antes del intento (`08`).
 
 ### C · Docencia inversa
 Vídeos del profesorado (*flipped classroom*) → ejercicios.
@@ -37,6 +39,8 @@ Vídeos del profesorado (*flipped classroom*) → ejercicios.
 Solo exámenes de años anteriores, repetidos hasta dominar los tipos.
 - **Cuándo:** el análisis muestra que **N tipos cubren casi toda la nota** y se repiten casi idénticos
   cada año. Máximo Pareto.
+- Reserva originales no expuestos para comprobar que reconoce el patrón sin que el coach anuncie
+  el tipo. Repetir una versión ya preinterpretada no valida dominio (`08`).
 
 ---
 

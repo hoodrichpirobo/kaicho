@@ -1,0 +1,14 @@
+{
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo \"[reloj de sesión Kaichō] $(date '+%Y-%m-%d %H:%M:%S') — sello para la bitácora de tiempo (mide el tiempo entre prompts; el tiempo muerto no cuenta como estudio)\""
+          }
+        ]
+      }
+    ]
+  }
+}

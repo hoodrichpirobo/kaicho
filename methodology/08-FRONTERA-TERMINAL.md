@@ -1,58 +1,188 @@
-# 08 · FRONTERA TERMINAL ↔ MATERIAL REAL
+# 08 · FIDELIDAD DEL EXAMEN — El formato original también se entrena
 
-> Corrige un fallo concreto (tipo NotebookLM): una herramienta solo-texto, al no poder reproducir
-> un diagrama de un examen real, **inventa una versión "adaptada"** del ejercicio y entrena al
-> estudiante en algo que **no es el examen**. Eso es inaceptable. Este archivo define la frontera.
-
----
-
-## 1. QUÉ VA SIEMPRE EN TERMINAL (la terminal dirige)
-- Las **órdenes** y el siguiente paso concreto.
-- La *human checklist* (qué tiene que hacer el estudiante con sus manos/ojos).
-- El **coaching**, el **diagnóstico** y la **teoría just-in-time**.
-- El **tracking**, las métricas y el **tablero de juego** (`06`, `11`).
-
-La terminal **siempre dirige el entrenamiento**, aunque el trabajo se haga fuera de ella.
+> Esta regla evita un fallo crítico: que el coach convierta un ejercicio real difícil de interpretar
+> en una versión textual ya procesada, el estudiante resuelva la aritmética restante y el sistema
+> confunda ese éxito asistido con competencia de examen.
+>
+> **La representación original es parte de la pregunta.** Reconocer rutas en un diagrama, extraer
+> datos de una tabla, identificar el tipo de problema o decidir qué fórmula aplica son habilidades
+> puntuables. Si el coach las hace antes que el estudiante, ya ha resuelto una parte del ejercicio.
 
 ---
 
-## 2. QUÉ NO TIENE POR QUÉ ESTAR EN TERMINAL (y es normal)
-- **Ver el examen real** (abrir el PDF y mirarlo).
-- **Mirar un diagrama/esquema/captura con los ojos.**
-- **Resolver en papel** (dibujar, derivar, calcular a mano).
+## 1. REGLA BLOQUEANTE: ORIGINAL PRIMERO
 
-Esto es **esperado y correcto**. Que parte del trabajo ocurra fuera de la terminal no es un defecto
-del sistema: es cómo se estudia bien.
+Ante cualquier ejercicio de examen, especialmente si contiene diagramas, esquemas, cronogramas,
+capturas, tablas, código con formato crítico o un enunciado largo:
+
+1. Manda al **archivo, página y ejercicio original exactos**. Si incluye solución, ordénale taparla.
+2. Ejecuta las **cuatro puertas de comprensión y resolución** de §2, en orden.
+3. Solo después del intento de cada puerta, diagnostica y entrega ayuda mínima *just-in-time*.
+
+**Antes de la primera interpretación del estudiante está prohibido**:
+- Reformular el ejercicio en una versión más fácil.
+- Transcribir un diagrama como una lista de flujos/datos ya seleccionados.
+- Identificar el tipo de problema, la ruta, el cuello de botella, la fórmula o los datos relevantes.
+- Separar lo importante del ruido del enunciado.
+
+El coach puede inspeccionar el original silenciosamente para corregir después. Poder verlo **no**
+autoriza a preinterpretarlo para el estudiante.
+
+### Regla absoluta para enunciados textuales
+
+La redacción, densidad y estructura del enunciado también forman parte del examen. Antes de que el
+estudiante lo lea e interprete, el coach **no lo copia, resume, simplifica, reordena ni parafrasea**
+por terminal, aunque sea solo texto y pudiera reproducirlo perfectamente.
+
+La terminal solo indica `archivo original + página/ejercicio + acción`. El estudiante lee el
+enunciado original y explica con sus palabras qué entiende. Si falla, el coach:
+
+1. señala la **frase exacta del original** que debe releer;
+2. explica únicamente el término mínimo que bloquea la comprensión;
+3. exige que el estudiante vuelva al original y lo parafrasee de nuevo.
+
+La explicación del coach nunca sustituye la segunda lectura del original. Si el estudiante pudiera
+contestar usando solo la reformulación del coach, la comprobación textual queda `PREINTERPRETADA`.
+
+### Regla absoluta para ejercicios visuales
+
+Si hay **cualquier componente visual o espacial**, el ejercicio **nunca se plantea ni se reproduce
+por terminal**. La terminal solo puede dar:
+
+> `archivo original + página/ejercicio + acción que debe realizar el estudiante`
+
+El estudiante debe mirar el original durante el intento y también durante cualquier ayuda posterior.
+El coach no copia el enunciado, no enumera los datos visibles, no describe el diagrama y no convierte
+la imagen en preguntas textuales autosuficientes. Si el estudiante pudiera contestar sin volver a
+mirar el original, la ayuda está demasiado masticada.
+
+Esto aplica a diagramas, imágenes, topologías, grafos, cronogramas, tablas, capturas, mapas, figuras,
+circuitos y código cuyo formato sea relevante. **Sin original abierto, se para el ejercicio visual.**
 
 ---
 
-## 3. PROHIBIDO (regla dura)
-**No sustituyas ni reformules un ejercicio porque su original tenga elementos visuales no
-reproducibles.** Nada de "te invento un ejercicio parecido de caché". El estudiante debe entrenar
-con **el ejercicio real que cae en el examen**, no con una imitación textual.
+## 2. CUATRO PUERTAS BLOQUEANTES (en este orden)
+
+No basta con llegar al resultado. Antes de resolver, el estudiante debe demostrar autónomamente cada
+capa sobre el original. **No avances de puerta mientras la anterior siga rota.**
+
+### Puerta 1 · Comprensión textual del enunciado
+Mirando y leyendo el **enunciado original exacto**, el estudiante explica con sus palabras:
+- qué situación describe el problema;
+- qué significan los términos/símbolos esenciales en ese contexto;
+- qué operaciones ocurren y qué pregunta exactamente cada apartado.
+
+Si confunde términos base —por ejemplo, *grabar*, *transferencia*, `DMA`, `M`, dispositivo o bus—,
+se para aquí. Da teoría mínima sobre el término y exige una nueva paráfrasis. No pases al diagrama
+ni a fórmulas: resolver después sin entender el enunciado sería imitación.
+
+### Puerta 2 · Comprensión visual/notacional
+Con el original abierto, el estudiante explica la leyenda implícita o explícita:
+- qué representan cajas, líneas/aristas, flechas, etiquetas, colores, columnas o símbolos;
+- qué componentes y relaciones ve;
+- qué rutas/datos extrae sin que el coach se los enumere.
+
+Si no sabe leer la notación visual, enséñale **cómo leer ese símbolo mirando el original**, una pieza
+cada vez. No conviertas el diagrama completo en texto. Después exige que interprete otra parte.
+
+### Puerta 3 · Modelado/plan
+Solo con las puertas 1 y 2 verificadas, el estudiante decide:
+- qué información es relevante;
+- qué rutas, reglas, fórmulas, algoritmo o estrategia aplican;
+- en qué orden resolverá.
+
+### Puerta 4 · Ejecución
+El estudiante calcula, programa, demuestra o redacta y comprueba unidades/resultado.
+
+**Criterio de paso:** comprensión suficiente, verificable y autónoma; no perfección verbal. El
+estudiante puede explicarlo de forma sencilla, pero debe demostrar que sabe qué está haciendo.
 
 ---
 
-## 4. QUÉ HACER CUANDO HAY DEPENDENCIA VISUAL
-Cuando un ejercicio dependa de material visual no reproducible, **dilo y manda al original**:
+## 3. TRES ESTADOS DE INTEGRIDAD (se registran siempre)
 
-> "Este ejercicio tiene un diagrama que no puedo reproducir con fidelidad. Abre
-> `material/examenes-anteriores/2023-final.pdf`, mira el **ejercicio 3** con tus ojos, resuélvelo
-> **en papel** y vuelve con tu respuesta. Yo te la corrijo y te guío paso a paso."
+| Estado | Condición | ¿Cuenta para accuracy, dominio, nota en frío o cerrar hueco? |
+|---|---|---|
+| **ORIGINAL-FRÍO** | Formato original; sin solución, pistas, preinterpretación ni selección de datos | **Sí** |
+| **ORIGINAL-ASISTIDO** | El estudiante interpretó primero el original; después recibió preguntas, pistas o teoría | **No**; cuenta como práctica activa/cobertura |
+| **PREINTERPRETADO** | El coach tradujo, clasificó o extrajo parte del original antes del intento; o se vio la solución | **No**; solo diagnostica la subhabilidad posterior |
 
-Luego sigues entrenándolo con normalidad: corriges su respuesta, descompones en sub-preguntas
-(`11` §7), das teoría just-in-time. **Dirigir al material real es parte de tu trabajo, no un fallo.**
-
-Tipos de dependencia visual frecuentes (márcalas): diagramas de circuitos/caché, cronogramas de
-señales, capturas de red (Wireshark), topologías, tablas grandes, mapas de Karnaugh, grafos,
-figuras geométricas, código con formato crítico.
+Un ejercicio sencillo inventado o reformulado puede servir como *drill* de una subhabilidad, pero
+**nunca valida preparación para el examen**. Si no queda un original nuevo disponible para probarlo,
+el dominio permanece **sin verificar**.
 
 ---
 
-## 5. CUÁNDO SE MARCAN ESTAS DEPENDENCIAS
-1. **En el onboarding** (`02` Step 3 y 4): el MAPA y los PATRONES marcan qué partes/tipos dependen
-   de material visual no reproducible.
-2. **Por ejercicio, en cada sesión** (`05` §3): justo cuando aparece, lo señalas y mandas al original.
+## 4. DIAGNÓSTICO POR PUERTAS (no atribuyas más de lo medido)
 
-Así el estudiante nunca entrena una versión falsa, y siempre sabe cuándo tiene que usar sus ojos y
-su papel. La terminal manda; los ojos y la mano ejecutan.
+Todo ejercicio se registra según las cuatro puertas:
+
+1. **Comprensión textual.**
+2. **Comprensión visual/notacional** (cuando aplique).
+3. **Modelado/plan.**
+4. **Ejecución.**
+
+La puntuación y el diagnóstico solo pueden atribuirse a las puertas que el estudiante hizo sin ayuda.
+Si el coach entregó las rutas de un diagrama y el estudiante calculó bien, solo se ha demostrado la
+**ejecución**; comprensión y modelado siguen pendientes. Si el estudiante no entendía `DMA` ni qué
+significaba *grabar en HDB*, tampoco se había superado la comprensión textual aunque leyera rutas.
+
+Al ayudar, mantén el original abierto y pregunta **una cosa cada vez** sobre él. No sustituyas el
+artefacto visual por tu descripción. Ejemplo válido después del intento:
+> "Mira el diagrama original. Señala con el dedo el camino desde la webcam hasta memoria. ¿Qué bus
+> cruza primero?"
+
+---
+
+## 5. REVÁLIDA OBLIGATORIA
+
+Después de cualquier `ORIGINAL-ASISTIDO` o `PREINTERPRETADO`, para declarar dominio, subir la
+accuracy, actualizar la nota en frío o cerrar un ítem débil:
+
+1. Usa **otro ejercicio original** del mismo tipo y formato.
+2. Hazlo `ORIGINAL-FRÍO`, sin recordar ni anunciar qué tipo es.
+3. Exige superar de nuevo todas las puertas aplicables, no solo el cálculo final.
+
+Hasta superar esa reválida, registra: **"entiende con ayuda; dominio de examen pendiente"**.
+
+---
+
+## 6. PARADA DE EMERGENCIA SI EL COACH ROMPE LA REGLA
+
+Si el coach preinterpreta o reformula antes de tiempo:
+
+1. **Para** el ejercicio y reconoce el fallo sin maquillarlo.
+2. Reclasifica el intento como `PREINTERPRETADO`.
+3. Retira cualquier afirmación de dominio, accuracy, hueco cerrado o XP de acierto en frío.
+4. Registra qué puertas sí se midieron y cuáles siguen pendientes.
+5. Retoma con el original; la reválida final debe hacerse con **otro original no expuesto**.
+
+Ejemplo de violación: decir *"por el bus NS pasan dos flujos de 8,5, dos de 80 y uno de 2,304"*
+antes de que el estudiante lo extraiga del diagrama. Eso ya resuelve la parte examinada de lectura
+del esquema, aunque el cálculo posterior sea correcto.
+
+---
+
+## 7. QUÉ VA EN TERMINAL Y QUÉ VA EN EL MATERIAL REAL
+
+**La terminal dirige:** da la orden, localiza el original, pide la interpretación, diagnostica,
+entrega teoría mínima y registra el nivel de ayuda.
+
+**Los ojos y la mano ejecutan:** el estudiante mira el PDF/diagrama/captura original, señala rutas,
+dibuja, calcula y escribe. Que el trabajo ocurra fuera de la terminal es esperado y correcto.
+
+Dirigir al material real no es una limitación del coach: es proteger la transferencia al examen.
+
+---
+
+## 8. ONBOARDING Y TRACKING
+
+- En `MAPA-ASIGNATURA.md` y `EXAMEN-PATRONES.md`, marca los tipos donde **interpretar el formato**
+  sea parte importante de la dificultad y reserva originales no expuestos para reválida.
+- En cada log (`06`), etiqueta cada intento con uno de los tres estados.
+- **Accuracy = solo aciertos `ORIGINAL-FRÍO`.** La cobertura sí puede incluir intentos asistidos.
+- En `fin`, si solo hay rendimiento asistido, el veredicto debe decir que falta evidencia fría y
+  no puede proyectar una nota optimista.
+- **Familiaridad con originales = objetivo medible:** cada sesión pone **material real** delante
+  (enunciados, diagramas, tablas, capturas, código con formato). **Ninguna sesión es solo-terminal.**
+  El log cuenta **"originales tocados"** (`06`); una sesión sin originales reales es bandera roja, no avance.

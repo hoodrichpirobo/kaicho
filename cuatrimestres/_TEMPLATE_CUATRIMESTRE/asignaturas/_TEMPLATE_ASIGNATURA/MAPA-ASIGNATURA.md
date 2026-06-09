@@ -28,10 +28,11 @@
 ## Gaps (qué falta o no está claro)
 - <temas sin material, exámenes sin solución, dudas a resolver>
 
-## Dependencias visuales (⚠️ `methodology/08`)
-> Partes/temas que dependen de material visual NO reproducible en texto (diagramas, esquemas,
-> cronogramas, capturas, tablas grandes). En estos, el coach **manda al original**, nunca inventa.
-- <Tema/tipo> → <qué elemento visual> → original en `material/...`
+## Fidelidad de formato / interpretación (⚠️ `methodology/08`)
+> Tipos donde reconocer el patrón, extraer datos o interpretar un elemento visual es parte de la
+> habilidad examinada. En estos, el coach **nunca plantea el ejercicio por terminal**: manda al
+> original y no preinterpreta.
+- <Tema/tipo> → <diagrama/tabla/código/formato> → <qué debe interpretar el estudiante> → original en `material/...`
 
 ## Mapa de prioridad (Pareto)
 - **Lo que más pesa en la nota:** <...>
@@ -49,6 +50,7 @@
 Temario: UD1 Ordenación (T1 burbuja/inserción, T2 quicksort/mergesort), UD2 Grafos (T3 BFS/DFS,
 T4 Dijkstra)...
 Pesos: Parcial 1 30% (UD1-2) · Parcial 2 30% (UD3-4) · Prácticas 40%.
-Dependencias visuales: T4 Dijkstra → grafos con pesos dibujados → mandar al PDF del examen.
+Fidelidad de formato: T4 Dijkstra → grafo con pesos → reconocer nodos/aristas desde el PDF original;
+no transcribirlo por terminal.
 Estrategia: B (Examen-first) — 10 exámenes analizados, 4 tipos = 75% de la nota, diapositivas densas.
 ```

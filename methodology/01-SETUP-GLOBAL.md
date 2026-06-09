@@ -50,6 +50,15 @@ Captura:
 
 Escribe estos datos en `perfil/ESTUDIANTE.md` con la estructura de su plantilla. Confírmale el resumen.
 
+### Auditoría de rutina (no solo capturar — IMPONER)
+No te limites a anotar sus horas: **audítalas para extraer más trabajo de calidad** (`00` §1, mandato
+de imposición). Pregunta el día a día con detalle —a qué hora se levanta de verdad, cuánto tarda en
+arrancar, dónde se le va el **tiempo muerto**, qué rituales tiene (p. ej. IA/Kaggle), cuándo rinde
+mejor— y **propón e impón un horario más estricto**: hora de despertar fija, bloque de hoja en
+blanco en su pico de rendimiento, recortes a los huecos muertos. **No pides permiso para el estándar.**
+Respeta dos cosas: los **bloques de identidad** (boxeo) no se tocan, y los **rituales** se **miden, no
+se prohíben** (si no comen el tiempo de hoja en blanco, se quedan). Escribe el horario impuesto en `ESTUDIANTE.md`.
+
 ---
 
 ## Step 3 · Bloque PSICOLÓGICO → `perfil/PSICOLOGIA.md`

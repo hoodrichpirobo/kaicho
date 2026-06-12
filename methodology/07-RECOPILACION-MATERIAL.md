@@ -40,6 +40,10 @@ Sé concreto al pedirlos. Fuentes habituales:
 Pide **cuantos más años, mejor**, y tanto **enunciados** como **soluciones** (si las hay). Si hay
 exámenes **sin resolver**, son oro para los **exámenes en frío** (`05` §1B): guárdalos identificados.
 
+**Suelo: 2–3 años distintos por asignatura.** La **regla de los 2 exámenes** (`04` §2, `08` §3B)
+exige ≥2 DOMINADOS antes del examen y, si hay un tercero, se reserva **VIRGEN** para el simulacro
+final. Con uno solo se entrena el *overfitting*, no la asignatura.
+
 ---
 
 ## 4. SI NO EXISTEN EXÁMENES ANTERIORES
@@ -48,7 +52,11 @@ A veces no hay (asignatura nueva, profesor que no los comparte). Entonces:
 2. Usa sustitutos de máxima señal: **ejercicios propuestos**, **exámenes de muestra**, ejercicios
    resueltos en clase/vídeo, y exámenes de la **misma asignatura en otras universidades** con
    temario equivalente (con criterio).
-3. Documenta el gap en `MAPA-ASIGNATURA.md` y planifica con esa incertidumbre declarada.
+3. **Si solo hay UN examen real** (o ninguno), construye un **examen B compuesto**: ensambla
+   ejercicios **originales no expuestos** (boletines, propuestos, prácticas, muestras) siguiendo la
+   estructura, pesos y duración de `EXAMEN-PATRONES.md`. **Nunca redactes tú los ítems**: un ítem
+   inventado por el coach no valida examen (`08`). Márcalo como `COMPUESTO` en el banco (`08` §3B).
+4. Documenta el gap en `MAPA-ASIGNATURA.md` y planifica con esa incertidumbre declarada.
 
 ---
 

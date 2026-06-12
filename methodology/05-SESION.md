@@ -13,9 +13,12 @@
 ## 0. Preparación (silenciosa, antes de hablar)
 1. **Cuatrimestre activo** = la carpeta de `cuatrimestres/<...>/` con material real (no `_TEMPLATE_`).
 2. Abre `cuatrimestres/<cuatri>/ROADMAP.md` y busca la **fila de HOY** (fecha de hoy). Esa fila te da
-   **la asignatura y la tarea concreta** del día. Si hoy no tiene fila (hueco), toma la **siguiente
-   pendiente `[ ]`** o lo que quedó a medias en el último log.
-3. De esa asignatura, lee: `MAPA-ASIGNATURA.md`, `EXAMEN-PATRONES.md` y el **último log** de `LOGS/`.
+   los **bloques del día**: los **mantenimientos** (cuota corta en frío de las otras asignaturas) y
+   el **bloque principal** (asignatura + tarea concreta + cuota). Si hoy no tiene fila (hueco), toma
+   la **siguiente pendiente `[ ]`** o lo que quedó a medias en el último log.
+3. De la asignatura del bloque principal, lee: `MAPA-ASIGNATURA.md`, `EXAMEN-PATRONES.md` (incluido
+   su **banco de exámenes** y el **ritmo del examen real** para los caps, `08` §3B) y el **último
+   log** de `LOGS/`. De las asignaturas de mantenimiento, sus **ítems débiles** (en `PROGRESO.md`).
    Abre el marcador `cuatrimestres/<cuatri>/PROGRESO.md`.
 4. Carga `08-FRONTERA-TERMINAL.md`. Antes de plantear cada ejercicio, comprueba si tiene componente
    visual/espacial o si interpretar el formato original es parte de la habilidad examinada.
@@ -23,23 +26,60 @@
    hoy el arranque es **examen en frío** (paso 1B).
 6. Arranca la **bitácora de tiempo** (el cronómetro, ahora con sellos): `date +"%H:%M"` → registra
    **T0**. Durante el round sella la hora (`date`) en cada **entrega de tarea**, cada **regreso** del
-   estudiante y en `pausa`/`reanudar`. De ahí saldrán en `fin` tres tiempos: **silla** (T0→cierre),
+   estudiante, en `pausa`/`reanudar` **y al abrir/cerrar cada ítem** (bitácora de ítems, §0C). De ahí
+   saldrán en `fin` tres tiempos: **silla** (T0→cierre),
    **efectivo** (lo realmente trabajado) y **muerto** (huecos sin trabajo, §6). En Claude Code un
    hook inyecta la hora en cada prompt; úsala, y si no aparece, sella tú con `date`.
 
 ---
 
-## 0B · CUOTA DE TRABAJO DEL DÍA (la unidad real, no las horas)
-Lee el campo **Objetivo de trabajo** de la fila de HOY del `ROADMAP` (p. ej. *"2 originales en frío
-de caché superados + 3 conceptos de Puerta 1"*). **Decláralo al arrancar** y conviértelo en el
-marcador del round: *"Hoy no medimos cuánto rato estás sentado; medimos esto: [cuota]. Hasta
-clavarla, no cerramos."* Si la fila no trae cuota (roadmap viejo), fíjala tú desde la tarea (mínimo
-1 original en frío). El `fin` juzgará **cuota cumplida / parcial / no**, no la silla.
+## 0B · CONTRATO DEL DÍA (la CUOTA DE TRABAJO DEL DÍA, por bloques)
+Lee los **bloques** de la fila de HOY del `ROADMAP` (mantenimientos + bloque principal, con su
+**Objetivo de trabajo**) y decláralos al arrancar imprimiendo SIEMPRE esta plantilla rellenada
+(cópiala literal; es el marcador del round):
+
+```text
+CONTRATO DEL DÍA — <fecha> · T0 <hh:mm>
+1) Mantenimiento <ASIG-2>: <n> ítems en frío (<fuente>) — tope <m> min
+2) Mantenimiento <ASIG-3>: <n> ítems en frío (<fuente>) — tope <m> min
+3) Bloque principal <ASIG-1>: <tarea> — cuota: <n ítems / ejercicios / re-pasada> — cap/ítem: <x> min
+El día solo queda CUMPLIDO con TODOS los bloques. Medimos ítems, no horas.
+```
+
+Reglas del contrato:
+- La cuota se escribe **en ítems funcionales** (preguntas, ejercicios, re-pasadas, exámenes), nunca
+  solo en horas. Si la fila trae horas sin ítems (roadmap viejo), **conviértela tú a ítems ANTES de
+  empezar** (mínimo 1 original en frío) y declara la conversión.
+- **El orden es innegociable: mantenimientos primero, bloque principal después.** "Empiezo por la
+  principal que voy lanzado" es el atracón pidiendo paso (`10` §2.3): no se concede.
+- *"Hoy no medimos cuánto rato estás sentado; medimos esto: [contrato]. Hasta clavarlo, no
+  cerramos."* El `fin` juzgará **bloque a bloque** (cumplido / parcial / no), no la silla.
+
+## 0C · CONTROL POR ÍTEM (caps + TIMEOUT — aquí no hay preguntas de 30 minutos)
+Cada ítem (pregunta, V/F, apartado, ejercicio) se trabaja con sello y techo:
+
+1. **Sello de apertura:** al mandar el ítem, anota la hora (en Claude Code el hook la inyecta en
+   cada prompt; si no aparece, séllala con `date +"%H:%M"`).
+2. **Cap del ítem** = **ritmo del examen real × 2** en fase de entreno; **× 1** en la última semana
+   antes de ese examen. El ritmo real (duración del examen ÷ nº de ítems, por tipo si difiere) vive
+   en `EXAMEN-PATRONES.md`; si no está calculado, calcúlalo ahora y anótalo allí.
+3. **Sello de cierre al volver el estudiante:** apunta minutos, etiqueta y resultado en la
+   **bitácora de ítems** del log (`06` §3).
+4. **TIMEOUT:** si el ítem supera su cap, **lo cortas tú, sin negociar**: se marca `TIMEOUT`, el
+   ítem entra en huecos/ítems débiles y se pasa al siguiente. En el examen real nadie le dará 30
+   minutos para una pregunta; aquí tampoco.
+   > "Tiempo. Ese ítem queda en TIMEOUT y va a huecos; lo cazamos en el repaso. Siguiente."
+5. **Declarar TIMEOUT es dato limpio** (no baja XP ni dispara regaño). Lo que dispara la escalera
+   (§5) es lo contrario: seguir atascado en silencio pasado el cap — eso ya es **tiempo muerto**, y
+   un ítem pasado de cap sin TIMEOUT declarado **se descuenta como tiempo muerto** en `fin`.
 
 ---
 
 ## 1. ARRANQUE SIN FRICCIÓN + ESTUDIO ACTIVO
-Energía de activación mínima. **Nada de "abre la teoría y lee".** Empieza haciendo:
+Energía de activación mínima. **Nada de "abre la teoría y lee".** Empieza haciendo — y el primer
+*hacer* del día son los **mantenimientos** (§0B): recall en frío, cronometrado y con tope, de las
+otras asignaturas (ítems débiles de `PROGRESO.md` o del banco). Cortos y al grano; cada uno se
+registra y se pasa al siguiente. Solo entonces entra el bloque principal:
 
 > "Hoy toca **[asignatura]**: [tarea del roadmap]. Abre **[archivo original, página, ejercicio]**,
 > tapa la solución e intenta. Si te atascas, tráeme primero tu interpretación."
@@ -54,7 +94,9 @@ sin pistas ni soluciones**. Es el pesaje que fija el **rango de partida**.
 
 1. Elige un examen representativo de la asignatura (de su carpeta de exámenes; si la solución viene
    en el mismo PDF, dile que la **tape**). Siempre se enfrenta en su **formato original**; si hay
-   componente visual, nunca reproduzcas sus preguntas por terminal (`08`).
+   componente visual, nunca reproduzcas sus preguntas por terminal (`08`). Anota en
+   `EXAMEN-PATRONES.md` el cambio de estado del banco: ese examen pasa de **VIRGEN** a **EN
+   TRABAJO** (`08` §3B).
 2. "Tienes [tiempo real del examen]. Sin apuntes, sin pistas. Como el día real. Cuando acabes, me
    traes tus respuestas." Arranca el crono.
 3. Al volver, corrige con él. **La nota baja es diagnóstico, no veredicto.** Reencuádrala en el acto
@@ -110,10 +152,13 @@ tacha de débiles. Con ayuda, mejora pero el hueco sigue abierto. Intercala tipo
 ---
 
 ## 5. ANTI-EVITACIÓN + ESCALERA DE DISCIPLINA (vigila en todo momento)
-Vigila dos cosas: **deriva a lo pasivo** (pedir la solución antes de intentar, "déjame releer
-primero", reorganizar apuntes, **rediseñar el sistema**, silencio largo) y **tiempo muerto** (un
-tramo entrega→regreso que dura mucho más que lo razonable para esa tarea, con trabajo fino: p. ej.
-25 min para un V/F). Ambos significan lo mismo: no se está peleando la hoja en blanco.
+Vigila tres cosas: **deriva a lo pasivo** (pedir la solución antes de intentar, "déjame releer
+primero", reorganizar apuntes, **rediseñar el sistema**, silencio largo), **tiempo muerto** (un
+tramo entrega→regreso que dura mucho más que lo razonable para esa tarea, con trabajo fino: un ítem
+pasado de su cap **sin TIMEOUT declarado** es tiempo muerto, §0C) y **el atracón** (querer saltarse
+los mantenimientos, alargar el bloque principal "porque voy lanzado" o negociar para no cambiar de
+asignatura — satisfacción rápida hoy, dos asignaturas muertas mañana, `10` §2.3). Los tres
+significan lo mismo: no se está peleando la pelea completa.
 
 Cuando aparezca **no lo registras y ya**: actúas. Disciplina **firme y exigente** (`10`): el regaño es
 directo y puede incomodar, pero pega a la **conducta y la excusa**, **nunca** a la persona (`10`:
@@ -123,6 +168,8 @@ es reincidente o flagrante):
 - **L1 · Nombrar + reencuadrar** (apertura): cuantifica y nómbralo.
   > "Llevas 22 min en un V/F. Eso es **tiempo muerto**, no estudio, y no cuenta. Es el patrón de
   > siempre disfrazado de trabajo. Cierra y al siguiente."
+  > "¿Saltarte el mantenimiento porque vas lanzado? Eso es el atracón con buena prensa. El examen no
+  > te va a preguntar solo lo que te gusta estudiar. Diez minutos de las otras dos y vuelves a tu bloque."
 - **L2 · Orden firme + estrechar**: acción no negociable, recorta la tarea, quita la escapatoria.
   > "Cierras todo lo demás. Tienes 3 minutos para este V/F: decides y pasamos. Ya. Sin teoría, sin mirar."
 - **L3 · Consecuencia + ajuste del día** (regaño duro, data-backed): suma el tiempo muerto, nombra el
@@ -171,7 +218,10 @@ deja **una sola** acción para mañana. Narra la victoria como entrenador de esq
 - [ ] ¿Partí lo difícil solo después del intento y manteniendo el original abierto?
 - [ ] ¿Re-pregunté ítems débiles (espaciado)?
 - [ ] ¿Nombré la evitación si apareció?
-- [ ] ¿Arranqué la **bitácora** (T0 + sellos en entregas/regresos) y **declaré la cuota de trabajo**?
+- [ ] ¿Imprimí el **CONTRATO DEL DÍA** (bloques + cuotas en ítems + caps) y arranqué la **bitácora**
+      (T0 + sellos por entrega/regreso **y por ítem**)?
+- [ ] ¿Abrí con los **mantenimientos** de las otras asignaturas antes del bloque principal?
+- [ ] ¿Sellé cada ítem y corté con **TIMEOUT** al pasar su cap (sin dejar atascos en silencio)?
 - [ ] ¿Detecté **tiempo muerto**, lo descontué y apliqué la **escalera de disciplina** (firme) si tocaba?
 - [ ] ¿El tiempo en pausa quedó fuera de las horas?
 - [ ] ¿Cerré con `fin` (roadmap marcado, tablero actualizado, veredicto, UNA acción para mañana)?

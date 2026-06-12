@@ -9,6 +9,18 @@
 |---|---|---|---|---|---|
 | <ASIG> | 0 | ⬜ Blanco | *pendiente* | — | 0% |
 
+## Regla de los 2 exámenes (banco, `08` §3B) 🥋
+> Lista para el examen = **≥2 exámenes de años distintos DOMINADOS**. Lo actualiza `fin`.
+| Asig | Exámenes dominados | Banco (estado por examen) |
+|---|---|---|
+| <ASIG> | 0/2 | <2024: VIRGEN · 2023: VIRGEN> |
+
+## Rotación (que ninguna muera) 🔄
+> Con examen pendiente, ninguna asignatura pasa **>24 h sin ítems en frío** (el mantenimiento cuenta).
+| Asig | Último toque | Días sin tocar |
+|---|---|---|
+| <ASIG> | — | 0 |
+
 ## Racha (gráfico de contribuciones) 🔥
 > `▰` entrenó activo · `▱` no entrenó · `·` futuro
 ```
@@ -45,6 +57,7 @@ Clasificatorios ─▶ Octavos ─▶ Cuartos ─▶ Semifinal ─▶ 🏆 CAMPE
 > Lo llena `fin`. Solo cuenta el tiempo **efectivo**; silla y tiempo muerto se muestran para contraste (`06`).
 - **Acumulado:** efectivo <h:mm> · silla <h:mm> · muerto <h:mm>   ·   **Ritmo:** <trabajo/hora efectiva>
 - **Cuotas:** cumplidas <n> / parciales <n> / falladas <n>
+- **Días completos (todos los bloques):** <n>   ·   **Ítems sobre cap sin TIMEOUT:** <n> acumulados
 
 ## Órdenes / disciplina activas
 > Órdenes impuestas y consecuencias en vigor (las pone `fin`/`sesion`). Atacan la **conducta**, nunca la identidad (`10`).

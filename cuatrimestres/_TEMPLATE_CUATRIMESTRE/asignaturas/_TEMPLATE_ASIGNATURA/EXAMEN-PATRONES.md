@@ -6,6 +6,21 @@
 ## Exámenes analizados
 - <lista de exámenes/años usados, de `material/examenes-anteriores/`>
 
+## Banco de exámenes (estados — `08` §3B)
+> VIRGEN → EN TRABAJO → DOMINADO (· QUEMADO tras corregirse · COMPUESTO si se ensambla, `07` §4).
+> **Regla de los 2 exámenes:** ≥2 DOMINADOS de años distintos antes del examen; si el banco da,
+> 1 VIRGEN reservado para el simulacro final. Lo actualiza cada `fin`.
+| Examen (año/convocatoria) | Estado | Uso previsto | Re-pasada ≥48 h |
+|---|---|---|---|
+| <2025> | EN TRABAJO (pesaje hecho) | examen A | pendiente |
+| <2024> | VIRGEN | examen B | — |
+| <2023> | VIRGEN | reserva simulacro final | — |
+
+## Ritmo del examen real → caps por ítem (`05` §0C)
+- **Duración / nº de ítems:** <90 min / 60> → **ritmo real ≈ <1,5> min/ítem**
+- **Cap de entreno (2×):** <3 min> · **Cap última semana (1×):** <1,5 min>
+- Por tipo, si difiere: <problema largo: 15 min reales → cap 30/15>
+
 ## Tipos de ejercicio recurrentes
 | Tipo de ejercicio | Aparece en (años/frecuencia) | Peso/puntos típicos | Dificultad | ¿Formato original obligatorio? (`08`) |
 |---|---|---|---|---|

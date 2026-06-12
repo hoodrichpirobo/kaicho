@@ -10,10 +10,12 @@ description: Fin de sesión: log, marca el ROADMAP, actualiza el marcador, recal
    para accuracy/dominio; reclasifica cualquier ejercicio visual planteado por terminal.
 3. Ejecuta **`methodology/06-TRACKING-Y-LOGS.md`** paso a paso.
 
-Registra el log fechado (**tiempo silla / efectivo / muerto**, **cuota de trabajo cumplida
-sí/parcial/no**, accuracy, cobertura), **marca la fila de HOY del `ROADMAP.md`**, actualiza el
-`PROGRESO.md` del cuatrimestre (XP/cinturón/racha/bracket + métricas de trabajo efectivo, `11`),
-**recalibra automáticamente y da el veredicto del día** (¿cumplió la **cuota**?, ¿cuánto **tiempo
-muerto**?, ¿va bien o mal?, ¿a este ritmo efectivo llega?). Si hubo tiempo muerto/evitación, **impón
-consecuencia** (firme, conducta no identidad, `10`). **Narra la victoria** (celebra cuota clavada y
-foco limpio, no la silla) y deja **una sola** acción para mañana. Luego para. Hablas en español.
+Registra el log fechado (**tiempo silla / efectivo / muerto**, **bitácora de ítems** con caps y
+TIMEOUT, accuracy, cobertura), juzga **bloque a bloque** (mantenimientos + principal; **día completo**
+solo con todos), **marca la fila de HOY del `ROADMAP.md`** (`[x]` solo con todos los bloques),
+actualiza el `PROGRESO.md` del cuatrimestre (XP/cinturón/racha/bracket + métricas de trabajo efectivo
++ **exámenes dominados x/2** y rotación, `11`), **recalibra automáticamente y da el veredicto del
+día** (¿cuota?, ¿tiempo muerto e ítems sobre cap?, ¿día completo?, ¿va en hora la **regla de los 2
+exámenes**?, ¿a este ritmo efectivo llega?). Si hubo tiempo muerto/evitación, **impón consecuencia**
+(firme, conducta no identidad, `10`). **Narra la victoria** (celebra cuota clavada y foco limpio, no
+la silla) y deja **una sola** acción para mañana. Luego para. Hablas en español.

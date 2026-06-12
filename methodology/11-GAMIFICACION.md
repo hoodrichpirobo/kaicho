@@ -46,7 +46,10 @@ La etiqueta de integridad de `08` manda:
 | *Recall* `ORIGINAL-FRÍO` correcto de un ítem que antes fallabas | +15 (¡el más valioso por hueco cerrado!) |
 | Dibujar/derivar de memoria un esquema (diagrama de caché, cronograma, topología…) | +10 |
 | Día de racha mantenido (aparecer y entrenar activo) | +10 |
-| Cumplir la **cuota de trabajo** del día (objetivo del `ROADMAP`, en frío) | **+25** |
+| Cumplir la **cuota de trabajo** del **bloque principal** (objetivo del `ROADMAP`, en frío) | **+25** |
+| Bloque de **mantenimiento** cumplido (recall en frío de otra asignatura, dentro del tope) | +5 |
+| **Día completo** (mantenimientos + bloque principal, TODOS los bloques) | **+15** |
+| **Examen del banco DOMINADO** (`08` §3B: 100% explicado + re-pasada ≥48 h ≥85%) | **+150** + medalla |
 | Sesión de **foco limpio** (tiempo muerto < 10% de la silla) | +10 |
 | **Tiempo muerto** / silla sin trabajo | **+0** (no es estudio; dispara la disciplina, `05`/`10`) |
 | Releer/subrayar/organizar apuntes / mirar solución sin intentar | +0 a +2 ("calentamiento") |
@@ -95,19 +98,20 @@ Muestra en qué ronda está camino del examen final. Ancla el esfuerzo del día 
 
 ```
 Clasificatorios ──▶ Octavos ──▶ Cuartos ──▶ Semifinal ──▶ 🏆 CAMPEONATO
- (ejercicios     (dominar 1   (dominar    (examen en    (examen final
-  sueltos)        tipo)        2-3 tipos)   frío ≥ obj.)   real)
+ (ejercicios     (dominar 1   (examen A   (examen B        (examen
+  sueltos)        tipo)        DOMINADO)   DOMINADO +       real)
+                                           simulacro VIRGEN ≥ obj.)
         ▲ ESTÁS AQUÍ
 ```
-Cada parcial es una **ronda del torneo**; el examen final, el **campeonato**. Mapea las rondas a
-hitos reales de la asignatura (tipos de ejercicio dominados, cobertura, nota en frío).
+Cada parcial es una **ronda del torneo**; el examen final, el **campeonato**. Las rondas se mapean
+a los hitos del **banco de exámenes** (`08` §3B): la regla de los 2 exámenes es el camino a la final.
 
 ---
 
 ## 6. CINTURONES/MEDALLAS Y TACHADO
 
 - **Medalla** por hito: "Dominaste todos los ejercicios tipo de caché" 🥇, "Primer examen en frío
-  enfrentado" 🎖️, "Cerraste 10 huecos de recall" 🔵.
+  enfrentado" 🎖️, "Cerraste 10 huecos de recall" 🔵, "Examen B DOMINADO — regla de los 2 cumplida" 🥋.
 - **Tachado de temas/capítulos**: lista visible que se va marcando `[x]`. Ver el temario tacharse
   es dopamina pura.
 - **Rango de partida**: lo fija el examen en frío inicial (§6.1 de `05`). Es el punto desde el que

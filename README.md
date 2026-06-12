@@ -61,6 +61,8 @@ solo mío.
 | **Separación plantilla / instancia** | El repo público es la plantilla. Los datos personales y el material de la asignatura viven en una instancia local, nunca versionada. |
 | **Privacidad por defecto** | El `.gitignore` excluye perfil y material; lo personal no puede filtrarse a la rama pública por descuido. |
 | **Fidelidad del examen** | Si hay diagramas, imágenes, tablas u otra interpretación visual, el agente **nunca plantea ni preinterpreta el ejercicio por terminal**: dirige al original. Lo asistido no cuenta como accuracy/dominio hasta una reválida fría. |
+| **Anti-overfitting / anti-atracón** | **Regla de los 2 exámenes**: ≥2 años distintos dominados por asignatura (banco de exámenes con estados) antes del examen. **Rotación diaria**: mantenimiento en frío de las demás asignaturas antes del bloque profundo del día. |
+| **Cuota funcional, no horas** | El día se mide en ítems resueltos (contrato del día). Cada ítem lleva sello de tiempo y **cap** derivado del ritmo del examen real, con **TIMEOUT** al superarlo. |
 | **Control de regresión** | `scripts/check-fidelidad-examen.sh` verifica que manifiesto, sesión, cierre, skills y plantillas mantienen esas barreras. |
 | **Pedagogía basada en evidencia** | Las políticas se derivan de literatura de ciencia del aprendizaje, no de intuición. |
 
@@ -118,15 +120,18 @@ solo mío.
 ```
 
 1. **Empieza el día con `/kaicho:sesion`** (sin asignatura: el `ROADMAP` decide qué toca HOY). El
-   agente carga el roadmap, el progreso y el último log, y te pone a producir desde el primer minuto
-   (no a leer). En la primera sesión de una asignatura, el arranque es un **examen en frío**.
+   agente carga el roadmap, el progreso y el último log, declara el **contrato del día**
+   (mantenimientos cortos de las otras asignaturas primero, bloque principal después; cuota en ítems
+   con cap por ítem y TIMEOUT) y te pone a producir desde el primer minuto (no a leer). En la
+   primera sesión de una asignatura, el arranque es un **examen en frío**.
 2. **Trabaja el round.** Intentas desde el formato original; si hay componente visual, el agente
    nunca lo reproduce ni lo mastica por terminal. Tras tu interpretación, diagnostica, da solo la
    teoría necesaria y parte lo difícil en sub-preguntas manteniendo el original abierto. Usa
    `/kaicho:pausa` y `/kaicho:reanudar` para separar pausa, tiempo efectivo y tiempo muerto.
-3. **Cierra con `/kaicho:fin`.** Registra la sesión (silla/efectivo/muerto, cuota, accuracy), marca la fila del
-   `ROADMAP`, actualiza el tablero (XP, racha, ronda) y **recalibra solo dándote el veredicto del
-   día** (¿cumpliste la cuota?, ¿hubo tiempo muerto?, ¿llegas al examen?), con **el único** siguiente paso. Para ahí.
+3. **Cierra con `/kaicho:fin`.** Registra la sesión (silla/efectivo/muerto, bloques e ítems con sus
+   caps, accuracy), marca la fila del `ROADMAP`, actualiza el tablero (XP, racha, ronda, exámenes
+   dominados) y **recalibra solo dándote el veredicto del día** (¿cumpliste todos los bloques?, ¿hubo
+   tiempo muerto?, ¿vas en hora con la regla de los 2 exámenes?), con **el único** siguiente paso. Para ahí.
 4. **Al día siguiente**, `/kaicho:sesion` retoma desde el `ROADMAP` y re-pregunta lo que quedó débil
    (repetición espaciada).
 5. **Cuando el ritmo real no cuadre** con la fecha del examen, `/kaicho:recalibrar` reescribe el

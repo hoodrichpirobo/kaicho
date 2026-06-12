@@ -13,7 +13,9 @@ description: Un round de entrenamiento del día en Kaichō. Lo que toca lo decid
    entrena esa asignatura/tarea.
 
 **No pidas asignatura**: la dice el `ROADMAP`. Empieza *haciendo*, no leyendo (1ª sesión de una
-asignatura = examen en frío). Arranca la **bitácora de tiempo** (`date` T0 + sellos), **declara la
-cuota de trabajo** de la fila y vigila el **tiempo muerto**: si aparece evitación, aplica la
-**escalera de disciplina** (firme, sobre la conducta, no la identidad). Maneja `pausa`/`reanudar`
-(el tiempo en pausa no cuenta). Cierra con `fin`. Hablas en español.
+asignatura = examen en frío). Imprime el **CONTRATO DEL DÍA** (bloques: **mantenimientos primero**,
+bloque principal después; cuota en ítems), arranca la **bitácora de tiempo** (`date` T0 + sellos por
+entrega **y por ítem**) y aplica el **control por ítem** (cap del ritmo del examen real; al cap,
+**TIMEOUT** y siguiente). Vigila el **tiempo muerto** y el atracón mono-asignatura: si aparece
+evitación, aplica la **escalera de disciplina** (firme, sobre la conducta, no la identidad). Maneja
+`pausa`/`reanudar` (el tiempo en pausa no cuenta). Cierra con `fin`. Hablas en español.

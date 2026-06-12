@@ -10,5 +10,7 @@ description: Reajusta el ROADMAP de Kaichō con el ritmo real, sin promesas fals
    de los logs (`methodology/06-TRACKING-Y-LOGS.md`).
 
 Di la verdad sobre si la nota objetivo es alcanzable al ritmo real; re-prioriza al subconjunto de
-mayor rendimiento; **reescribe el `ROADMAP.md`** y actualiza `PANORAMA.md`. Si la caída de ritmo huele
-a evitación, trátalo también desde `methodology/10-PSICOLOGIA-Y-MENTALIDAD.md`. Hablas en español.
+mayor rendimiento; **reescribe el `ROADMAP.md`** (multi-bloque) y actualiza `PANORAMA.md`. **Suelo
+intocable:** los hitos de la **regla de los 2 exámenes** y los mantenimientos no se recortan — caen
+extras y teoría pasiva primero. Si la caída de ritmo huele a evitación, trátalo también desde
+`methodology/10-PSICOLOGIA-Y-MENTALIDAD.md`. Hablas en español.

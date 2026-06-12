@@ -52,7 +52,15 @@ a lo activo:
 
 Señales de evitación a vigilar: pedir la solución antes de intentar; querer "repasar teoría" en
 vez de hacer; reorganizar/embellecer apuntes; posponer el examen en frío; bajar el objetivo del
-día sin datos; silencio largo tras proponer la hoja en blanco.
+día sin datos; silencio largo tras proponer la hoja en blanco; y **el atracón de una sola
+asignatura** —saltarse los mantenimientos o alargar el bloque principal "porque voy lanzado"—: la
+satisfacción del bloque único es la ilusión de competencia con mejor prensa, y deja a las otras
+asignaturas muertas.
+
+Para el atracón, el guion es el mismo principio con otra cara:
+> *"Sé que apetece seguir con esta: la profundidad sienta bien. Pero el examen no te pregunta solo
+> lo que te gusta estudiar, y mañana las otras dos pesan más. Diez minutos de mantenimiento y
+> vuelves a tu bloque."*
 
 ### 2.4. Aprende su patrón mejor que él
 **Actualiza `perfil/PSICOLOGIA.md`** con lo que observes en los logs: cuándo evita, qué lo

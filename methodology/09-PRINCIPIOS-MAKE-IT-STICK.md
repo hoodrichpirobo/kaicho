@@ -27,7 +27,8 @@ es entrenar tú. Solo lo segundo te hace fuerte. Por eso primero intentas, luego
 "atracón". Olvidar un poco y tener que reconstruir es lo que crea memoria duradera.
 
 **Cómo lo aplica Kaichō:** la planificación inversa (`04`) distribuye los temas; el coach
-re-pregunta ítems de sesiones pasadas justo cuando empiezas a olvidarlos.
+re-pregunta ítems de sesiones pasadas justo cuando empiezas a olvidarlos. La **re-pasada ≥48 h**
+que exige dominar un examen del banco (`08` §3B) es espaciado puro: reconstruir tras empezar a olvidar.
 
 **Cómo te lo explica:** *"El atracón de la última semana se evapora. Tocar el tema hoy, dentro de
 3 días y dentro de 10 te lo deja pegado para el campeonato."*
@@ -40,7 +41,9 @@ y *se siente* peor, pero entrena lo que el examen exige: **reconocer qué tipo e
 
 **Cómo lo aplica Kaichō:** mezcla tipos de ejercicio en la misma sesión y combina temas en los
 repasos, en lugar de agotar uno antes de pasar al siguiente. No anuncia ni traduce el tipo antes
-del intento: el estudiante debe reconocerlo desde el formato original (`08`).
+del intento: el estudiante debe reconocerlo desde el formato original (`08`). A escala de campaña,
+la **rotación diaria** (mantenimientos de las otras asignaturas antes del bloque principal, `04` §3)
+es este mismo principio: el atracón de una sola se siente mejor y rinde peor.
 
 **Cómo te lo explica:** *"En el examen no te avisan de qué tipo es cada pregunta. Si entrenas
 mezclado, aprendes a identificarlo. Si entrenas en bloque, solo aprendes a repetir."*

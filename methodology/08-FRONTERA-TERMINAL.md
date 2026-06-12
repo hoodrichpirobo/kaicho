@@ -106,10 +106,35 @@ estudiante puede explicarlo de forma sencilla, pero debe demostrar que sabe qué
 | **ORIGINAL-FRÍO** | Formato original; sin solución, pistas, preinterpretación ni selección de datos | **Sí** |
 | **ORIGINAL-ASISTIDO** | El estudiante interpretó primero el original; después recibió preguntas, pistas o teoría | **No**; cuenta como práctica activa/cobertura |
 | **PREINTERPRETADO** | El coach tradujo, clasificó o extrajo parte del original antes del intento; o se vio la solución | **No**; solo diagnostica la subhabilidad posterior |
+| **REPASADO-FRÍO** | Re-pasada completa, de memoria y sin ayuda, de un examen ya corregido, **≥48 h** después de la última corrección | **No** para la accuracy general (material ya expuesto); **sí** valida el dominio de ESE examen del banco (§3B) y cierra sus ítems débiles |
 
 Un ejercicio sencillo inventado o reformulado puede servir como *drill* de una subhabilidad, pero
 **nunca valida preparación para el examen**. Si no queda un original nuevo disponible para probarlo,
 el dominio permanece **sin verificar**.
+
+---
+
+## 3B. BANCO DE EXÁMENES — estados y regla de los 2 exámenes
+
+Cada examen de años anteriores se registra en `EXAMEN-PATRONES.md` con un estado:
+
+| Estado | Significado |
+|---|---|
+| **VIRGEN** | No expuesto al estudiante. Reservado para nota en frío real (pesajes, reválidas, simulacro final). |
+| **EN TRABAJO** | Abierto: pesaje hecho y/o en corrección/explicación de sus ítems. |
+| **DOMINADO** | (1) el 100% de sus ítems trabajados y el estudiante **explica el porqué** de cada uno; (2) **re-pasada completa ≥48 h** tras la última corrección, de memoria, **≥85% sin ayuda** (`REPASADO-FRÍO`); (3) los fallos de esa re-pasada corregidos. |
+| **QUEMADO** | Ya corregido con el estudiante: su nota ya no es "en frío". Solo sirve para re-pasadas y repaso. |
+| **COMPUESTO** | Examen B ensamblado con originales no expuestos cuando solo existe un examen real (`07` §4). Avanza por los mismos estados. |
+
+Reglas anti-*overfitting*:
+- **Repetir un examen ya corregido no es accuracy:** la nota en frío y la accuracy general solo
+  salen de material no expuesto. La re-pasada (`REPASADO-FRÍO`) mide otra cosa: que ese examen
+  concreto está dominado de verdad, no reconocido a medias.
+- **Regla de los 2 exámenes:** una asignatura no se declara lista sin **≥2 exámenes de años
+  distintos DOMINADOS**. Dominar uno solo es memorizar ese año: el examen nuevo cae distinto y se nota.
+- Si el banco da, **reserva un VIRGEN** para el simulacro final en frío de la última semana; si solo
+  hay un examen real, el B se **compone** con originales no expuestos (`07` §4). Si ni eso es
+  posible, el veredicto lo declara; no se proyecta preparación que no está verificada.
 
 ---
 
@@ -179,6 +204,8 @@ Dirigir al material real no es una limitación del coach: es proteger la transfe
 
 - En `MAPA-ASIGNATURA.md` y `EXAMEN-PATRONES.md`, marca los tipos donde **interpretar el formato**
   sea parte importante de la dificultad y reserva originales no expuestos para reválida.
+- El **banco de exámenes** y sus estados (§3B) viven en `EXAMEN-PATRONES.md`; cada `fin` actualiza
+  el estado de los exámenes tocados y el contador de la regla de los 2 (`06`).
 - En cada log (`06`), etiqueta cada intento con uno de los tres estados.
 - **Accuracy = solo aciertos `ORIGINAL-FRÍO`.** La cobertura sí puede incluir intentos asistidos.
 - En `fin`, si solo hay rendimiento asistido, el veredicto debe decir que falta evidencia fría y

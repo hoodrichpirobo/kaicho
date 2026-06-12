@@ -51,6 +51,12 @@ relectura, ataca el examen real en vez del temario entero y convierte el progres
 visible. Lo publico como plantilla porque el patrón —evitar la práctica que expone debilidad— no es
 solo mío.
 
+<p align="center">
+  <img src="assets/meme-i-failed.jpeg" width="460" alt="I failed / I didn't try — fallar entrenando vale más que no intentarlo">
+  <br><sub>La tesis del sistema en una imagen: <b>fallar en frío es entrenamiento; no intentarlo es el único fracaso real.</b><br>
+  Cada sesión empieza por la hoja en blanco precisamente para estar en el lado izquierdo.</sub>
+</p>
+
 ## Tesis de diseño
 
 | Principio | Decisión |
@@ -338,5 +344,11 @@ quien lo haga suyo.
 Licencia **[MIT](LICENSE)** © 2026 CUX "INDIO" PRADA.
 
 ---
+
+<p align="center">
+  <img src="assets/meme-stronger.jpeg" width="400" alt="No, you're stronger — sentirse el peor compitiendo arriba es haber subido de liga">
+  <br><sub><b>«Has subido de liga»</b> — el reencuadre maestro del sistema: sentirse el peor en la liga
+  difícil no es fracaso;<br>es el precio de competir donde se crece. El que pelea cuesta arriba es el fuerte.</sub>
+</p>
 
 <div align="center"><sub>Mejor sangrar en el entrenamiento que en el combate.</sub></div>

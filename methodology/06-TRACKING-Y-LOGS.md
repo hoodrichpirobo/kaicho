@@ -10,6 +10,11 @@
 ## PASOS DEL `fin` (en orden, sin saltarte ninguno)
 
 ### 1. Cierra el crono y reparte el tiempo (bitácora)
+> **Modo de la sesión (`05` §0A):** declara si fue `nueva` / `reanudación` / `continuación de pendiente`
+> / `bloque extra`. En todos menos `nueva`, la silla **retoma el acumulado** del `SESION-ACTIVA` de hoy
+> (no se reinicia T0); si hubo varios tramos hoy (mañana/tarde), la silla es la **suma real**, no solo
+> este tramo.
+
 Para el cronómetro y cierra la **bitácora** (`05` §0/§6). Reparte el tiempo en tres, con los sellos `date`:
 - **Silla** = T0 → cierre (lo que duró la sesión de punta a punta).
 - **Efectivo** = silla − pausas − **tiempo muerto** (lo realmente trabajado). **Esto es lo que cuenta.**
@@ -39,6 +44,7 @@ En `cuatrimestres/<cuatri>/asignaturas/<ASIG>/LOGS/AAAA-MM-DD_<ASIG>[_n].md` (`_
 ```markdown
 # Log · <ASIG> · <AAAA-MM-DD>
 - **Round nº:** <n>   ·   **Tiempo:** silla <h:mm> · **efectivo <h:mm>** · muerto <h:mm>
+- **Modo (`05` §0A):** nueva | reanudación | continuación de pendiente | bloque extra — *(si continúa/extra: referencia el log previo del día)*
 - **Tipo:** examen en frío | ejercicios tipo | recall espaciado | mixta
 
 ## Bloques del día (el CONTRATO, `05` §0B)
@@ -91,7 +97,10 @@ En `cuatrimestres/<cuatri>/asignaturas/<ASIG>/LOGS/AAAA-MM-DD_<ASIG>[_n].md` (`_
 ## Próximo paso (UNO solo)
 - <la única acción para mañana>
 ```
-> **Append-only:** no reescribas logs viejos. Un fichero nuevo por sesión.
+> **Append-only:** no reescribas logs viejos. Un fichero nuevo por sesión; si hoy ya hubo un `fin`
+> previo (continuación de pendiente o bloque extra, `05` §0A C/D), este log es un **`_n` nuevo** que
+> referencia al anterior. El **veredicto de día completo** (§4) se calcula sumando los bloques de
+> **todos** los logs de hoy, sin recontar un mantenimiento ya CUMPLIDO antes.
 
 > **Distracciones aparcadas:** si `cuatrimestres/<cuatri>/SESION-ACTIVA.md` tiene distracciones del
 > round, **vuélcalas (obligatorio) a la sección "Distracciones aparcadas"** del log —hora, texto bruto
@@ -104,6 +113,9 @@ En la fila de HOY del `cuatrimestres/<cuatri>/ROADMAP.md`: `[x]` **solo si se cu
 bloques** (mantenimientos + principal); `[!]` si faltó cualquiera (aunque el principal fuera
 glorioso) o quedó a medias. Tacha los checkpoints/hitos alcanzados y actualiza el estado del **banco
 de exámenes** de la asignatura si cambió (`08` §3B).
+> **Suma de todos los logs de hoy:** el `[x]/[!]` se decide con los bloques de **todos** los logs del
+> mismo día (mañana + tarde + extra). Un mantenimiento **CUMPLIDO una vez hoy no se re-exige** ni se
+> recuenta; uno que faltó sigue pendiente y deja la fila en `[!]` hasta que se haga.
 
 ### 5. Actualiza el marcador `PROGRESO.md` (campaña; mecánicas en `11`)
 1. **XP** según `11` §2 (solo actividad/accuracy). Recalcula **cinturón** de la asignatura.
@@ -118,6 +130,20 @@ de exámenes** de la asignatura si cambió (`08` §3B).
 7. **Regla de los 2 exámenes y rotación:** actualiza por asignatura el contador **"Exámenes
    dominados x/2"** y el estado del banco; actualiza los **"días sin tocar"** de cada asignatura
    (el mantenimiento cuenta como tocar; >24 h con examen pendiente = bandera para mañana).
+
+### 5B. Bloque extra — crédito adelantado y descuento futuro (`05` §0D)
+Solo si la sesión (o un tramo de hoy) fue un **bloque extra**: la cuota oficial ya estaba CUMPLIDA y se
+adelantaron ítems de un día futuro. Contabilízalo así:
+- **Log:** una sección **"Bloque extra"** con los ítems hechos y su etiqueta (`ORIGINAL-FRÍO` /
+  `ORIGINAL-ASISTIDO`). El extra **no sube accuracy** salvo `FRÍO` (`08`).
+- **`ROADMAP.md`:** en el **día futuro de origen**, marca los ítems adelantados (`[x]` o "(adelantado el
+  <fecha>)") y **reduce su bloque principal al siguiente pendiente real**. **No toques los
+  mantenimientos de ese día** (siguen como recall mínimo de rotación). Añade una línea a la **Bitácora
+  de recalibración**.
+- **`PROGRESO.md`:** registra el crédito ("adelantado: <ítems>") y el descuento aplicado, y actualiza
+  "último toque"/rotación. **El descuento es por ítems verificables, no por horas metidas.**
+- **Regla:** si se adelantó el bloque principal de mañana, **mañana mantiene el recall mínimo de las
+  otras asignaturas** y su principal se ajusta al siguiente pendiente real. La rotación nunca se borra.
 
 ### 6. RECALIBRACIÓN AUTOMÁTICA + VEREDICTO  ← *lo que pidió el estudiante*
 Compara, con datos, **lo planeado vs lo hecho** y dictamina. Reglas simples:

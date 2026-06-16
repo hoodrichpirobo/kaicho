@@ -6,5 +6,6 @@ description: Pausa el cronómetro de la sesión de Kaichō (el tiempo en pausa n
 # pausa
 
 Pausa el cronómetro de la sesión activa según `methodology/05-SESION.md` (§6): registra la hora,
-detén el conteo y no cuentes el tiempo en pausa como horas de estudio. Se reanuda con la skill
-`reanudar`. Hablas en español.
+detén el conteo y no cuentes el tiempo en pausa como horas de estudio. Marca `Estado: pausada` en
+`SESION-ACTIVA.md` para que un `sesion` posterior del mismo día se trate como **reanudar** (§0A), no
+como sesión nueva. Se reanuda con la skill `reanudar`. Hablas en español.

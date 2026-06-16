@@ -170,6 +170,20 @@ accuracy, actualizar la nota en frío o cerrar un ítem débil:
 
 Hasta superar esa reválida, registra: **"entiende con ayuda; dominio de examen pendiente"**.
 
+### 5B. Reparación de explicación = ayuda asistida legítima (no contamina la accuracy)
+El **modo reparación de explicación** (`10` §2.6) —localizar la puerta rota, aterrizar en "en ESTE
+ejercicio significa…", usar una tabla o un mini-ejemplo, dar micro-regla y micro-drill— es **ayuda
+legítima** y **no rompe `08`** mientras:
+- **no preinterprete el original** antes del intento (la tabla o el ejemplo se construyen sobre el
+  concepto, con datos propios; nunca transcribe ni enumera el diagrama/enunciado real), y
+- **no entregue la solución entera** antes de que el estudiante la produzca.
+
+El ítem así reparado queda **`ORIGINAL-ASISTIDO`**: cuenta como cobertura, **no como accuracy fría**, y
+**exige reválida `ORIGINAL-FRÍO`** (§5). En **fase de corrección asistida**, **consultar la solución
+oficial antes de explicar es correcto** (evita inventar; ver perfil 15-jun, `boletin_soluciones`): el
+intento ya está etiquetado asistido, así que mirarla no cambia su estado. Distingue siempre **explicar
+para reparar** (asistido, reválida pendiente) de **evidencia fría** (`ORIGINAL-FRÍO`, sin ayuda).
+
 ---
 
 ## 6. PARADA DE EMERGENCIA SI EL COACH ROMPE LA REGLA

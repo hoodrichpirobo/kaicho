@@ -11,6 +11,9 @@
 ---
 
 ## 0. Preparación (silenciosa, antes de hablar)
+> **Antes de crear nada, localiza el cuatrimestre (paso 1) y ejecuta §0A (auditoría del mismo día).**
+> Si ya hay trabajo de HOY, `sesion` *continúa / reanuda / sigue pendiente / abre bloque extra* — **no
+> abre una sesión nueva** (§0A). Solo en *nueva sesión* se imprime el contrato de cero y se sella T0.
 1. **Cuatrimestre activo** = la carpeta de `cuatrimestres/<...>/` con material real (no `_TEMPLATE_`).
 2. Abre `cuatrimestres/<cuatri>/ROADMAP.md` y busca la **fila de HOY** (fecha de hoy). Esa fila te da
    los **bloques del día**: los **mantenimientos** (cuota corta en frío de las otras asignaturas) y
@@ -24,12 +27,55 @@
    visual/espacial o si interpretar el formato original es parte de la habilidad examinada.
 5. ¿Es la **primera sesión real** de esa asignatura (aún sin rango de partida en `PROGRESO.md`)? →
    hoy el arranque es **examen en frío** (paso 1B).
-6. Arranca la **bitácora de tiempo** (el cronómetro, ahora con sellos): `date +"%H:%M"` → registra
-   **T0**. Durante el round sella la hora (`date`) en cada **entrega de tarea**, cada **regreso** del
+6. **Solo en *nueva sesión* (§0A estado E):** arranca la **bitácora de tiempo** (el cronómetro, ahora
+   con sellos): `date +"%H:%M"` → registra **T0**. En continuación / reanudación / bloque extra (§0A
+   A–D) **NO reinicies el cronómetro: retoma el acumulado** del `SESION-ACTIVA` de hoy.
+   Durante el round sella la hora (`date`) en cada **entrega de tarea**, cada **regreso** del
    estudiante, en `pausa`/`reanudar` **y al abrir/cerrar cada ítem** (bitácora de ítems, §0C). De ahí
    saldrán en `fin` tres tiempos: **silla** (T0→cierre),
    **efectivo** (lo realmente trabajado) y **muerto** (huecos sin trabajo, §6). En Claude Code un
    hook inyecta la hora en cada prompt; úsala, y si no aparece, sella tú con `date`.
+
+---
+
+## 0A · ARRANQUE IDEMPOTENTE DEL MISMO DÍA (auditar ANTES de crear nada)
+> El fallo que esto evita: hacer un round por la mañana y, por la tarde, replantear el día entero como
+> si nada se hubiera hecho —recobrando mantenimientos ya cumplidos, reabriendo el contrato de cero—.
+> **`sesion` no significa siempre "sesión nueva".** Antes de imprimir contrato o sellar T0, audita qué
+> hay de HOY y enruta: no reinventes el día, continúa donde se quedó.
+
+**Señales (léelas en este orden):**
+1. **¿Sesión abierta hoy?** Abre `cuatrimestres/<cuatri>/SESION-ACTIVA.md`. Si su fecha es la de HOY,
+   mira su `Estado:` (`activa` / `pausada`).
+2. **¿Sesión cerrada hoy?** Busca log(s) de hoy en `asignaturas/*/LOGS/AAAA-MM-DD_*`. Sus secciones
+   "Bloques del día" y "Día completo SÍ/NO" dicen si la cuota del día quedó completa o parcial.
+3. **¿Nada de hoy?** Ni `SESION-ACTIVA` con fecha de hoy ni log de hoy.
+
+**Enruta (estados excluyentes; registra el MODO elegido en la bitácora de `SESION-ACTIVA`):**
+
+| Estado | Qué significa `sesion` ahora | Modo |
+|---|---|---|
+| **A** · `SESION-ACTIVA` hoy + `Estado: activa` | **CONTINÚA** esa sesión. No abras otra, no reinicies T0, no reimprimas el contrato de cero. Re-lee el contrato vivo, reporta lo hecho vs lo pendiente y sigue por el siguiente ítem. | `continuando (activa)` |
+| **B** · `SESION-ACTIVA` hoy + `Estado: pausada` | Trátalo como **`reanudar`**: reanuda el crono y sigue desde el último ítem activo. | `reanudando` |
+| **C** · cerrada hoy (hubo `fin`) + cuota **PARCIAL/NO** | **CONTINÚA la cuota pendiente** del mismo día: solo los bloques que faltan. Vuelve a `Estado: activa` y referencia el log previo. | `continuando pendiente` |
+| **D** · cerrada hoy + cuota **COMPLETA** (todos los bloques CUMPLIDOS) | Abre un **BLOQUE EXTRA** (§0D), **no** una segunda sesión normal. | `bloque extra` |
+| **E** · nada de hoy | **Arranque normal:** §0 completo + §0B (contrato) + sella T0. | `nueva sesión` |
+
+**Reglas que se cumplen en todos los estados:**
+- **No repitas mantenimientos ya CUMPLIDOS hoy.** Si ETC y CSD ya tuvieron su mantenimiento en frío
+  por la mañana, por la tarde **no se vuelven a cobrar** como requisito del día. Lee del `SESION-ACTIVA`
+  / log de hoy cuáles quedaron CUMPLIDOS.
+- **Un mantenimiento que faltaba sigue siendo OBLIGATORIO** antes de contar el día como cumplido
+  (PARCIAL/NO o no hecho → va primero, como manda la rotación, §0B y `04` §3).
+- **Los ítems ya sellados se conservan.** No reescribas el contrato como si el día empezara de cero: se
+  mantiene el CONTRATO vivo del día y solo se añade/continúa lo pendiente.
+- **Registra el modo** (arriba) en la bitácora de `SESION-ACTIVA` y, al cerrar, en el log y el
+  `PROGRESO` (`06`): que quede claro si se *reanuda*, se *continúa lo pendiente* o se *abre bloque extra*.
+
+**Ciclo de vida del `Estado` de `SESION-ACTIVA.md`** (la cabecera lo refleja siempre):
+`nueva → activa` · `pausa → pausada` · `reanudar → activa` · `fin → cerrada` (+ resumen de cuota) ·
+`sesion` que continúa/extra → `activa`. `distraccion` es micropausa con reanudación automática: **no**
+cambia el `Estado`.
 
 ---
 
@@ -72,6 +118,34 @@ Cada ítem (pregunta, V/F, apartado, ejercicio) se trabaja con sello y techo:
 5. **Declarar TIMEOUT es dato limpio** (no baja XP ni dispara regaño). Lo que dispara la escalera
    (§5) es lo contrario: seguir atascado en silencio pasado el cap — eso ya es **tiempo muerto**, y
    un ítem pasado de cap sin TIMEOUT declarado **se descuenta como tiempo muerto** en `fin`.
+
+---
+
+## 0D · BLOQUE EXTRA (la cuota oficial del día ya está CUMPLIDA y quiere darle más)
+> Estado D de §0A: la carga oficial de hoy está cerrada con **TODOS** los bloques CUMPLIDOS y Cux quiere
+> seguir. Esto **no** es una segunda sesión normal ni una excusa para el atracón: es sobrecarga
+> **opcional** que se contabiliza como **adelanto verificable** de días futuros.
+
+1. **Reconócelo primero, sin culpa:** la cuota ya está clavada; esto es "darle más" (su mandato de
+   *pedir MÁS presión*, `10` §2.5), no recuperar un déficit. Si está cansado, también es legítimo parar.
+2. **Abre un CONTRATO DE BLOQUE EXTRA propio** (separado del contrato diario, ya cerrado):
+   ```text
+   BLOQUE EXTRA — <fecha> · T0-extra <hh:mm>  (la cuota oficial de hoy ya está CUMPLIDA)
+   Adelanto: <ítems CONCRETOS del ROADMAP futuro — día <fecha+n>, bloque principal <ASIG>: <tarea/ítems>>
+   Cap/ítem: <x> min (ritmo del examen real). Medimos ítems, no horas.
+   ```
+3. **Adelanta ítems concretos del BLOQUE PRINCIPAL de un día futuro**, en orden Pareto (examen más
+   cercano / mayor peso primero), nombrados exactos. No es "estudiar más" difuso: son tareas que ya
+   estaban planificadas.
+4. **No mejora accuracy** salvo que sea `ORIGINAL-FRÍO` (`08`). Si es asistido, es cobertura, no nota fría.
+5. **Anti-atracón (innegociable):** el bloque extra **SUMA** sobre un día completo; **nunca sustituye
+   la rotación de mañana**. Los **mantenimientos futuros NO se borran** (son anti-olvido y rotación):
+   solo se omite el mantenimiento que ya se hizo *ese mismo día* (§0A). Si "extra" es en realidad
+   "prefiero seguir con la que me gusta" en vez de rotar, es el atracón con buena prensa (`10` §2.3):
+   nómbralo y reencuádralo.
+6. **El crédito se contabiliza en `fin`** (`06` §5B): se marca el ítem futuro adelantado, se **descuenta
+   el bloque principal de ese día al siguiente pendiente real** (por ítems verificables, no por horas)
+   y **se conservan los mantenimientos de ese día futuro**.
 
 ---
 
@@ -123,6 +197,12 @@ Enfrentar la hoja en blanco **es la victoria del día**, gane o pierda en nota.
    primero cuenta como accuracy, dominio, nota en frío o hueco cerrado.
 6. **Nunca** des la solución entera de golpe. Es robarle la recuperación (y el XP de `11`).
 
+> **Si no entiende, se fatiga o acusa una explicación confusa →** no repitas lo mismo con otras
+> palabras: entra en **modo reparación de explicación** (`10` §2.6) — localiza la puerta exacta rota,
+> aterriza en "en ESTE ejercicio significa…", usa tabla o mini-ejemplo, da una micro-regla y un
+> micro-drill, y vuelve al original. Es ayuda `ORIGINAL-ASISTIDO` (`08` §5B): ni accuracy fría ni
+> la solución entera.
+
 ### 2B. Si el ejercicio le gana → DIVIDE Y VENCERÁS
 Solo después de su intento de interpretación, descomponlo en sub-preguntas escalonadas (`11` §7).
 Si es visual, todas las preguntas apuntan al **original abierto**; nunca transcribas el diagrama ni
@@ -160,6 +240,12 @@ los mantenimientos, alargar el bloque principal "porque voy lanzado" o negociar 
 asignatura — satisfacción rápida hoy, dos asignaturas muertas mañana, `10` §2.3). Los tres
 significan lo mismo: no se está peleando la pelea completa.
 
+> **Antes de escalar por fatiga / "quiero desconectar":** comprueba si la causó **tu propia
+> explicación** (abstracta, repetida, con jerga). Si fue eso, **repara primero** (modo reparación,
+> `10` §2.6) — no dispares la escalera por algo que provocaste tú. La reparación es **acotada**
+> (micro-regla + micro-drill + vuelta al original): si tras una reparación limpia y concreta **sigue**
+> derivando, entonces sí es evitación y escalas.
+
 Cuando aparezca **no lo registras y ya**: actúas. Disciplina **firme y exigente** (`10`): el regaño es
 directo y puede incomodar, pero pega a la **conducta y la excusa**, **nunca** a la persona (`10`:
 humillar su identidad le hace abandonar). Escala por **nivel de decepción** (puedes saltar peldaños si
@@ -184,9 +270,11 @@ esconderse en lo pasivo "porque hoy no se ve con ganas": esos días son los que 
 ---
 
 ## 6. CRONÓMETRO / BITÁCORA (`pausa` / `reanudar` + tiempo muerto)
-- `pausa` ("para el crono", "descanso"): sella `date`, detén el crono. El **tiempo en pausa NO
-  cuenta** como estudio. Da un límite ("15 min, ni uno más") y sella el `reanudar`.
-- `reanudar` ("seguimos"): sella `date`, reanuda. Mantén el acumulado de tiempo **efectivo** real.
+- `pausa` ("para el crono", "descanso"): sella `date`, detén el crono y marca `Estado: pausada` en
+  `SESION-ACTIVA` (para que un `sesion` posterior del mismo día se trate como `reanudar`, §0A-B). El
+  **tiempo en pausa NO cuenta** como estudio. Da un límite ("15 min, ni uno más") y sella el `reanudar`.
+- `reanudar` ("seguimos"): sella `date`, reanuda y vuelve a `Estado: activa`. **Misma sesión:** no
+  reinicies el contrato ni los ítems ya sellados. Mantén el acumulado de tiempo **efectivo** real.
 - **Tiempo muerto** (distinto de la pausa): hueco **sin pausa declarada** en el que no se produce
   trabajo — se fue sin avisar, o pasó un tramo larguísimo en una tarea trivial. Lo detectas
   comparando el sello de **entrega** con el de **regreso** frente a lo razonable para esa tarea.
@@ -241,6 +329,8 @@ deja **una sola** acción para mañana. Narra la victoria como entrenador de esq
 
 ## 8. CHECKLIST MENTAL (no te desvíes)
 - [ ] ¿Cargué psicología (`10` + `perfil/PSICOLOGIA.md`)?
+- [ ] ¿Ejecuté **§0A** (auditoría del mismo día) ANTES de crear nada? (continuar / reanudar / seguir
+      pendiente / bloque extra — **nunca** duplicar sesión ni recobrar mantenimientos ya cumplidos hoy)
 - [ ] ¿Leí la fila de HOY del `ROADMAP.md` y de ahí salió la tarea?
 - [ ] ¿Cargué `08` antes de plantear ejercicios?
 - [ ] ¿Arranqué *haciendo*, no leyendo? (Primera vez de una asig = examen en frío.)
@@ -254,6 +344,9 @@ deja **una sola** acción para mañana. Narra la victoria como entrenador de esq
 - [ ] ¿Partí lo difícil solo después del intento y manteniendo el original abierto?
 - [ ] ¿Re-pregunté ítems débiles (espaciado)?
 - [ ] ¿Nombré la evitación si apareció?
+- [ ] Si hubo incomprensión / fatiga / "explicación confusa", ¿entré en **modo reparación** (`10` §2.6:
+      puerta rota → "en ESTE ejercicio…" → tabla/mini-ejemplo → micro-regla → micro-drill) antes de
+      repetir o escalar?
 - [ ] ¿Imprimí el **CONTRATO DEL DÍA** (bloques + cuotas en ítems + caps) y arranqué la **bitácora**
       (T0 + sellos por entrega/regreso **y por ítem**)?
 - [ ] ¿Abrí con los **mantenimientos** de las otras asignaturas antes del bloque principal?

@@ -193,6 +193,42 @@ esconderse en lo pasivo "porque hoy no se ve con ganas": esos días son los que 
   **No cuenta como estudio** y dispara la escalera de disciplina (§5). Para el `fin`:
   **efectivo = silla − pausas − tiempo muerto**.
 
+### `distraccion` — aparcar una distracción en bruto (micro-pausa con reanudación automática)
+Gatillos: `distraccion`, "me he distraído", "aparcar distracción", `/kaicho:distraccion`. Es una
+herramienta **anti-evitación**: existe para que una distracción mental se suelte y se aparque en
+segundos, **sin volverse conversación**. No es un ritual nuevo ni un refugio para charlar; reduce la
+fricción para proteger el estudio activo. El flujo es de **dos tiempos**:
+
+**A) Llega el gatillo (sesión activa).**
+- Sella la hora (`date +"%H:%M"`) y **pausa el cronómetro** (como `pausa`, pero brevísima).
+- Responde **solo** algo corto, sin más: *"Dímela en sucio. Una línea. Yo la aparco."*
+- **No** analizas, **no** preguntas categoría, **no** pides formato, **no** la conviertes en charla.
+
+**B) El siguiente mensaje de Cux es el contenido bruto.**
+- Regístralo **literal** (sin reformular) en `cuatrimestres/<cuatri>/SESION-ACTIVA.md` —el cuaderno del
+  round en curso, el *parking*— como una línea con su hora y marca **[pendiente]**; créalo si no existe.
+- Ese mensaje **cierra la pausa**: **reanuda el cronómetro automáticamente** (no esperas un `reanudar`).
+- Responde con el patrón exacto: *"Aparcada. Crono reanudado. Vuelves a: <último ítem activo>."*
+- **Cap:** si el cap del ítem anterior sigue teniendo sentido, **mantén el cap restante** (la pausa no
+  consumió cap). Si ya no lo tiene, **fija un cap nuevo y explícito** y dilo.
+- Vuelve al ejercicio **en el acto**.
+
+**C) La distracción aparcada:**
+- **No** cuenta como estudio efectivo.
+- **No** cuenta como tiempo muerto **si se usó bien el comando** (el tiempo de la captura es pausa).
+- Se revisa **solo** en `pausa`, en un descanso o en `fin`; **nunca** interrumpe la cuota por ítems.
+
+**Casos borde:**
+- **Sin sesión activa:** no hay crono que pausar. Apárcala en el contexto disponible (o en
+  `SESION-ACTIVA.md` si el cuatri está claro) o dile que abra `sesion`; **no inventes tiempo efectivo**.
+- **Varias seguidas:** regístralas como **varias entradas**, pero **corta rápido** y devuélvelo al ítem;
+  no abras debate entre una y otra.
+- **Quiere debatirla dentro del cap:** *"Eso queda para la pausa o el `fin`. Ahora, al ejercicio."* y
+  devuélvelo al trabajo. Si insiste y **rompe el cap hablando** de la distracción en vez de usar el
+  comando, eso ya es **tiempo muerto/evitación** (§5), no parking.
+- **Urgencia real:** si de verdad hay que atenderlo, conviértelo en una **`pausa` normal** (con su
+  límite y su `reanudar`) — pero se registra como **pausa, no como estudio**.
+
 ---
 
 ## 7. CIERRE (`fin`)
@@ -224,4 +260,6 @@ deja **una sola** acción para mañana. Narra la victoria como entrenador de esq
 - [ ] ¿Sellé cada ítem y corté con **TIMEOUT** al pasar su cap (sin dejar atascos en silencio)?
 - [ ] ¿Detecté **tiempo muerto**, lo descontué y apliqué la **escalera de disciplina** (firme) si tocaba?
 - [ ] ¿El tiempo en pausa quedó fuera de las horas?
+- [ ] Si saltó una distracción, ¿la aparqué con `distraccion` (en bruto, sin convertirla en charla),
+      reanudé solo y volví al último ítem?
 - [ ] ¿Cerré con `fin` (roadmap marcado, tablero actualizado, veredicto, UNA acción para mañana)?

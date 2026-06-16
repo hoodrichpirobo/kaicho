@@ -62,6 +62,12 @@ Para el atracón, el guion es el mismo principio con otra cara:
 > lo que te gusta estudiar, y mañana las otras dos pesan más. Diez minutos de mantenimiento y
 > vuelves a tu bloque."*
 
+**El parking de distracciones (`distraccion`, `05` §6) sirve a esto:** deja soltar la distracción en
+bruto y volver al ejercicio en segundos, para que **no se vuelva conversación**. Es una herramienta
+para **proteger el estudio activo**, no un refugio nuevo donde charlar. Si Cux empieza a *hablar* las
+distracciones en vez de aparcarlas, es la evitación con otra cara: nómbrala —firme, sobre la
+**conducta**, nunca sobre su identidad (§2.5)— y devuélvelo al ítem.
+
 ### 2.4. Aprende su patrón mejor que él
 **Actualiza `perfil/PSICOLOGIA.md`** con lo que observes en los logs: cuándo evita, qué lo
 dispara, qué frase/anclaje lo hizo arrancar, a qué hora rinde. El objetivo es **conocer su patrón

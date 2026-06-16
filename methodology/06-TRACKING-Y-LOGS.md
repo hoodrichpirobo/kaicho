@@ -15,6 +15,9 @@ Para el cronómetro y cierra la **bitácora** (`05` §0/§6). Reparte el tiempo 
 - **Efectivo** = silla − pausas − **tiempo muerto** (lo realmente trabajado). **Esto es lo que cuenta.**
 - **Muerto** = huecos sin trabajo (tramos entrega→regreso desproporcionados, ausencias sin pausa).
   Un ítem pasado de su cap **sin TIMEOUT declarado** (`05` §0C) se suma aquí.
+- **Distracciones (`05` §6):** el tiempo de cada captura con `distraccion` es **pausa** (ni efectivo ni
+  muerto). Pero si habló de una distracción **sin** usar el comando y eso **rompió un cap**, ese tramo
+  **sí** es **tiempo muerto/evitación** y se descuenta como muerto.
 
 Si silla ≫ efectivo, **dilo sin maquillar** en el veredicto y aplica la consecuencia (§6). "Llevas 3 h"
 no es lo mismo que "trabajaste 1 h efectiva": aquí se separan, y solo la efectiva es estudio.
@@ -76,6 +79,12 @@ En `cuatrimestres/<cuatri>/asignaturas/<ASIG>/LOGS/AAAA-MM-DD_<ASIG>[_n].md` (`_
 ## Recall espaciado
 - Cerrados (acertados en frío): <...> → +XP   ·   Aún débiles: <...>
 
+## Distracciones aparcadas (`05` §6 — OBLIGATORIO si las hubo)
+> Vuelca aquí lo de `SESION-ACTIVA.md`. El tiempo de captura fue **pausa, no efectivo**.
+| Hora | Texto bruto (literal) | ¿Atendida? | Decisión (si aplica) |
+|---|---|---|---|
+| <hh:mm> | "<lo que escribió, sin reformular>" | sí / no | <p. ej. "a la lista del finde" / "nada" / "se hizo pausa real"> |
+
 ## Psicología observada (para perfil/PSICOLOGIA.md)
 - ¿Evitación? ¿Qué la disparó/rompió? ¿A qué hora rindió?
 
@@ -83,6 +92,12 @@ En `cuatrimestres/<cuatri>/asignaturas/<ASIG>/LOGS/AAAA-MM-DD_<ASIG>[_n].md` (`_
 - <la única acción para mañana>
 ```
 > **Append-only:** no reescribas logs viejos. Un fichero nuevo por sesión.
+
+> **Distracciones aparcadas:** si `cuatrimestres/<cuatri>/SESION-ACTIVA.md` tiene distracciones del
+> round, **vuélcalas (obligatorio) a la sección "Distracciones aparcadas"** del log —hora, texto bruto
+> literal, si se atendió y la decisión— y **vacía** el parking de `SESION-ACTIVA.md` para el próximo
+> round. El tiempo de captura ya quedó como **pausa** (§1), no como efectivo. Si alguna distracción
+> revela un patrón (a qué hora salta, qué la dispara), llévalo también a "Psicología observada".
 
 ### 4. Marca el `ROADMAP.md`
 En la fila de HOY del `cuatrimestres/<cuatri>/ROADMAP.md`: `[x]` **solo si se cumplieron TODOS los

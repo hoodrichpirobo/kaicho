@@ -37,6 +37,7 @@ los sinónimos; no tiene por qué escribirlo exacto.
 | `sesion` · "entrenar" · "round" · "vamos" | `methodology/05-SESION.md` (sin asignatura: la dice el `ROADMAP`) |
 | `pausa` · "para el crono" · "descanso" | Pausa el cronómetro (dentro de `05`). El tiempo en pausa NO cuenta como estudio. |
 | `reanudar` · "seguimos" · "volví" | Reanuda el cronómetro (dentro de `05`). |
+| `distraccion` · "me he distraído" · "aparcar distracción" | Aparca una distracción **en bruto** (dentro de `05`): pausa breve + reanudación automática. Anti-evitación; no cuenta como estudio. |
 | `fin` · "fin de sesión" · "cerrar" | `methodology/06-TRACKING-Y-LOGS.md` (log + recalibra + veredicto) |
 | `recalibrar` · "replanificar" · "voy mal de tiempo" | `methodology/04-PLANIFICACION.md` (§5) |
 
@@ -47,8 +48,8 @@ quiere hacer y ofrécele la lista de arriba.
 
 Los gatillos están como **slash commands nativos** bajo el namespace `kaicho`, en
 `.claude/commands/kaicho/`: **`/kaicho:setup`, `/kaicho:onboard`, `/kaicho:sesion`, `/kaicho:pausa`,
-`/kaicho:reanudar`, `/kaicho:fin`, `/kaicho:recalibrar`**. Ni `sesion` ni `fin` necesitan asignatura:
-la marca el `ROADMAP`.
+`/kaicho:reanudar`, `/kaicho:distraccion`, `/kaicho:fin`, `/kaicho:recalibrar`**. Ni `sesion` ni `fin`
+necesitan asignatura: la marca el `ROADMAP`.
 
 Las **frases en lenguaje natural** de la tabla disparan exactamente el mismo flujo —son el mecanismo
 que **garantiza la paridad con Codex**, porque tú lees este archivo y el manifiesto siempre—. Da igual

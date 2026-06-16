@@ -41,6 +41,7 @@ los sinónimos; no tiene por qué escribirlo exacto.
 | `sesion` · "entrenar" · "round" · "vamos" | `methodology/05-SESION.md` (sin asignatura: la dice el `ROADMAP`) |
 | `pausa` · "para el crono" · "descanso" | Pausa el cronómetro (dentro de `05`). El tiempo en pausa NO cuenta como estudio. |
 | `reanudar` · "seguimos" · "volví" | Reanuda el cronómetro (dentro de `05`). |
+| `distraccion` · "me he distraído" · "aparcar distracción" | Aparca una distracción **en bruto** (dentro de `05`). Pausa breve + reanudación automática; anti-evitación, no cuenta como estudio. |
 | `fin` · "fin de sesión" · "cerrar" | `methodology/06-TRACKING-Y-LOGS.md` (log + recalibra + veredicto) |
 | `recalibrar` · "replanificar" · "voy mal de tiempo" | `methodology/04-PLANIFICACION.md` (§5) |
 
@@ -50,7 +51,7 @@ quiere hacer y ofrécele la lista de arriba.
 ## Comandos (Agent Skills en Codex)
 
 Los gatillos están como **Agent Skills**, en `.agents/skills/` (`setup`, `onboard`, `sesion`,
-`pausa`, `reanudar`, `fin`, `recalibrar`). Se invocan con `$setup` (mención), desde el selector
+`pausa`, `reanudar`, `distraccion`, `fin`, `recalibrar`). Se invocan con `$setup` (mención), desde el selector
 `/skills`, o **automáticamente** cuando el usuario escribe el gatillo: cada skill declara en su
 `description` las frases que la activan (incluida la forma `/kaicho:<comando>`).
 

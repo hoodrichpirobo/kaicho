@@ -150,6 +150,7 @@ comporten igual (ambos leen este archivo).
 | `sesion` · "entrenar" · "round" · "vamos" | `methodology/05-SESION.md` | El round del día. **Sin asignatura:** lo que toca lo dice el `ROADMAP`. |
 | `pausa` · "para el crono" · "descanso" | (dentro de `05`) | Detiene el cronómetro. El tiempo en pausa **no** cuenta como estudio. |
 | `reanudar` · "seguimos" · "volví" | (dentro de `05`) | Reanuda el cronómetro. |
+| `distraccion` · "me he distraído" · "aparcar distracción" | (dentro de `05` §6) | Herramienta **anti-evitación**: aparca una distracción **en bruto** (una línea, sin formato) — pausa breve → captura literal en `SESION-ACTIVA.md` → **reanuda solo**. No cuenta como estudio. |
 | `fin` · "fin de sesión" · "cerrar" | `methodology/06-TRACKING-Y-LOGS.md` | Cierra: log + marca el `ROADMAP` + tablero + **recalibra y da veredicto** + narra la victoria. |
 | `recalibrar` · "replanificar" · "voy mal de tiempo" | `methodology/04-PLANIFICACION.md` (§5) + `06` | Reajusta el `ROADMAP` con el ritmo real. |
 

@@ -69,7 +69,7 @@ solo mío.
 | **Fidelidad del examen** | Si hay diagramas, imágenes, tablas u otra interpretación visual, el agente **nunca plantea ni preinterpreta el ejercicio por terminal**: dirige al original. Lo asistido no cuenta como accuracy/dominio hasta una reválida fría. |
 | **Anti-overfitting / anti-atracón** | **Regla de los 2 exámenes**: ≥2 años distintos dominados por asignatura (banco de exámenes con estados) antes del examen. **Rotación diaria**: mantenimiento en frío de las demás asignaturas antes del bloque profundo del día. |
 | **Cuota funcional, no horas** | El día se mide en ítems resueltos (contrato del día). Cada ítem lleva sello de tiempo y **cap** derivado del ritmo del examen real, con **TIMEOUT** al superarlo. |
-| **Control de regresión** | `scripts/check-fidelidad-examen.sh` verifica que manifiesto, sesión, cierre, skills y plantillas mantienen esas barreras. |
+| **Control de regresión** | `scripts/check-fidelidad-examen.sh` afirma que manifiesto, sesión, cierre, skills y plantillas mantienen esas barreras —y que la jerga *cringe* no se cuela en los archivos del sistema—. Las invariantes del *prompt* se testean como código. |
 | **Pedagogía basada en evidencia** | Las políticas se derivan de literatura de ciencia del aprendizaje, no de intuición. |
 
 ## Inicio rápido
@@ -104,7 +104,7 @@ solo mío.
 ## Flujo diario
 
 ```text
-┌─ UNA VEZ ───────────────────────────────────────────────────────────────────────┐
+┌─ UNA VEZ ─────────────────────────────────────────────────────────────────────────┐
 │  /kaicho:setup      entrevista de perfil (global, persiste entre cuatrimestres)   │
 └───────────────────────────────────────────────────────────────────────────────────┘
 ┌─ UNA VEZ POR CUATRIMESTRE ────────────────────────────────────────────────────────┐
@@ -116,7 +116,7 @@ solo mío.
 │  /kaicho:sesion     (sin asignatura: el ROADMAP decide qué toca HOY)              │
 │     ├─ arranque en frío: intentas ANTES de leer (1ª sesión de una asig = examen)  │
 │     ├─ original → interpretación propia → diagnóstico → teoría just-in-time       │
-│     ├─ /kaicho:pausa · /kaicho:reanudar   (el tiempo en pausa no cuenta)          │
+│     ├─ /kaicho:pausa · /kaicho:reanudar · /kaicho:distraccion   (no cuentan)      │
 │     └─ /kaicho:fin   log + XP + marca ROADMAP + RECALIBRA + veredicto del día     │
 └───────────────────────────────────────────────────────────────────────────────────┘
                                      │
@@ -133,7 +133,9 @@ solo mío.
 2. **Trabaja el round.** Intentas desde el formato original; si hay componente visual, el agente
    nunca lo reproduce ni lo mastica por terminal. Tras tu interpretación, diagnostica, da solo la
    teoría necesaria y parte lo difícil en sub-preguntas manteniendo el original abierto. Usa
-   `/kaicho:pausa` y `/kaicho:reanudar` para separar pausa, tiempo efectivo y tiempo muerto.
+   `/kaicho:pausa` y `/kaicho:reanudar` para separar pausa, tiempo efectivo y tiempo muerto; si te
+   asalta una distracción, `/kaicho:distraccion` la aparca en bruto (una línea) y reanuda el crono
+   solo, sin convertirla en conversación ni contarla como estudio.
 3. **Cierra con `/kaicho:fin`.** Registra la sesión (silla/efectivo/muerto, bloques e ítems con sus
    caps, accuracy), marca la fila del `ROADMAP`, actualiza el tablero (XP, racha, ronda, exámenes
    dominados) y **recalibra solo dándote el veredicto del día** (¿cumpliste todos los bloques?, ¿hubo
@@ -154,6 +156,7 @@ dos, **escribir la frase en lenguaje natural también funciona** — es lo que g
 | Alta del cuatrimestre (todas las asig.) | `/kaicho:onboard` | `$onboard` | "monta el cuatrimestre" |
 | Round de estudio del día | `/kaicho:sesion` | `$sesion` | "vamos a entrenar" |
 | Pausa / reanudar crono | `/kaicho:pausa` · `/kaicho:reanudar` | `$pausa` · `$reanudar` | "para el crono" · "seguimos" |
+| Aparcar distracción (anti-evitación) | `/kaicho:distraccion` | `$distraccion` | "me he distraído" |
 | Fin de sesión (+ recalibra) | `/kaicho:fin` | `$fin` | "fin de sesión" |
 | Replanificar | `/kaicho:recalibrar` | `$recalibrar` | "voy mal de tiempo" |
 
@@ -174,15 +177,15 @@ dos, **escribir la frase en lenguaje natural también funciona** — es lo que g
 Tres capas, una sola fuente de verdad:
 
 ```text
-┌─ Bootstraps (finos, < 32 KiB) ──────────────────────────────────────────────┐
-│   CLAUDE.md  (Claude Code lo lee)        AGENTS.md  (Codex lo lee, automático)│
+┌─ Bootstraps (finos, < 32 KiB) ───────────────────────────────────────────────┐
+│   CLAUDE.md  (Claude Code lo lee)       AGENTS.md  (Codex lo lee, automático)│
 │   · misma tabla de gatillos en lenguaje natural (verificada idéntica)        │
 │   · no contienen lógica: redirigen a ▼                                       │
-├─ methodology/ — el "cerebro" (tool-agnóstico) ──────────────────────────────┤
+├─ methodology/ — el "cerebro" (tool-agnóstico) ───────────────────────────────┤
 │   00-MANIFEST · 01-SETUP · 02-ONBOARDING · 03-ESTRATEGIAS · 04-PLANIFICACION │
 │   05-SESION · 06-TRACKING · 07-RECOPILACION · 08-FRONTERA-TERMINAL ·         │
 │   09-MAKE-IT-STICK · 10-PSICOLOGIA · 11-GAMIFICACION                         │
-├─ Instancia (local, no versionada) ──────────────────────────────────────────┤
+├─ Instancia (local, no versionada) ───────────────────────────────────────────┤
 │   perfil/ (perfil global, persiste entre cuatrimestres)                      │
 │   cuatrimestres/<cuatri>/asignaturas/<asig>/ (material, plan, progreso, logs)│
 └──────────────────────────────────────────────────────────────────────────────┘
@@ -302,6 +305,7 @@ kaicho/
 ├── methodology/                  el cerebro: 00-MANIFEST … 11-GAMIFICACION (12 archivos)
 ├── .claude/commands/kaicho/      slash commands de Claude Code (/kaicho:setup, /kaicho:sesion, …)
 ├── .agents/skills/               Agent Skills de Codex ($setup, $sesion, … · cierre = fin, no log)
+├── scripts/                      check-fidelidad-examen.sh — guarda las barreras (CI/pre-commit)
 ├── perfil/                       perfil global (instancia local) + plantillas públicas vacías
 └── cuatrimestres/
     └── _TEMPLATE_CUATRIMESTRE/    se copia por cuatrimestre
@@ -333,8 +337,10 @@ existen, se confirma explícitamente y se usan ejercicios propuestos y exámenes
 
 Es una plantilla para usar y adaptar, no un proyecto de colaboración. Haz un *fork*, renómbralo
 (`README.md` + directorio), ajusta el tono del coach o añade mecánicas: toda la conducta está en
-`methodology/*.md`, en texto plano. *Issues* y *PRs* son bienvenidos, pero el objetivo es que cada
-quien lo haga suyo.
+`methodology/*.md`, en texto plano. Antes de publicar cambios, corre
+`bash scripts/check-fidelidad-examen.sh`: valida que las barreras de fidelidad e integridad —y el
+tono sobrio— siguen intactas en todos los archivos del sistema (úsalo como *pre-commit* o paso de
+CI). *Issues* y *PRs* son bienvenidos, pero el objetivo es que cada quien lo haga suyo.
 
 ## Créditos y licencia
 

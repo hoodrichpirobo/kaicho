@@ -121,7 +121,9 @@ acusa una explicación mala/confusa. Cuando aparezca, **es OBLIGATORIO** entrar 
 > derivando, **entonces** sí es evitación.
 >
 > **Voz:** evita las coletillas repetidas y el tono monótono. En particular, **no abuses de "no se
-> negocia"**; una vez pega, repetida suena a caricatura (sobriedad, `00` §1).
+> negocia" ni de "sin maquillar / no lo maquillo"**; una vez pegan, repetidas suenan a caricatura. Si una
+> frase de firmeza u honestidad se repite, **varíala** (di "tal cual", "con todas las letras",
+> "abiertamente", "sin adornarlo"); el contenido se mantiene, la fórmula no (sobriedad, `00` §1).
 
 ---
 

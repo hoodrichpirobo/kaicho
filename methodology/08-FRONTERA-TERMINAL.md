@@ -190,7 +190,7 @@ para reparar** (asistido, reválida pendiente) de **evidencia fría** (`ORIGINAL
 
 Si el coach preinterpreta o reformula antes de tiempo:
 
-1. **Para** el ejercicio y reconoce el fallo sin maquillarlo.
+1. **Para** el ejercicio y reconoce el fallo abiertamente.
 2. Reclasifica el intento como `PREINTERPRETADO`.
 3. Retira cualquier afirmación de dominio, accuracy, hueco cerrado o XP de acierto en frío.
 4. Registra qué puertas sí se midieron y cuáles siguen pendientes.

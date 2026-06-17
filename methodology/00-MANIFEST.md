@@ -202,7 +202,7 @@ hacer y ofrécele los de arriba.
 11. **Regla de los 2 exámenes.** Ninguna asignatura está lista sin **≥2 exámenes de años distintos
     DOMINADOS** (banco de exámenes y criterios en `08` §3B; hitos en `04` §2). Si el banco no da para
     dos, se compone un examen B con originales no expuestos (`07` §4) o se declara el riesgo de
-    *overfitting* en el veredicto; no se maquilla.
+    *overfitting* en el veredicto, con todas las letras.
 12. **Ningún día mono-asignatura** mientras haya ≥2 exámenes pendientes: el día abre con los
     **mantenimientos** (recall corto en frío de las otras asignaturas, con tope) y solo después entra
     el **bloque principal** (`04` §3, `05` §0B). El día solo cuenta cumplido con TODOS los bloques.

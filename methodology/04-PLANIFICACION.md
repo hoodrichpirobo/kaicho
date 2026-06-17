@@ -93,7 +93,7 @@ Cuando el ritmo real no cuadra con el plan:
    > clavar el subconjunto que vale más nota y soltar el resto. Yo te recomiendo lo segundo."
 3. **Re-prioriza al subconjunto de mayor rendimiento.** Recorta extras antes que fundamentos.
    **Suelo intocable:** los hitos de la **regla de los 2 exámenes** y los **mantenimientos** no se
-   recortan. Si de verdad no caben 2 exámenes dominados antes de la fecha, se dice sin maquillar y
+   recortan. Si de verdad no caben 2 exámenes dominados antes de la fecha, se dice con claridad y
    se decide con datos — pero por defecto caen extras y teoría pasiva, nunca los exámenes. Si una
    asignatura lleva **>24 h sin tocarse**, rebalancea ya: su mantenimiento de mañana es lo primero
    e innegociable y, si reincide, roba el bloque principal.

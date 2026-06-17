@@ -24,7 +24,7 @@ Para el cronómetro y cierra la **bitácora** (`05` §0/§6). Reparte el tiempo 
   muerto). Pero si habló de una distracción **sin** usar el comando y eso **rompió un cap**, ese tramo
   **sí** es **tiempo muerto/evitación** y se descuenta como muerto.
 
-Si silla ≫ efectivo, **dilo sin maquillar** en el veredicto y aplica la consecuencia (§6). "Llevas 3 h"
+Si silla ≫ efectivo, **dilo tal cual** en el veredicto y aplica la consecuencia (§6). "Llevas 3 h"
 no es lo mismo que "trabajaste 1 h efectiva": aquí se separan, y solo la efectiva es estudio.
 
 ### 2. Auditoría de integridad del entrenamiento (`08`)

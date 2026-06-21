@@ -16,8 +16,9 @@ description: Un round de entrenamiento del día (lo que toca lo dice el ROADMAP,
 
 **No pidas asignatura**: la dice el `ROADMAP`. Arranca *haciendo*, no leyendo (1ª sesión de una
 asignatura = examen en frío). **Solo en *nueva sesión*** imprime el **CONTRATO DEL DÍA** (bloques:
-**mantenimientos primero**, bloque principal después; cuota en ítems) y arranca la **bitácora de
-tiempo** (`date` T0 + sellos por entrega **y por ítem**); si continúas/reanudas/extra, **retoma el
+**mantenimientos primero**, bloque principal después; cuota en ítems) y arranca la
+**bitácora de tiempo** (`date` T0 + sellos por entrega **y por ítem**); si continúas/reanudas/extra,
+**retoma el
 contrato y el acumulado vivos** (§0A). Aplica el **control por ítem** (cap del ritmo del examen real; al
 cap, **TIMEOUT** y siguiente). Vigila el **tiempo muerto** y el atracón mono-asignatura: si hay
 evitación, aplica la **escalera de disciplina** (firme, conducta no identidad). Si no entiende o se

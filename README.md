@@ -2,11 +2,12 @@
 
 # 會長 · Kaichō
 
-**Sistema de _context engineering_ que convierte a un agente de código (Claude Code · Codex) en un coach de estudio para exámenes: determinista, agnóstico de herramienta y guiado por evidencia.**
+**Sistema de _context engineering_ que convierte a un agente de código (Claude Code · Codex · Antigravity) en un coach de estudio para exámenes: determinista, agnóstico de herramienta y guiado por evidencia.**
 
 [![Licencia MIT](https://img.shields.io/badge/licencia-MIT-blue.svg)](LICENSE)
 [![Claude Code](https://img.shields.io/badge/Claude_Code-compatible-D97757?logo=anthropic&logoColor=white)](#comandos)
 [![Codex](https://img.shields.io/badge/Codex-compatible-412991?logo=openai&logoColor=white)](#comandos)
+[![Antigravity](https://img.shields.io/badge/Antigravity-compatible-4285F4?logo=google&logoColor=white)](#comandos)
 [![Idioma español](https://img.shields.io/badge/idioma-español-c60b1e.svg)](#)
 [![Dependencias cero](https://img.shields.io/badge/dependencias-0-2ea44f.svg)](#)
 [![Pedagogía: Make It Stick](https://img.shields.io/badge/pedagogía-evidence--based-e67e22.svg)](#pedagogía-basada-en-evidencia)
@@ -62,8 +63,8 @@ solo mío.
 | Principio | Decisión |
 |---|---|
 | **Fuente única de verdad** | Toda la lógica vive en `methodology/*.md` (00–11). Los bootstraps no la duplican; la referencian. |
-| **Agnóstico de herramienta** | El comportamiento no depende del *runtime*. Mismo contexto para Claude Code y Codex. |
-| **Activación determinista entre agentes** | Los gatillos se definen como **frases en lenguaje natural** en los bootstraps que ambos agentes cargan siempre (`CLAUDE.md` / `AGENTS.md`). Encima, cada agente expone su mecanismo nativo de comandos (ver [Comandos](#comandos)). |
+| **Agnóstico de herramienta** | El comportamiento no depende del *runtime*. Mismo contexto para Claude Code, Codex y Antigravity (Gemini). |
+| **Activación determinista entre agentes** | Los gatillos se definen como **frases en lenguaje natural** en los bootstraps que todos los agentes cargan siempre (`CLAUDE.md` / `AGENTS.md`). Encima, cada agente expone su mecanismo nativo de comandos (ver [Comandos](#comandos)). |
 | **Separación plantilla / instancia** | El repo público es la plantilla. Los datos personales y el material de la asignatura viven en una instancia local, nunca versionada. |
 | **Privacidad por defecto** | El `.gitignore` excluye perfil y material; lo personal no puede filtrarse a la rama pública por descuido. |
 | **Fidelidad del examen** | Si hay diagramas, imágenes, tablas u otra interpretación visual, el agente **nunca plantea ni preinterpreta el ejercicio por terminal**: dirige al original. Lo asistido no cuenta como accuracy/dominio hasta una reválida fría. |
@@ -80,10 +81,11 @@ solo mío.
      o:  git clone https://github.com/hoodrichpirobo/kaicho.git && cd kaicho
 
 2 · Abre la carpeta con tu agente
-     Claude Code:  claude          Codex:  codex
+     Claude Code:  claude     Codex:  codex     Antigravity:  agy
 
 3 · Configura tu perfil (una vez)
-     Claude Code →  /kaicho:setup        Codex →  $setup   (o escribe:  setup)
+     Claude Code →  /kaicho:setup     Codex →  $setup
+     Antigravity →  /setup  (o escribe "empezar")
 
 4 · Da de alta TODO el cuatrimestre (de una vez)
      # crea las carpetas a partir de las plantillas (una por asignatura)
@@ -91,11 +93,13 @@ solo mío.
      cp -r cuatrimestres/2026-01_a_2026-07/asignaturas/_TEMPLATE_ASIGNATURA \
            cuatrimestres/2026-01_a_2026-07/asignaturas/REDES   # repite por asignatura
      # coloca el material en material/ y guia-docente/ (sobre todo exámenes de años anteriores)
-     Claude Code →  /kaicho:onboard      Codex →  $onboard  (o:  onboard)
+     Claude Code →  /kaicho:onboard     Codex →  $onboard
+     Antigravity →  /onboard  (o escribe "monta el cuatrimestre")
 
 5 · Entrena (cada día)
-     Claude Code →  /kaicho:sesion       Codex →  $sesion   (o:  vamos)
-     # sin asignatura: el ROADMAP decide qué toca hoy. Cierras con /kaicho:fin
+     Claude Code →  /kaicho:sesion      Codex →  $sesion
+     Antigravity →  /sesion  (o escribe "vamos a entrenar")
+     # sin asignatura: el ROADMAP decide qué toca hoy. Cierras con fin
 ```
 
 > El paso 4 está bloqueado por diseño: el agente no genera el `ROADMAP` hasta tener los exámenes de
@@ -147,18 +151,18 @@ solo mío.
 
 ## Comandos
 
-Los mismos gatillos, expuestos con el mecanismo **nativo** de cada herramienta. En cualquiera de los
-dos, **escribir la frase en lenguaje natural también funciona** — es lo que garantiza la paridad.
+Los mismos gatillos, expuestos con el mecanismo **nativo** de cada herramienta. En cualquiera de las
+tres, **escribir la frase en lenguaje natural también funciona** — es lo que garantiza la paridad.
 
-| Acción | Claude Code | Codex | Lenguaje natural |
-|---|---|---|---|
-| Perfil global (una vez) | `/kaicho:setup` | `$setup` · `/skills` | "empezar", "configúrame" |
-| Alta del cuatrimestre (todas las asig.) | `/kaicho:onboard` | `$onboard` | "monta el cuatrimestre" |
-| Round de estudio del día | `/kaicho:sesion` | `$sesion` | "vamos a entrenar" |
-| Pausa / reanudar crono | `/kaicho:pausa` · `/kaicho:reanudar` | `$pausa` · `$reanudar` | "para el crono" · "seguimos" |
-| Aparcar distracción (anti-evitación) | `/kaicho:distraccion` | `$distraccion` | "me he distraído" |
-| Fin de sesión (+ recalibra) | `/kaicho:fin` | `$fin` | "fin de sesión" |
-| Replanificar | `/kaicho:recalibrar` | `$recalibrar` | "voy mal de tiempo" |
+| Acción | Claude Code | Codex | Antigravity | Lenguaje natural |
+|---|---|---|---|---|
+| Perfil global (una vez) | `/kaicho:setup` | `$setup` | `/setup` | "empezar", "configúrame" |
+| Alta del cuatrimestre | `/kaicho:onboard` | `$onboard` | `/onboard` | "monta el cuatrimestre" |
+| Round de estudio del día | `/kaicho:sesion` | `$sesion` | `/sesion` | "vamos a entrenar" |
+| Pausa / reanudar crono | `/kaicho:pausa` · `:reanudar` | `$pausa` · `$reanudar` | `/pausa` · `/reanudar` | "para el crono" · "seguimos" |
+| Aparcar distracción | `/kaicho:distraccion` | `$distraccion` | `/distraccion` | "me he distraído" |
+| Fin de sesión (+ recalibra) | `/kaicho:fin` | `$fin` | `/fin` | "fin de sesión" |
+| Replanificar | `/kaicho:recalibrar` | `$recalibrar` | `/recalibrar` | "voy mal de tiempo" |
 
 > Ni `sesion` ni `fin` llevan asignatura: la marca el `ROADMAP`. La carga pesada está en `onboard`;
 > el día a día es simple a propósito (para que funcione igual en un modelo menos potente).
@@ -171,6 +175,11 @@ dos, **escribir la frase en lenguaje natural también funciona** — es lo que g
   selector `/skills`, o **automáticamente** cuando escribes el gatillo (cada skill declara en su
   `description` las frases que la activan). Codex no soporta *slash commands* personalizados por
   repositorio; las skills son su mecanismo equivalente y sí viajan con el repo.
+- **Antigravity (Gemini)** expone las skills de dos formas. **Explícita:** convierte el campo `name`
+  de cada skill en un *slash command* dinámico (ej. `/sesion`). **Implícita (activación semántica):**
+  al recibir un prompt, escanea el campo `description` y activa la skill que coincida. No usa `$`;
+  basta con escribir el comando `/sesion` o la frase del gatillo en lenguaje natural. También lee
+  `AGENTS.md` como reglas del workspace.
 
 ## Funcionamiento
 
@@ -178,7 +187,7 @@ Tres capas, una sola fuente de verdad:
 
 ```text
 ┌─ Bootstraps (finos, < 32 KiB) ───────────────────────────────────────────────┐
-│   CLAUDE.md  (Claude Code lo lee)       AGENTS.md  (Codex lo lee, automático)│
+│   CLAUDE.md  (Claude Code)   AGENTS.md  (Codex + Antigravity, automático)   │
 │   · misma tabla de gatillos en lenguaje natural (verificada idéntica)        │
 │   · no contienen lógica: redirigen a ▼                                       │
 ├─ methodology/ — el "cerebro" (tool-agnóstico) ───────────────────────────────┤
@@ -191,10 +200,10 @@ Tres capas, una sola fuente de verdad:
 └──────────────────────────────────────────────────────────────────────────────┘
 ```
 
-**Paridad entre agentes.** Codex descubre y lee `AGENTS.md` recorriendo desde la raíz del repo;
-Claude Code lee `CLAUDE.md`. Ambos contienen la **misma** especificación de gatillos y apuntan al
-mismo `methodology/`. Por eso el sistema se comporta igual en los dos sin mantener dos
-implementaciones, e independientemente de qué mecanismo de comandos use cada herramienta.
+**Paridad entre agentes.** Codex y Antigravity descubren y leen `AGENTS.md` recorriendo desde la raíz
+del repo; Claude Code lee `CLAUDE.md`. Todos contienen la **misma** especificación de gatillos y
+apuntan al mismo `methodology/`. Por eso el sistema se comporta igual en los tres sin mantener
+implementaciones separadas, e independientemente de qué mecanismo de comandos use cada herramienta.
 
 ## Comportamiento del agente: traza de una sesión
 
@@ -300,11 +309,11 @@ El material de la asignatura y los datos personales **no salen de la máquina lo
 ```text
 kaicho/
 ├── README.md
-├── CLAUDE.md · AGENTS.md         bootstraps (gatillos) para Claude Code y Codex
+├── CLAUDE.md · AGENTS.md         bootstraps (gatillos) para Claude Code, Codex y Antigravity
 ├── .gitignore                    aísla datos personales y material con copyright
 ├── methodology/                  el cerebro: 00-MANIFEST … 11-GAMIFICACION (12 archivos)
 ├── .claude/commands/kaicho/      slash commands de Claude Code (/kaicho:setup, /kaicho:sesion, …)
-├── .agents/skills/               Agent Skills de Codex ($setup, $sesion, … · cierre = fin, no log)
+├── .agents/skills/               Agent Skills (Codex: $nombre · Antigravity: semántica automática)
 ├── scripts/                      check-fidelidad-examen.sh — guarda las barreras (CI/pre-commit)
 ├── perfil/                       perfil global (instancia local) + plantillas públicas vacías
 └── cuatrimestres/
@@ -322,8 +331,8 @@ kaicho/
 **¿Requiere asistir a clase?** No. Está diseñado para estudiar con el material que la universidad
 publica en línea.
 
-**¿Claude Code o Codex?** Cualquiera. El comportamiento es equivalente por diseño; solo cambia el
-mecanismo nativo con que invocas los comandos (ver [Comandos](#comandos)).
+**¿Claude Code, Codex o Antigravity?** Cualquiera de los tres. El comportamiento es equivalente por
+diseño; solo cambia el mecanismo nativo con que invocas los comandos (ver [Comandos](#comandos)).
 
 **¿Sirve para cualquier titulación?** Sí. La metodología es genérica; `/kaicho:onboard` se adapta a
 cada asignatura del cuatrimestre a partir de su guía docente y sus exámenes.

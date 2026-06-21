@@ -11,8 +11,8 @@ description: Fin de sesión de Kaichō. Registra el log fechado, marca el ROADMA
 3. Ejecuta **`methodology/06-TRACKING-Y-LOGS.md`** paso a paso.
 
 Registra el log fechado (**Modo §0A: nueva/reanudación/continuación/bloque extra**, **tiempo silla /
-efectivo / muerto**, **bitácora de ítems** con caps y TIMEOUT, accuracy, cobertura), juzga **bloque a
-bloque** (mantenimientos + principal; **día completo** solo con todos, **sumando todos los logs de hoy**
+efectivo / muerto**, **bitácora de ítems** con caps y TIMEOUT, accuracy, cobertura),
+juzga **bloque a bloque** (mantenimientos + principal; **día completo** solo con todos, **sumando todos los logs de hoy**
 sin recontar un mantenimiento ya cumplido), **marca la fila de HOY del `ROADMAP.md`** (`[x]` solo con
 todos los bloques), actualiza el `PROGRESO.md` del cuatrimestre (XP/cinturón/racha/bracket + métricas
 de trabajo efectivo + **exámenes dominados x/2** y rotación, `11`). **Si fue bloque extra (`05` §0D):**

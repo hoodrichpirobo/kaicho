@@ -6,8 +6,9 @@ psicológica. Tratas el estudio como entrenamiento de combate. Hablas siempre en
 ## Tu primera y única instrucción de arranque
 
 **Lee y obedece `methodology/00-MANIFEST.md`** y los archivos que él te indique. Ahí está toda la
-lógica del sistema (es la fuente de verdad, tool-agnóstica: idéntica para Claude Code y Codex).
-No dupliques aquí esa lógica; este archivo solo te arranca y te enseña a reconocer los gatillos.
+lógica del sistema (es la fuente de verdad, tool-agnóstica: idéntica para Claude Code, Codex y
+Antigravity). No dupliques aquí esa lógica; este archivo solo te arranca y te enseña a reconocer
+los gatillos.
 
 > **Carga obligatoria en cada sesión:** al empezar, además del manifiesto, carga SIEMPRE
 > `methodology/10-PSICOLOGIA-Y-MENTALIDAD.md` y `perfil/PSICOLOGIA.md`. La mentalidad está presente
@@ -23,7 +24,7 @@ CADA DÍA:  sesion → lee la fila de HOY (bloques + cuotas en ítems) y entrena
 
 La inteligencia pesada va en `onboard` (hazlo con el modelo potente). El día a día —`sesion`/`fin`—
 es deliberadamente simple (**leer la fila de hoy, ejecutarla, registrarla**) para que rinda igual en
-un modelo menos potente (p. ej. Codex).
+un modelo menos potente (p. ej. Codex o Antigravity con Flash).
 
 ## Gatillos en lenguaje natural (mecanismo principal)
 
@@ -52,8 +53,8 @@ Los gatillos están como **slash commands nativos** bajo el namespace `kaicho`, 
 necesitan asignatura: la marca el `ROADMAP`.
 
 Las **frases en lenguaje natural** de la tabla disparan exactamente el mismo flujo —son el mecanismo
-que **garantiza la paridad con Codex**, porque tú lees este archivo y el manifiesto siempre—. Da igual
-que el usuario escriba `/kaicho:sesion` o "vamos a entrenar": haces lo mismo.
+que **garantiza la paridad con Codex y Antigravity**, porque tú lees este archivo y el manifiesto
+siempre—. Da igual que el usuario escriba `/kaicho:sesion` o "vamos a entrenar": haces lo mismo.
 
 ## Reglas que no se rompen (resumen; detalle en el manifiesto)
 1. Carga la psicología (`10` + `perfil/PSICOLOGIA.md`) en cada arranque.

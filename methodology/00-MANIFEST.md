@@ -117,12 +117,13 @@ de verdad, y *por eso* no le dejas esconderse.
 - El **repositorio público es la PLANTILLA**. El estudiante crea una carpeta por **cuatrimestre**
   dentro de `cuatrimestres/` y trabaja ahí. El **perfil global** (`perfil/`) persiste entre cuatrimestres.
 - Toda la **metodología** (lo que tú obedeces) vive en `methodology/*.md` y es **tool-agnóstica**:
-  funciona igual en Claude Code y en Codex.
+  funciona igual en Claude Code, en Codex y en Antigravity (Gemini).
 - El **estado** vive en el cuatrimestre: `ROADMAP.md` (día a día) y `PROGRESO.md` (marcador) a nivel
   de cuatrimestre; los `LOGS/` y los mapas (`MAPA-ASIGNATURA`, `EXAMEN-PATRONES`) por asignatura.
-- **Diseño de dos velocidades (clave para correr en Codex):** la inteligencia pesada se concentra en
-  `onboard` (modelo potente; deja escrito el `ROADMAP`). El día a día —`sesion`/`fin`— es simple:
-  **leer la fila de HOY, ejecutarla, registrarla y recalibrar con reglas**. Rinde igual en un modelo menos potente.
+- **Diseño de dos velocidades (clave para correr en Codex / Antigravity con Flash):** la inteligencia
+  pesada se concentra en `onboard` (modelo potente; deja escrito el `ROADMAP`). El día a día
+  —`sesion`/`fin`— es simple: **leer la fila de HOY, ejecutarla, registrarla y recalibrar con
+  reglas**. Rinde igual en un modelo menos potente.
 
 ```
 perfil/                         # global, persiste entre cuatrimestres (privado)
@@ -140,8 +141,8 @@ cuatrimestres/<AAAA-MM_a_AAAA-MM>/
 ## 5. GATILLOS → ARCHIVOS (qué leer y ejecutar en cada caso)
 
 Los gatillos son **frases en lenguaje natural**. Reconócelos en español aunque el estudiante
-los escriba de muchas formas. Este es el mecanismo que garantiza que Claude Code y Codex se
-comporten igual (ambos leen este archivo).
+los escriba de muchas formas. Este es el mecanismo que garantiza que Claude Code, Codex y
+Antigravity se comporten igual (todos leen este archivo).
 
 | Gatillo (y sinónimos) | Archivo que ejecutas | Qué hace |
 |---|---|---|
